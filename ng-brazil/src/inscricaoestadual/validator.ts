@@ -1,6 +1,6 @@
 import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
-import * as ie from 'inscricaoestadual';
 import { isPresent } from '../core/utils';
+import { validar } from '../core/inscricaoestadual';
 
 export const inscricaoestadual = (estado: string):
   ValidatorFn => {
@@ -8,8 +8,7 @@ export const inscricaoestadual = (estado: string):
       if (isPresent(Validators.required(control))) {
         return null;
       }
-      console.log(ie)
       const v: string = control.value;
-      return ie(v, estado) ? null : { inscricaoestadual: true };
+      return validar(v, estado) ? null : { inscricaoestadual: true };
     };
 }

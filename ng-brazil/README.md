@@ -9,7 +9,7 @@ Angular5 pipes/directives/validators/mask for brazillian like apps
 
 To install this library with npm, run below command:
 
-$ npm install --save ng-brazil inscricaoestadual angular2-text-mask 
+$ npm install --save ng-brazil  angular2-text-mask 
 
 Modules:
 
@@ -108,7 +108,7 @@ Used as reference the pipes/validators from:
 
 # TODO
 
-* make phone number mask be 5 digits to DDD 11
+* Find a way to user mask for pipes without having to include a library (for now we reuse text-mask but maybe the user will not use mask in inputs)
 
 # License
 MIT(./LICENSE)

@@ -168,7 +168,6 @@ export function validate_cnpj(cnpj) {
 // http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js
 export function validate_cpf(strCPF) {
     strCPF = strCPF.replace(/./g, '').replace(/-/g, '');
-    console.log(strCPF)
     let soma;
     let resto;
     soma = 0;

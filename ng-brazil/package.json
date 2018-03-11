@@ -11,13 +11,12 @@
   "keywords": [
     "angular",
     "ng-brazil",
-    "cpf cnpj inscricaoestadual",
+    "cpf cnpj dual telefone",
     "utils"
   ],
   "peerDependencies": {
     "@angular/core": "^5.0.0",
     "@angular/common": "^5.0.0",
-    "inscricaoestadual": "^0.0.5",
     "angular2-text-mask": "^8.0.4"
   },
   "ngPackage": {
