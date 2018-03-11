@@ -1,0 +1,21 @@
+{
+  "extends": "../tsconfig.json",
+  "angularCompilerOptions": {
+    "paths": {
+      "ng-brazil": [ "../dist/ng-brazil" ]
+    }
+  },
+  "compilerOptions": {
+    "outDir": "../out-tsc/app",
+    "module": "es2015",
+    "baseUrl": "",
+    "types": [],
+    "paths": {
+      "ng-brazil": [ "../dist/ng-brazil" ]
+    }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts"
+  ]
+}

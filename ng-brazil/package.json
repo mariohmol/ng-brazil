@@ -1,0 +1,32 @@
+{
+  "name": "ng-brazil",
+  "version": "0.5.1",
+  "license": "MIT",
+  "homepage": "https://github.com/mariohmol/ng-brazil",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariohmol/ng-brazil.git"
+  },
+  "author": "Mario Mol <mariohmol@gmail.com>",
+  "keywords": [
+    "angular",
+    "ng-brazil",
+    "cpf cnpj inscricaoestadual",
+    "utils"
+  ],
+  "peerDependencies": {
+    "@angular/core": "^5.0.0",
+    "@angular/common": "^5.0.0",
+    "inscricaoestadual": "^0.0.5",
+    "text-mask": "^0.0.2"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "dist/ng-brazil",
+    "workingDirectory": "../.ng_build",
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    },
+    "dest": "../dist/ng-brazil"
+  }
+}

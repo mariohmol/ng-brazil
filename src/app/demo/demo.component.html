@@ -1,0 +1,78 @@
+<form [formGroup]="form" *ngIf="form" (submit)="submit()">
+
+
+
+
+    <div>
+        <h2>CPF</h2>
+        <input type="text" formControlName="cpf" cpf>
+        Get working example http://geradorcpf.com/ 
+        <span>
+            CPF: {{formData.cpf}}
+        </span>
+        <p *ngIf="formDataValidate.cpf">
+            Errors Found:
+            <span *ngFor="let v of objectKeys(formDataValidate.cpf)">
+                {{v}} {{formDataValidate.cpf[v]}}
+            </span>
+        </p>
+    </div>
+
+
+    <div>
+        <h2>CNPJ</h2>
+        <input type="text" formControlName="cnpj" cnpj>
+        Get working example http://www.geradorcnpj.com/
+        <span>
+            CNPJ: {{formData.cnpj}}
+        </span>
+        <p *ngIf="formDataValidate.cnpj">
+            Errors Found:
+            <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+                {{v}} {{formDataValidate.cnpj[v]}}
+            </span>
+        </p>
+    </div>
+
+
+    <div>
+        <h2>Inscrição Estadual</h2>
+        <select formControlName="estado" (change)="init()">
+            <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
+        </select>
+
+        <span>Working example: {{data.inscricaoestadual[estado]}}</span>
+        <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg">
+        <span>
+            Inscrição Estadual: {{formData.inscricaoestadual}}
+        </span>
+        <p *ngIf="formDataValidate.inscricaoestadual">
+            Errors Found:
+            <span *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
+                {{v}} {{formDataValidate.inscricaoestadual[v]}}
+            </span>
+        </p>
+    </div>
+
+
+
+
+    <div>
+        <h2>Telefone</h2>
+        <span>Working example: {{data.telefone}}</span>
+        <input type="text" formControlName="telefone" telefone>
+        <span>
+            Telefone: {{formData.telefone}}
+        </span>
+        <p *ngIf="formDataValidate.telefone">
+            Errors Found:
+            <span *ngFor="let v of objectKeys(formDataValidate.telefone)">
+                {{v}} {{formDataValidate.telefone[v]}}
+            </span>
+        </p>
+    </div>
+
+    <h2>----</h2>
+
+    <button>Submit</button>
+</form>
