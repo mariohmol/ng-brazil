@@ -9,6 +9,10 @@ export const MASKS = {
         text: '00.000.000/0000-00',
         textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
     },
+    rg: {
+        text: 'AA-00.000.000',
+        textMask: [/[A-Za-z]/, /[A-Za-z]/, '-', /\d/, /\d/,  '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/]
+    },
     telefone: {
         text: '(00) 0000-0000',
         textMask: ['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
@@ -181,20 +185,17 @@ const CEPRange = {
 
 export function valida_cep(cep) {
     const exp = /\d{2}\.\d{3}\-\d{3}/;
-    console.log(cep, exp)
     if (!exp.test(cep)) {
         return false;
     }
     return true;
 }
 
-export function cep_ranges(cep){
+export function cep_ranges(cep) {
     cep = cep.replace(/[^\d]+/g, '');
     cep = parseInt(cep, 10);
 
-    // Check CEP ranges
     const found = Object.keys(CEPRange).find(estado => {
-        console.log(CEPRange[estado], estado)
         const r = new RegExp(CEPRange[estado]).test(cep);
         if (r) {
             return true;
@@ -207,11 +208,22 @@ export function cep_ranges(cep){
 }
 
 
-export function valida_telefone(tel) {
+export function validate_telefone(tel) {
     tel = tel.replace(/_/g, '');
     const exp = /\(\d{2}\)\ \d{4}\-\d{4}/;
     const exp5 = /\(\d{2}\)\ \d{5}\-\d{4}/;
     if (!exp.test(tel) && !exp5.test(tel)) {
+        return false;
+    }
+    return true;
+}
+
+
+export function validate_rg(rg) {
+    rg = rg.replace(/./g, '');
+    rg = rg.replace(/-/g, '');
+    const exp = /\[a-z]{2}\-\d{2}\.\d{3}\.\d{3}/;
+    if (!exp.test(rg)) {
         return false;
     }
     return true;

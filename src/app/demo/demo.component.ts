@@ -46,9 +46,10 @@ export class DemoComponent implements OnInit {
       estado: [''],
       cpf: ['', [<any>Validators.required, <any>NgBrazilValidators.cpf]],
       cnpj: ['', [<any>Validators.required, <any>NgBrazilValidators.cnpj]],
-      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
+      rg: ['', [<any>Validators.required, <any>NgBrazilValidators.rg]],
+      inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]],
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
-      inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]]
+      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]]
     };
     this.form = this.fb.group(this.formFields);
 

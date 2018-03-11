@@ -32,6 +32,20 @@
 
 
     <div>
+            <h2>RG</h2>
+            <input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
+            <span>
+                RG: {{formData.rg}}
+            </span>
+            <p *ngIf="formDataValidate.rg">
+                Errors Found:
+                <span *ngFor="let v of objectKeys(formDataValidate.rg)">
+                    {{formDataValidate.rg[v]}}
+                </span>
+            </p>
+        </div>
+
+    <div>
         <h2>Inscrição Estadual</h2>
         <select formControlName="estado" >
             <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
@@ -94,7 +108,10 @@
 
 CPF: From 12345678910 to {{'12345678910' | cpf}}
 <br/> CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}}
+<br/> RG: From MG10111222 to {{'MG10111222' | rg}}
 <br/> Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}}
 <br/> Telefone: From 3199998888 to {{'3199998888' | telefone}}
 <br/> CEP: From 30000123 to {{'30000123' | cep}}
+
+
 <br/>

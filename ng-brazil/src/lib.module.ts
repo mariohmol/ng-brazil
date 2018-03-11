@@ -20,11 +20,15 @@ import { InscricaoEstadualPipe } from './inscricaoestadual/pipe';
 import { CEPValidator } from './cep/directive';
 import { CEPPipe } from './cep/pipe';
 import { cep } from './cep/validator';
+import { rg } from './rg/validator';
+import { RGValidator } from './rg/directive';
+import { RGPipe } from './rg/pipe';
 
 
 export const NgBrazilValidators: any = {
   cpf,
   cnpj,
+  rg,
   telefone,
   inscricaoestadual,
   cep
@@ -35,6 +39,8 @@ const CustomDirectives = [
   CPFPipe,
   CNPJValidator,
   CNPJPipe,
+  RGValidator,
+  RGPipe,
   InscricaoEstadualValidator,
   InscricaoEstadualPipe,
   TelefoneValidator,
