@@ -28,7 +28,7 @@ Modules:
 Import module in root
 
 ```ts
-import { NgBrasil } from 'ng-brazil' 
+import { NgBrazil } from 'ng-brazil' 
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { NgBrasil } from 'ng-brazil'
   ],
   imports: [
     ....,
-    NgBrasil
+    NgBrazil
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -50,7 +50,7 @@ If you would like to use masks import module;
 imports: [
     ....,
     TextMaskModule,
-    NgBrasil
+    NgBrazil
   ], 
 ```
 

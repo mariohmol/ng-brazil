@@ -1,12 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
-import { NgBrasil } from 'ng-brazil';
+import { NgBrazil } from 'ng-brazil';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        NgBrasil.forRoot()
+        NgBrazil.forRoot()
       ],
       declarations: [
         AppComponent

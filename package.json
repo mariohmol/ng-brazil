@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -12,7 +12,8 @@
     "publish": "npm run build:lib && cd dist/ng-brazil && npm publish",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "kill": "kill $(lsof -t -i:4200)"
   },
   "dependencies": {
     "@angular/common": "~5.2.0",
