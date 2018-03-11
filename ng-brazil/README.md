@@ -15,8 +15,10 @@ Modules:
 
 * cpf 
 * cnpj 
+* rg
 * inscricaoestadual
 * telefone
+* cep
 
  
 ## Usage
@@ -69,6 +71,8 @@ export class AppComponent {
       estado: [''],
       cpf: ['', [<any>Validators.required, <any>NgBrazilValidators.cpf]],
       cnpj: ['', [<any>Validators.required, <any>NgBrazilValidators.cnpj]],
+      rg: ['', [<any>Validators.required, <any>NgBrazilValidators.rg]],
+      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
       inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]]
     };
@@ -83,14 +87,17 @@ export class AppComponent {
 ```html
 <input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
 <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
+<input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> 
 <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
 <input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
+<input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
 ```
 ## Pipes
 
 ```html
 CPF: From 12345678910 to {{'12345678910' | cpf}} <br/>
 CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}} <br/>
+RG: From MG10111222 to {{'MG10111222' | rg}} <br/>
 Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
 Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
 ```
