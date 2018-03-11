@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NgBrasil } from 'ng-brazil';
 import { DemoComponent } from './demo/demo.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 const routes: Routes = [
   { path: '', redirectTo: '/demo', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    TextMaskModule,
     HttpModule,
     NgBrasil,
     RouterModule.forRoot(routes)

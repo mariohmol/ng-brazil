@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import textMask, { conformToMask } from 'text-mask';
+import { conformToMask } from 'angular2-text-mask';
 import { validate_cnpj, MASKS } from '../core/utils';
 
 @Pipe({
@@ -15,6 +15,6 @@ export class CNPJPipe implements PipeTransform {
             cnpjValue,
             MASKS.cnpj.textMask,
             { guide: false }
-        );
+        ).conformedValue;
     }
 }

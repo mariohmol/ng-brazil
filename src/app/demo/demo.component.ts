@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { NgBrazilValidators } from 'ng-brazil';
+import { NgBrazilValidators, MASKS } from 'ng-brazil';
 
 @Component({
   selector: 'app-demo',
@@ -8,6 +8,7 @@ import { NgBrazilValidators } from 'ng-brazil';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent implements OnInit {
+  public MASKS = MASKS;
   estado = 'mg';
   estados = ['mg', 'sp'];
   public formFields;
@@ -18,7 +19,7 @@ export class DemoComponent implements OnInit {
   objectKeys = Object.keys;
 
   constructor(public fb: FormBuilder) {
-
+    console.log(this.MASKS, MASKS)
   }
 
   ngOnInit() {

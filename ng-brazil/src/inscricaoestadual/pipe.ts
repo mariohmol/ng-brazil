@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import textMask, { conformToMask } from 'text-mask';
+import { conformToMask } from 'angular2-text-mask';
 import { validate_cpf, MASKS } from '../core/utils';
 
 @Pipe({
@@ -7,7 +7,7 @@ import { validate_cpf, MASKS } from '../core/utils';
 })
 export class InscricaoEstadualPipe implements PipeTransform {
     transform(inscricaoestadualValue: any, estado: any) {
-        if (!inscricaoestadualValue) {
+        if (!inscricaoestadualValue || !estado || !MASKS.inscricaoestadual[estado] || !MASKS.inscricaoestadual[estado].textMask) {
             return '';
         }
 
@@ -15,6 +15,6 @@ export class InscricaoEstadualPipe implements PipeTransform {
             inscricaoestadualValue,
             MASKS.inscricaoestadual[estado].textMask,
             { guide: false }
-        );
+        ).conformedValue;
     }
 }

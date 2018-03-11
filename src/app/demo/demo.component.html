@@ -1,11 +1,9 @@
 <form [formGroup]="form" *ngIf="form" (submit)="submit()">
 
-
-
-
+    <h1>Directives, Validations and Masks</h1>
     <div>
         <h2>CPF</h2>
-        <input type="text" formControlName="cpf" cpf>
+        <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
         Get working example http://geradorcpf.com/ 
         <span>
             CPF: {{formData.cpf}}
@@ -21,7 +19,7 @@
 
     <div>
         <h2>CNPJ</h2>
-        <input type="text" formControlName="cnpj" cnpj>
+        <input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
         Get working example http://www.geradorcnpj.com/
         <span>
             CNPJ: {{formData.cnpj}}
@@ -29,7 +27,7 @@
         <p *ngIf="formDataValidate.cnpj">
             Errors Found:
             <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
-                {{v}} {{formDataValidate.cnpj[v]}}
+               {{formDataValidate.cnpj[v]}}
             </span>
         </p>
     </div>
@@ -42,7 +40,7 @@
         </select>
 
         <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-        <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg">
+        <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
         <span>
             Inscrição Estadual: {{formData.inscricaoestadual}}
         </span>
@@ -60,7 +58,7 @@
     <div>
         <h2>Telefone</h2>
         <span>Working example: {{data.telefone}}</span>
-        <input type="text" formControlName="telefone" telefone>
+        <input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
         <span>
             Telefone: {{formData.telefone}}
         </span>
@@ -76,3 +74,11 @@
 
     <button>Submit</button>
 </form>
+
+
+<h1>Pipes</h1>
+
+CPF: From 12345678910 to {{'12345678910' | cpf}} <br/>
+CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}} <br/>
+Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
+Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>

@@ -7,22 +7,49 @@ export const MASKS = {
         text: '00.000.000/0000-00',
         textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
     },
+    telefone: {
+        text: '(00) 0000-0000',
+        textMask: ['(', /\d/, /\d/, ')',' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+        textMaskFunction: function mask(userInput) {
+            const DDD5digits = {'11': 'sp'}
+            let ddd;
+            const numbers = userInput.match(/\d/g);
+            let numberLength = 0;
+            if (numbers) {
+                numberLength = numbers.join('').length;
+            }
+            if (userInput.length > 2) {
+                const splits = userInput.split('');
+                ddd = splits[1] + splits[2];
+            }
+
+            if (!userInput || numberLength > 10 || ddd in DDD5digits) {
+                return ['(', /[1-9]/, /[1-9]/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+            } else {
+                return ['(', /[1-9]/, /[1-9]/, ')', ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+            }
+        }
+    },
     inscricaoestadual: {
         ce: {
             text: '06.000001-5',
             textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/]
         },
         rn: {
-            text: '20.040.040-1'
+            text: '20.040.040-1',
+            textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/]
         },
         pa: {
-            text: '06000001-5'
+            text: '06000001-5',
+            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/]
         },
         pe: {
-            text: '0192310-24'
+            text: '0192310-24',
+            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
         },
         al: {
-            text: '240000048'
+            text: '240000048',
+            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
         },
         se: {
             text: '27123456-3'
@@ -43,16 +70,19 @@ export const MASKS = {
             text: '24006628-1'
         },
         rs: {
-            text: '024/0440013'
+            text: '024/0440013',
+            textMask: [/\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
         },
         mg: {
-            text: '00181926300-48'
+            text: '00181926300-48',
+            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
         },
         es: {
             text: '082.560.67-6'
         },
         sp: {
-            text: '114.814.878.119'
+            text: '114.814.878.119',
+            textMask: [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/]
         },
         ma: {
             text: '12.104.376-2',
@@ -62,10 +92,6 @@ export const MASKS = {
             text: '19.301.656-7',
             textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]
         }
-    },
-    telefone: {
-        text: '00 0000-0000',
-        textMask: [/\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
     }
 }
 
@@ -179,8 +205,10 @@ export function validate_cpf(strCPF) {
 }
 
 export function validaTelefone(tel) {
+    tel = tel.replace(/_/g, '');
     const exp = /\(\d{2}\)\ \d{4}\-\d{4}/;
-    if (!exp.test(tel.value)) {
+    const exp5 = /\(\d{2}\)\ \d{5}\-\d{4}/;
+    if (!exp.test(tel) && !exp5.test(tel)) {
         return false;
     }
     return true;

@@ -8,7 +8,7 @@ export const inscricaoestadual = (estado: string):
       if (isPresent(Validators.required(control))) {
         return null;
       }
-
+      console.log(ie)
       const v: string = control.value;
       return ie(v, estado) ? null : { inscricaoestadual: true };
     };

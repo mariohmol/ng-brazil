@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "license": "MIT",
   "homepage": "https://github.com/mariohmol/ng-brazil",
   "repository": {
@@ -18,7 +18,7 @@
     "@angular/core": "^5.0.0",
     "@angular/common": "^5.0.0",
     "inscricaoestadual": "^0.0.5",
-    "text-mask": "^0.0.2"
+    "angular2-text-mask": "^8.0.4"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",

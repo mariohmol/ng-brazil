@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import textMask, { conformToMask } from 'text-mask';
+import { conformToMask } from 'angular2-text-mask';
 import { validate_cpf, MASKS } from '../core/utils';
 
 @Pipe({
@@ -15,6 +15,6 @@ export class CPFPipe implements PipeTransform {
             cpfValue,
             MASKS.cpf.textMask,
             { guide: false }
-        );
+        ).conformedValue;
     }
 }
