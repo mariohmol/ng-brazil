@@ -1,5 +1,7 @@
-// https://raw.githubusercontent.com/mariohmol/ie/master/ie.js
-'use strict';
+
+/**
+ * BASED ON https://github.com/gammasoft/ie/
+ */
 
 function eIndefinido(objeto) {
     return typeof objeto === typeof undefined;
@@ -327,11 +329,6 @@ const funcoes = {
         if (tamanhoNaoE(valor)) {
             return false;
         }
-
-        if (naoComecaCom(valor, '06')) {
-            return false;
-        }
-
         return calculoTrivial(valor);
     },
 
@@ -391,7 +388,7 @@ const funcoes = {
         }
 
         const base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
-        return calculoTrivial(valor, base);
+        return calculoTrivial(valor, base, true);
     },
 
     sp: function (valor) {
@@ -523,6 +520,10 @@ const funcoes = {
 
     df: function (valor) {
         if (tamanhoNaoE(valor, 13)) {
+            return false;
+        }
+
+        if (naoComecaCom(valor, '07')) {
             return false;
         }
 
