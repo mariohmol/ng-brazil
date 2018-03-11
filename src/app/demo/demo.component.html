@@ -3,8 +3,7 @@
     <h1>Directives, Validations and Masks</h1>
     <div>
         <h2>CPF</h2>
-        <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
-        Get working example http://geradorcpf.com/ 
+        <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
         <span>
             CPF: {{formData.cpf}}
         </span>
@@ -19,15 +18,14 @@
 
     <div>
         <h2>CNPJ</h2>
-        <input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
-        Get working example http://www.geradorcnpj.com/
+        <input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
         <span>
             CNPJ: {{formData.cnpj}}
         </span>
         <p *ngIf="formDataValidate.cnpj">
             Errors Found:
             <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
-               {{formDataValidate.cnpj[v]}}
+                {{formDataValidate.cnpj[v]}}
             </span>
         </p>
     </div>
@@ -35,7 +33,7 @@
 
     <div>
         <h2>Inscrição Estadual</h2>
-        <select formControlName="estado" (change)="init()">
+        <select formControlName="estado" >
             <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
         </select>
 
@@ -70,6 +68,22 @@
         </p>
     </div>
 
+
+    <div>
+        <h2>CEP</h2>
+        <span>Working example: {{data.cep}}</span>
+        <input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+        <span>
+            CEP: {{formData.cep}}
+        </span>
+        <p *ngIf="formDataValidate.cep">
+            Errors Found:
+            <span *ngFor="let v of objectKeys(formDataValidate.cep)">
+                {{v}} {{formDataValidate.cep[v]}}
+            </span>
+        </p>
+    </div>
+
     <h2>----</h2>
 
     <button>Submit</button>
@@ -78,7 +92,9 @@
 
 <h1>Pipes</h1>
 
-CPF: From 12345678910 to {{'12345678910' | cpf}} <br/>
-CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}} <br/>
-Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
-Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
+CPF: From 12345678910 to {{'12345678910' | cpf}}
+<br/> CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}}
+<br/> Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}}
+<br/> Telefone: From 3199998888 to {{'3199998888' | telefone}}
+<br/> CEP: From 30000123 to {{'30000123' | cep}}
+<br/>

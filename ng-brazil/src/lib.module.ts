@@ -8,21 +8,26 @@ import { CPFPipe } from './cpf/pipe';
 
 import { cnpj } from './cnpj/validator';
 import { CNPJValidator } from './cnpj/directive';
+import { CNPJPipe } from './cnpj/pipe';
 
 import { telefone } from './telefone/validator';
 import { TelefoneValidator } from './telefone/directive';
+import { TelefonePipe } from './telefone/pipe';
 
 import { inscricaoestadual } from './inscricaoestadual/validator';
 import { InscricaoEstadualValidator } from './inscricaoestadual/directive';
-import { CNPJPipe } from './cnpj/pipe';
 import { InscricaoEstadualPipe } from './inscricaoestadual/pipe';
-import { TelefonePipe } from './telefone/pipe';
+import { CEPValidator } from './cep/directive';
+import { CEPPipe } from './cep/pipe';
+import { cep } from './cep/validator';
+
 
 export const NgBrazilValidators: any = {
   cpf,
   cnpj,
   telefone,
-  inscricaoestadual
+  inscricaoestadual,
+  cep
 }
 
 const CustomDirectives = [
@@ -33,7 +38,9 @@ const CustomDirectives = [
   InscricaoEstadualValidator,
   InscricaoEstadualPipe,
   TelefoneValidator,
-  TelefonePipe
+  TelefonePipe,
+  CEPValidator,
+  CEPPipe
 ];
 
 @NgModule({

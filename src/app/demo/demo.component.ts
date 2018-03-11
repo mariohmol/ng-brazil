@@ -31,6 +31,7 @@ export class DemoComponent implements OnInit {
     this.data = {
       cpf: '156.631.881-50',
       cnpj: '40.841.253/0001-02',
+      cep: '30.000-000',
       telefone: '(31) 9999-9998',
       inscricaoestadual: {
         'ma': '12.104.376-2',
@@ -45,6 +46,7 @@ export class DemoComponent implements OnInit {
       estado: [''],
       cpf: ['', [<any>Validators.required, <any>NgBrazilValidators.cpf]],
       cnpj: ['', [<any>Validators.required, <any>NgBrazilValidators.cnpj]],
+      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
       inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]]
     };

@@ -1,6 +1,6 @@
 import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
 
-import { isPresent, validaTelefone } from '../core/utils';
+import { isPresent, valida_telefone } from '../core/utils';
 
 export const telefone: ValidatorFn = (control: AbstractControl): { [key: string]: boolean } => {
   if (isPresent(Validators.required(control))) {
@@ -8,5 +8,5 @@ export const telefone: ValidatorFn = (control: AbstractControl): { [key: string]
   }
 
   const v: string = control.value;
-  return validaTelefone(v) ? null : { telefone: true };
+  return valida_telefone(v) ? null : { telefone: true };
 }

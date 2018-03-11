@@ -1,3 +1,5 @@
+import { IEMASKS } from "./inscricaoestadual";
+
 export const MASKS = {
     cpf: {
         text: '000.000.000-00',
@@ -9,9 +11,9 @@ export const MASKS = {
     },
     telefone: {
         text: '(00) 0000-0000',
-        textMask: ['(', /\d/, /\d/, ')',' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+        textMask: ['(', /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
         textMaskFunction: function mask(userInput) {
-            const DDD5digits = {'11': 'sp'}
+            const DDD5digits = { '11': 'sp' }
             let ddd;
             const numbers = userInput.match(/\d/g);
             let numberLength = 0;
@@ -30,69 +32,11 @@ export const MASKS = {
             }
         }
     },
-    inscricaoestadual: {
-        ce: {
-            text: '06.000001-5',
-            textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/]
-        },
-        rn: {
-            text: '20.040.040-1',
-            textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/]
-        },
-        pa: {
-            text: '06000001-5',
-            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/]
-        },
-        pe: {
-            text: '0192310-24',
-            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
-        },
-        al: {
-            text: '240000048',
-            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
-        },
-        se: {
-            text: '27123456-3'
-        },
-        ba: {
-            text: '123456-63'
-        },
-        ro: {
-            text: '101.62521-3'
-        },
-        ac: {
-            text: '01.004.823/001-12'
-        },
-        am: {
-            text: '041458710'
-        },
-        rr: {
-            text: '24006628-1'
-        },
-        rs: {
-            text: '024/0440013',
-            textMask: [/\d/, /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/]
-        },
-        mg: {
-            text: '00181926300-48',
-            textMask: [/\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/]
-        },
-        es: {
-            text: '082.560.67-6'
-        },
-        sp: {
-            text: '114.814.878.119',
-            textMask: [/\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/]
-        },
-        ma: {
-            text: '12.104.376-2',
-            textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]
-        },
-        pi: {
-            text: '19.301.656-7',
-            textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/]
-        }
-    }
+    cep: {
+        text: '00.000-000',
+        textMask: [/\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/]
+    },
+    inscricaoestadual: IEMASKS
 }
 
 export function isPresent(obj: any): boolean {
@@ -167,7 +111,8 @@ export function validate_cnpj(cnpj) {
 
 // http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js
 export function validate_cpf(strCPF) {
-    strCPF = strCPF.replace(/./g, '').replace(/-/g, '');
+    // strCPF = strCPF.replace(/./g, '').replace(/-/g, '');
+    strCPF = strCPF.replace(/[^\d]+/g, '');
     let soma;
     let resto;
     soma = 0;
@@ -203,7 +148,66 @@ export function validate_cpf(strCPF) {
     return true;
 }
 
-export function validaTelefone(tel) {
+
+const CEPRange = {
+    'SP': /^([1][0-9]{3}|[01][0-9]{4})[0-9]{3}$/g,
+    'RJ': /^[2][0-8][0-9]{3}[0-9]{3}$/g,
+    'MS': /^[7][9][0-9]{3}[0-9]{3}$/g,
+    'MG': /^[3][0-9]{4}[0-9]{3}$/g,
+    'MT': /^[7][8][8][0-9]{2}[0-9]{3}$/g,
+    'AC': /^[6][9]{2}[0-9]{2}[0-9]{3}$/g,
+    'AL': /^[5][7][0-9]{3}[0-9]{3}$/g,
+    'AM': /^[6][9][0-8][0-9]{2}[0-9]{3}$/g,
+    'AP': /^[6][89][9][0-9]{2}[0-9]{3}$/g,
+    'BA': /^[4][0-8][0-9]{3}[0-9]{3}$/g,
+    'CE': /^[6][0-3][0-9]{3}[0-9]{3}$/g,
+    'DF': /^[7][0-3][0-6][0-9]{2}[0-9]{3}$/g,
+    'ES': /^[2][9][0-9]{3}[0-9]{3}$/g,
+    'GO': /^[7][3-6][7-9][0-9]{2}[0-9]{3}$/g,
+    'MA': /^[6][5][0-9]{3}[0-9]{3}$/g,
+    'PA': /^[6][6-8][0-8][0-9]{2}[0-9]{3}$/g,
+    'PB': /^[5][8][0-9]{3}[0-9]{3}$/g,
+    'PE': /^[5][0-6][0-9]{2}[0-9]{3}$/g,
+    'PI': /^[6][4][0-9]{3}[0-9]{3}$/g,
+    'PR': /^[8][0-7][0-9]{3}[0-9]{3}$/g,
+    'RN': /^[5][9][0-9]{3}[0-9]{3}$/g,
+    'RO': /^[7][8][9][0-9]{2}[0-9]{3}$/g,
+    'RR': /^[6][9][3][0-9]{2}[0-9]{3}$/g,
+    'RS': /^[9][0-9]{4}[0-9]{3}$/g,
+    'SC': /^[8][89][0-9]{3}[0-9]{3}$/g,
+    'SE': /^[4][9][0-9]{3}[0-9]{3}$/g,
+    'TO': /^[7][7][0-9]{3}[0-9]{3}$/g,
+}
+
+export function valida_cep(cep) {
+    const exp = /\d{2}\.\d{3}\-\d{3}/;
+    console.log(cep, exp)
+    if (!exp.test(cep)) {
+        return false;
+    }
+    return true;
+}
+
+export function cep_ranges(cep){
+    cep = cep.replace(/[^\d]+/g, '');
+    cep = parseInt(cep, 10);
+
+    // Check CEP ranges
+    const found = Object.keys(CEPRange).find(estado => {
+        console.log(CEPRange[estado], estado)
+        const r = new RegExp(CEPRange[estado]).test(cep);
+        if (r) {
+            return true;
+        }
+    })
+    if (!found) {
+        return false;
+    }
+    return true;
+}
+
+
+export function valida_telefone(tel) {
     tel = tel.replace(/_/g, '');
     const exp = /\(\d{2}\)\ \d{4}\-\d{4}/;
     const exp5 = /\(\d{2}\)\ \d{5}\-\d{4}/;
