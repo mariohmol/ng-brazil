@@ -1,6 +1,24 @@
 # Ng-Brazil
 
-Angular5 pipes/directives/validators/mask for brazillian like apps
+Angular5 pipes / directives / validators / mask for brazillian like apps
+
+This project was tested integrated with the following techs:
+
+* angular5
+* angular-material
+* ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask)
+
+Modules:
+
+* CPF 
+* CNPJ
+* RG
+* Inscrição Estadual
+* Telefone
+* CEP
+
+See the demo working project:
+
 
 ![Demo Image](/src/assets/print.png)
 
@@ -11,14 +29,6 @@ To install this library with npm, run below command:
 
 $ npm install --save ng-brazil  angular2-text-mask 
 
-Modules:
-
-* cpf 
-* cnpj 
-* rg
-* inscricaoestadual
-* telefone
-* cep
 
  
 ## Usage
@@ -46,7 +56,9 @@ export class AppModule { }
 
 If you would like to use masks import module;
 
-```
+```ts
+import { TextMaskModule } from 'angular2-text-mask';
+
 imports: [
     ....,
     TextMaskModule,
@@ -59,6 +71,7 @@ Then setup your component models as below :
 
 ```ts
 import { Component, ViewChild } from '@angular/core';
+import { MASKS } from 'ng-brazil';
 
 @Component({
   selector: 'app-root',
@@ -66,6 +79,8 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  public MASKS = MASKS;
+  
   constructor() { 
     this.formFields = {
       estado: [''],
@@ -113,9 +128,10 @@ Used as reference the pipes/validators from:
 * https://github.com/yuyang041060120/ng2-validation
 * https://github.com/text-mask/text-mask
 
+
 # TODO
 
-* Find a way to user mask for pipes without having to include a library (for now we reuse text-mask but maybe the user will not use mask in inputs)
+There is some issues to work with, check it out
 
 # License
 MIT(./LICENSE)
