@@ -1,4 +1,4 @@
-import { IEMASKS } from "./inscricaoestadual";
+import { IEMASKS } from './inscricaoestadual';
 
 export const MASKS = {
     cpf: {
@@ -11,7 +11,7 @@ export const MASKS = {
     },
     rg: {
         text: 'AA-00.000.000',
-        textMask: [/[A-Za-z]/, /[A-Za-z]/, '-', /\d/, /\d/,  '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/]
+        textMask: [/[A-Za-z]/, /[A-Za-z]/, '-', /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/]
     },
     telefone: {
         text: '(00) 0000-0000',
@@ -184,8 +184,9 @@ const CEPRange = {
 }
 
 export function valida_cep(cep) {
+    const cepClean = cep.replace(/[^\d]+/g, '');
     const exp = /\d{2}\.\d{3}\-\d{3}/;
-    if (!exp.test(cep)) {
+    if (!exp.test(cep) && cepClean.length !== 8) {
         return false;
     }
     return true;
@@ -209,10 +210,11 @@ export function cep_ranges(cep) {
 
 
 export function validate_telefone(tel) {
+    const telClean = tel.replace(/[^\d]+/g, '');
     tel = tel.replace(/_/g, '');
     const exp = /\(\d{2}\)\ \d{4}\-\d{4}/;
     const exp5 = /\(\d{2}\)\ \d{5}\-\d{4}/;
-    if (!exp.test(tel) && !exp5.test(tel)) {
+    if (!exp.test(tel) && !exp5.test(tel) && !(telClean.length === 10 || telClean.length === 11)) {
         return false;
     }
     return true;
