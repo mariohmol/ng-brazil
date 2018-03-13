@@ -115,7 +115,6 @@ export function validate_cnpj(cnpj) {
 
 // http://www.receita.fazenda.gov.br/aplicacoes/atcta/cpf/funcoes.js
 export function validate_cpf(strCPF) {
-    // strCPF = strCPF.replace(/./g, '').replace(/-/g, '');
     strCPF = strCPF.replace(/[^\d]+/g, '');
     let soma;
     let resto;
@@ -222,10 +221,13 @@ export function validate_telefone(tel) {
 
 
 export function validate_rg(rg) {
-    rg = rg.replace(/./g, '');
-    rg = rg.replace(/-/g, '');
-    const exp = /\[a-z]{2}\-\d{2}\.\d{3}\.\d{3}/;
-    if (!exp.test(rg)) {
+    let rgClean = rg.replace(/\./g, '');
+    rgClean = rgClean.replace(/-/g, '');
+    const exp = /[a-z]{2}\-\d{2}\.\d{3}\.\d{3}/;
+    const expClean = /[a-z]{2}\d{8}/;
+    const state = rg.substr(0, 2).toUpperCase();
+
+    if (!exp.test(rg) && !expClean.test(rgClean) && !(state in CEPRange)) {
         return false;
     }
     return true;
