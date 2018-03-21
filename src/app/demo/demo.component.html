@@ -1,15 +1,17 @@
 <form [formGroup]="form" *ngIf="form" (submit)="submit()">
 
     <h1>Directives, Validations and Masks</h1>
+
+
     <div>
         <h2>CPF</h2>
-        <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
+        <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
         <span>
             CPF: {{formData.cpf}}
         </span>
         <p *ngIf="formDataValidate.cpf">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.cpf)">
+            <span id="mask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
                 {{v}} {{formDataValidate.cpf[v]}}
             </span>
         </p>
@@ -18,13 +20,13 @@
 
     <div>
         <h2>CNPJ</h2>
-        <input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
+        <input  id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
         <span>
             CNPJ: {{formData.cnpj}}
         </span>
         <p *ngIf="formDataValidate.cnpj">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+            <span id="mask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
                 {{formDataValidate.cnpj[v]}}
             </span>
         </p>
@@ -32,33 +34,33 @@
 
 
     <div>
-            <h2>RG</h2>
-            <input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
-            <span>
-                RG: {{formData.rg}}
+        <h2>RG</h2>
+        <input  id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
+        <span>
+            RG: {{formData.rg}}
+        </span>
+        <p *ngIf="formDataValidate.rg">
+            Errors Found:
+            <span id="mask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
+                {{formDataValidate.rg[v]}}
             </span>
-            <p *ngIf="formDataValidate.rg">
-                Errors Found:
-                <span *ngFor="let v of objectKeys(formDataValidate.rg)">
-                    {{formDataValidate.rg[v]}}
-                </span>
-            </p>
-        </div>
+        </p>
+    </div>
 
     <div>
         <h2>Inscrição Estadual</h2>
-        <select formControlName="estado" >
+        <select  formControlName="estado">
             <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
         </select>
 
         <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-        <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
+        <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
         <span>
             Inscrição Estadual: {{formData.inscricaoestadual}}
         </span>
         <p *ngIf="formDataValidate.inscricaoestadual">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
+            <span id="mask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
                 {{v}} {{formDataValidate.inscricaoestadual[v]}}
             </span>
         </p>
@@ -70,13 +72,13 @@
     <div>
         <h2>Telefone</h2>
         <span>Working example: {{data.telefone}}</span>
-        <input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
+        <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
         <span>
             Telefone: {{formData.telefone}}
         </span>
         <p *ngIf="formDataValidate.telefone">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.telefone)">
+            <span id="mask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
                 {{v}} {{formDataValidate.telefone[v]}}
             </span>
         </p>
@@ -86,13 +88,13 @@
     <div>
         <h2>CEP</h2>
         <span>Working example: {{data.cep}}</span>
-        <input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+        <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
         <span>
             CEP: {{formData.cep}}
         </span>
         <p *ngIf="formDataValidate.cep">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.cep)">
+            <span  id="mask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
                 {{v}} {{formDataValidate.cep[v]}}
             </span>
         </p>
@@ -104,14 +106,14 @@
 </form>
 
 
-<h1>Pipes</h1>
+<h2>Pipes</h2>
 
-CPF: From 12345678910 to {{'12345678910' | cpf}}
-<br/> CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}}
-<br/> RG: From MG10111222 to {{'MG10111222' | rg}}
-<br/> Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}}
-<br/> Telefone: From 3199998888 to {{'3199998888' | telefone}}
-<br/> CEP: From 30000123 to {{'30000123' | cep}}
+CPF: From 12345678910 to <span id="pipe-cpf">{{'12345678910' | cpf}}</span>
+<br/> CNPJ: From 40841253000102 to <span id="pipe-cnpj">{{'40841253000102' | cnpj}}</span>
+<br/> RG: From MG10111222 to <span id="pipe-rg">{{'MG10111222' | rg}}</span>
+<br/> Inscrição Estadual: From 0018192630048 to <span id="pipe-inscricaoestadual">{{'0018192630048' | inscricaoestadual: 'mg'}}</span>
+<br/> Telefone: From 3199998888 to <span id="pipe-telefone">{{'3199998888' | telefone}}</span>
+<br/> CEP: From 30000123 to <span id="pipe-cep">{{'30000123' | cep}}</span>
 
 
 <br/>
@@ -126,13 +128,13 @@ CPF: From 12345678910 to {{'12345678910' | cpf}}
     <h1>Directives, Validations and Masks</h1>
     <div>
         <h2>CPF</h2>
-        <input type="text" formControlName="cpf" cpf > Get working example http://geradorcpf.com/
+        <input id="nomask-cpf" type="text" formControlName="cpf" cpf> Get working example http://geradorcpf.com/
         <span>
             CPF: {{formData.cpf}}
         </span>
         <p *ngIf="formDataValidate.cpf">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.cpf)">
+            <span id="nomask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
                 {{v}} {{formDataValidate.cpf[v]}}
             </span>
         </p>
@@ -141,13 +143,13 @@ CPF: From 12345678910 to {{'12345678910' | cpf}}
 
     <div>
         <h2>CNPJ</h2>
-        <input type="text" formControlName="cnpj" cnpj > Get working example http://www.geradorcnpj.com/
+        <input id="nomask-cnpj" type="text" formControlName="cnpj" cnpj> Get working example http://www.geradorcnpj.com/
         <span>
             CNPJ: {{formData.cnpj}}
         </span>
         <p *ngIf="formDataValidate.cnpj">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+            <span  id="nomask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
                 {{formDataValidate.cnpj[v]}}
             </span>
         </p>
@@ -155,33 +157,33 @@ CPF: From 12345678910 to {{'12345678910' | cpf}}
 
 
     <div>
-            <h2>RG</h2>
-            <input type="text" formControlName="rg" rg > MG-10.111.222
-            <span>
-                RG: {{formData.rg}}
+        <h2>RG</h2>
+        <input id="nomask-rg" type="text" formControlName="rg" rg> MG-10.111.222
+        <span>
+            RG: {{formData.rg}}
+        </span>
+        <p *ngIf="formDataValidate.rg">
+            Errors Found:
+            <span id="nomask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
+                {{formDataValidate.rg[v]}}
             </span>
-            <p *ngIf="formDataValidate.rg">
-                Errors Found:
-                <span *ngFor="let v of objectKeys(formDataValidate.rg)">
-                    {{formDataValidate.rg[v]}}
-                </span>
-            </p>
-        </div>
+        </p>
+    </div>
 
     <div>
         <h2>Inscrição Estadual</h2>
-        <select formControlName="estado" >
+        <select formControlName="estado">
             <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
         </select>
 
         <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-        <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" >
+        <input id="nomask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg">
         <span>
             Inscrição Estadual: {{formData.inscricaoestadual}}
         </span>
         <p *ngIf="formDataValidate.inscricaoestadual">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
+            <span  id="nomask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
                 {{v}} {{formDataValidate.inscricaoestadual[v]}}
             </span>
         </p>
@@ -193,13 +195,13 @@ CPF: From 12345678910 to {{'12345678910' | cpf}}
     <div>
         <h2>Telefone</h2>
         <span>Working example: {{data.telefone}}</span>
-        <input type="text" formControlName="telefone" telefone #telefone >
+        <input id="nomask-telefone" type="text" formControlName="telefone" telefone #telefone>
         <span>
             Telefone: {{formData.telefone}}
         </span>
         <p *ngIf="formDataValidate.telefone">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.telefone)">
+            <span  id="nomask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
                 {{v}} {{formDataValidate.telefone[v]}}
             </span>
         </p>
@@ -209,13 +211,13 @@ CPF: From 12345678910 to {{'12345678910' | cpf}}
     <div>
         <h2>CEP</h2>
         <span>Working example: {{data.cep}}</span>
-        <input type="text" formControlName="cep" cep >
+        <input id="nomask-cep" type="text" formControlName="cep" cep>
         <span>
             CEP: {{formData.cep}}
         </span>
         <p *ngIf="formDataValidate.cep">
             Errors Found:
-            <span *ngFor="let v of objectKeys(formDataValidate.cep)">
+            <span  id="nomask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
                 {{v}} {{formDataValidate.cep[v]}}
             </span>
         </p>
@@ -223,5 +225,5 @@ CPF: From 12345678910 to {{'12345678910' | cpf}}
 
     <h2>----</h2>
 
-    <button>Submit</button>
+    <button id="submit">Submit</button>
 </form>

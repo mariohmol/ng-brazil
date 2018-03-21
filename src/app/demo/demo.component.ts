@@ -2,6 +2,51 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { NgBrazilValidators, MASKS } from 'ng-brazil';
 
+export const DATA = {
+  cpf: '156.631.881-50',
+  cnpj: '40.841.253/0001-02',
+  cep: '30.000-000',
+  telefone: '(31) 9999-9998',
+  inscricaoestadual: {
+    'ma': '12.104.376-2',
+    'pi': '19.301.656-7',
+    'ce': '06.000001-5',
+    'mg': '00181926300-48',
+    'sp': '114.814.878.119'
+  }
+}
+
+export const DATARAW = {
+  cpf: '15663188150',
+  cnpj: '40841253000102',
+  cep: '30000000',
+  rg: 'MG10123456',
+  telefone: '3199999998',
+  inscricaoestadual: {
+    'ma': '121043762',
+    'pi': '193016567',
+    'ce': '060000015',
+    'mg': '0018192630048',
+    'sp': '114814878119'
+  }
+}
+
+
+export const DATAERROR = {
+  cpf: '15663188151',
+  cnpj: '40841253000101',
+  cep: '3000000',
+  rg: 'MG1012345',
+  telefone: '319999999',
+  inscricaoestadual: {
+    'ma': '12104376',
+    'pi': '19301656',
+    'ce': '06000001',
+    'mg': '001819263004',
+    'sp': '11481487811'
+  }
+}
+
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
@@ -15,7 +60,7 @@ export class DemoComponent implements OnInit {
   public formData: any = {};
   public formDataValidate: any = {};
   public form;
-  public data;
+  public data = DATA;
   objectKeys = Object.keys;
 
   constructor(public fb: FormBuilder) {
@@ -28,19 +73,6 @@ export class DemoComponent implements OnInit {
 
   init() {
     // TODO: Taking examples from here https://github.com/gammasoft/ie/blob/master/testes/testes.js
-    this.data = {
-      cpf: '156.631.881-50',
-      cnpj: '40.841.253/0001-02',
-      cep: '30.000-000',
-      telefone: '(31) 9999-9998',
-      inscricaoestadual: {
-        'ma': '12.104.376-2',
-        'pi': '19.301.656-7',
-        'ce': '06.000001-5',
-        'mg': '00181926300-48',
-        'sp': '114.814.878.119'
-      }
-    }
 
     this.formFields = {
       estado: [''],
