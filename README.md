@@ -1,12 +1,14 @@
 # Ng-Brazil
 
-Angular5 pipes / directives / validators / mask for brazillian like apps
+Supports: Angular2 , Angular4, Angular5, Angular6
+
+Contains: pipes / directives / validators / mask for brazillian like apps
 
 This project was tested integrated with the following techs:
 
-* angular5
+* angular6
 * angular-material
-* ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask)
+* ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask works)
 
 Modules:
 
