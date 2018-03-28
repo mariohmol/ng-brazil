@@ -12,6 +12,8 @@ describe('ng-packaged App', () => {
     page.sendKeys(key + 'mask-telefone', data.telefone);
     page.sendKeys(key + 'mask-cep', data.cep);
     page.sendKeys(key + 'mask-inscricaoestadual', data.inscricaoestadual);
+    page.sendKeys(key + 'mask-currency', data.currency);
+    page.sendKeys(key + 'mask-time', data.time);
     page.submit();
   };
 
@@ -22,6 +24,8 @@ describe('ng-packaged App', () => {
     expect(page.getById('mask-inscricaoestadual-error')).not.toEqual('');
     expect(page.getById('mask-telefone-error')).not.toEqual('');
     expect(page.getById('mask-cep-error')).not.toEqual('');
+    expect(page.getById('mask-currency-error')).not.toEqual('');
+    expect(page.getById('mask-time-error')).not.toEqual('');
   };
 
   const checkNoErrors = function () {
@@ -31,6 +35,8 @@ describe('ng-packaged App', () => {
     expect(page.getById('mask-inscricaoestadual-error')).toEqual('');
     expect(page.getById('mask-telefone-error')).toEqual('');
     expect(page.getById('mask-cep-error')).toEqual('');
+    expect(page.getById('mask-currency-error')).toEqual('');
+    expect(page.getById('mask-time-error')).toEqual('');
   };
 
 
@@ -50,6 +56,8 @@ describe('ng-packaged App', () => {
     expect(page.getById('pipe-inscricaoestadual')).toEqual(DATA.inscricaoestadual);
     expect(page.getById('pipe-telefone')).toEqual(DATA.telefone);
     expect(page.getById('pipe-cep')).toEqual(DATA.cep);
+    expect(page.getById('pipe-currency')).toEqual(DATA.currency);
+    expect(page.getById('pipe-time')).toEqual(DATA.time);
   });
 
 
@@ -66,6 +74,8 @@ describe('ng-packaged App', () => {
     expect(page.getValueById('mask-inscricaoestadual')).toEqual(DATA.inscricaoestadual);
     expect(page.getValueById('mask-telefone')).toEqual(DATA.telefone);
     expect(page.getValueById('mask-cep')).toEqual(DATA.cep);
+    expect(page.getValueById('mask-currency')).toEqual(DATA.currency);
+    expect(page.getValueById('mask-time')).toEqual(DATA.time);
     checkNoErrors();
   });
 
@@ -78,6 +88,8 @@ describe('ng-packaged App', () => {
     expect(page.getValueById('nomask-inscricaoestadual')).toEqual(DATARAW.inscricaoestadual);
     expect(page.getValueById('nomask-telefone')).toEqual(DATARAW.telefone);
     expect(page.getValueById('nomask-cep')).toEqual(DATARAW.cep);
+    expect(page.getValueById('nomask-currency')).toEqual(DATARAW.currency);
+    expect(page.getValueById('nomask-time')).toEqual(DATARAW.time);
     checkNoErrors();
   });
 

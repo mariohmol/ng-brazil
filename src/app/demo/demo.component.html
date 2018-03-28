@@ -1,229 +1,304 @@
 <form [formGroup]="form" *ngIf="form" (submit)="submit()">
 
-    <h1>Directives, Validations and Masks</h1>
+  <!--
 
 
-    <div>
-        <h2>CPF</h2>
-        <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
-        <span>
-            CPF: {{formData.cpf}}
-        </span>
-        <p *ngIf="formDataValidate.cpf">
-            Errors Found:
-            <span id="mask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
-                {{v}} {{formDataValidate.cpf[v]}}
-            </span>
-        </p>
-    </div>
+EXAMPLES WITH INPUTS WITH MASK
 
+-->
+  <h1>Directives, Validations and Masks</h1>
+  <div>
+    <h2>CPF</h2>
+    <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
+    <span>
+      CPF: {{formData.cpf}}
+    </span>
+    <p *ngIf="formDataValidate.cpf">
+      Errors Found:
+      <span id="mask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
+        {{v}} {{formDataValidate.cpf[v]}}
+      </span>
+    </p>
+  </div>
 
-    <div>
-        <h2>CNPJ</h2>
-        <input  id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
-        <span>
-            CNPJ: {{formData.cnpj}}
-        </span>
-        <p *ngIf="formDataValidate.cnpj">
-            Errors Found:
-            <span id="mask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
-                {{formDataValidate.cnpj[v]}}
-            </span>
-        </p>
-    </div>
+  <div>
+    <h2>CNPJ</h2>
+    <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
+    <span>
+      CNPJ: {{formData.cnpj}}
+    </span>
+    <p *ngIf="formDataValidate.cnpj">
+      Errors Found:
+      <span id="mask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+        {{formDataValidate.cnpj[v]}}
+      </span>
+    </p>
+  </div>
+  <div>
+    <h2>RG</h2>
+    <input id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
+    <span>
+      RG: {{formData.rg}}
+    </span>
+    <p *ngIf="formDataValidate.rg">
+      Errors Found:
+      <span id="mask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
+        {{formDataValidate.rg[v]}}
+      </span>
+    </p>
+  </div>
+  <div>
+    <h2>Inscrição Estadual</h2>
+    <select formControlName="estado">
+      <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
+    </select>
 
-
-    <div>
-        <h2>RG</h2>
-        <input  id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
-        <span>
-            RG: {{formData.rg}}
-        </span>
-        <p *ngIf="formDataValidate.rg">
-            Errors Found:
-            <span id="mask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
-                {{formDataValidate.rg[v]}}
-            </span>
-        </p>
-    </div>
-
-    <div>
-        <h2>Inscrição Estadual</h2>
-        <select  formControlName="estado">
-            <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
-        </select>
-
-        <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-        <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
-        <span>
-            Inscrição Estadual: {{formData.inscricaoestadual}}
-        </span>
-        <p *ngIf="formDataValidate.inscricaoestadual">
-            Errors Found:
-            <span id="mask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
-                {{v}} {{formDataValidate.inscricaoestadual[v]}}
-            </span>
-        </p>
-    </div>
-
-
-
-
-    <div>
-        <h2>Telefone</h2>
-        <span>Working example: {{data.telefone}}</span>
-        <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
-        <span>
-            Telefone: {{formData.telefone}}
-        </span>
-        <p *ngIf="formDataValidate.telefone">
-            Errors Found:
-            <span id="mask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
-                {{v}} {{formDataValidate.telefone[v]}}
-            </span>
-        </p>
-    </div>
-
-
-    <div>
-        <h2>CEP</h2>
-        <span>Working example: {{data.cep}}</span>
-        <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
-        <span>
-            CEP: {{formData.cep}}
-        </span>
-        <p *ngIf="formDataValidate.cep">
-            Errors Found:
-            <span  id="mask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
-                {{v}} {{formDataValidate.cep[v]}}
-            </span>
-        </p>
-    </div>
-
-    <h2>----</h2>
-
-    <button>Submit</button>
+    <span>Working example: {{data.inscricaoestadual[estado]}}</span>
+    <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
+    <span>
+      Inscrição Estadual: {{formData.inscricaoestadual}}
+    </span>
+    <p *ngIf="formDataValidate.inscricaoestadual">
+      Errors Found:
+      <span id="mask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
+        {{v}} {{formDataValidate.inscricaoestadual[v]}}
+      </span>
+    </p>
+  </div>
+  <div>
+    <h2>Telefone</h2>
+    <span>Working example: {{data.telefone}}</span>
+    <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
+    <span>
+      Telefone: {{formData.telefone}}
+    </span>
+    <p *ngIf="formDataValidate.telefone">
+      Errors Found:
+      <span id="mask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
+        {{v}} {{formDataValidate.telefone[v]}}
+      </span>
+    </p>
+  </div>
+  <div>
+    <h2>CEP</h2>
+    <span>Working example: {{data.cep}}</span>
+    <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+    <span>
+      CEP: {{formData.cep}}
+    </span>
+    <p *ngIf="formDataValidate.cep">
+      Errors Found:
+      <span id="mask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
+        {{v}} {{formDataValidate.cep[v]}}
+      </span>
+    </p>
+  </div>
+  <div>
+    <h2>CURRENCY</h2>
+    <span>Working example: {{data.currency}}</span>
+    <input id="mask-currency" type="text" formControlName="currency" currency [textMask]="{mask: MASKS.currency.textMask}">
+    <span>
+      CURRENCY: {{formData.currency}}
+    </span>
+    <p *ngIf="formDataValidate.currency">
+      Errors Found:
+      <span id="mask-currency-error" *ngFor="let v of objectKeys(formDataValidate.currency)">
+        {{v}} {{formDataValidate.cep[v]}}
+      </span>
+    </p>
+  </div>
+  <div>
+    <h2>TIME</h2>
+    <span>Working example: {{data.time}}</span>
+    <input id="mask-time" type="text" formControlName="time" time [textMask]="{mask: MASKS.time.textMask}">
+    <span>
+      TIME: {{formData.time}}
+    </span>
+    <p *ngIf="formDataValidate.time">
+      Errors Found:
+      <span id="mask-time-error" *ngFor="let v of objectKeys(formDataValidate.time)">
+        {{v}} {{formDataValidate.time[v]}}
+      </span>
+    </p>
+  </div>
+  <h2>----</h2>
+  <button>Submit</button>
 </form>
 
 
+
+<!--
+
+
+EXAMPLES WITH PIPES IN VALUES FROM DATABASE
+
+-->
 <h2>Pipes</h2>
 
-CPF: From 12345678910 to <span id="pipe-cpf">{{'12345678910' | cpf}}</span>
-<br/> CNPJ: From 40841253000102 to <span id="pipe-cnpj">{{'40841253000102' | cnpj}}</span>
-<br/> RG: From MG10111222 to <span id="pipe-rg">{{'MG10111222' | rg}}</span>
-<br/> Inscrição Estadual: From 0018192630048 to <span id="pipe-inscricaoestadual">{{'0018192630048' | inscricaoestadual: 'mg'}}</span>
-<br/> Telefone: From 3199998888 to <span id="pipe-telefone">{{'3199998888' | telefone}}</span>
-<br/> CEP: From 30000123 to <span id="pipe-cep">{{'30000123' | cep}}</span>
+CPF: From {{DATARAW.cpf}} to
+<span id="pipe-cpf">{{DATARAW.cpf | cpf}}</span>
+<br/> CNPJ: From {{DATARAW.cnpj}} to
+<span id="pipe-cnpj">{{DATARAW.cnpj | cnpj}}</span>
+<br/> RG: From {{DATARAW.rg}} to
+<span id="pipe-rg">{{DATARAW.rg | rg}}</span>
+<br/> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
+<span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
+<br/> Telefone: From {{DATARAW.telefone}} to
+<span id="pipe-telefone">{{DATARAW.telefone | telefone}}</span>
+<br/> CEP: From {{DATARAW.cep}} to
+<span id="pipe-cep">{{DATARAW.cep | cep}}</span>
+<br/> Currency (Dinheiro): From {{DATARAW.currency}} to
+<span id="pipe-cep">{{DATARAW.currency | currency}}</span>
+<br/> Time: From {{DATARAW.time}} to
+<span id="pipe-cep">{{DATARAW.time | time}}</span>
 
 
 <br/>
 
 
+<!--
 
+
+EXAMPLES WITH INPUTS WITHOU MASK
+
+-->
 <h2>Without Mask</h2>
 
 
 <form [formGroup]="form" *ngIf="form" (submit)="submit()">
 
-    <h1>Directives, Validations and Masks</h1>
-    <div>
-        <h2>CPF</h2>
-        <input id="nomask-cpf" type="text" formControlName="cpf" cpf> Get working example http://geradorcpf.com/
-        <span>
-            CPF: {{formData.cpf}}
-        </span>
-        <p *ngIf="formDataValidate.cpf">
-            Errors Found:
-            <span id="nomask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
-                {{v}} {{formDataValidate.cpf[v]}}
-            </span>
-        </p>
-    </div>
+  <h1>Directives, Validations and Masks</h1>
+  <div>
+    <h2>CPF</h2>
+    <input id="nomask-cpf" type="text" formControlName="cpf" cpf> Get working example http://geradorcpf.com/
+    <span>
+      CPF: {{formData.cpf}}
+    </span>
+    <p *ngIf="formDataValidate.cpf">
+      Errors Found:
+      <span id="nomask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
+        {{v}} {{formDataValidate.cpf[v]}}
+      </span>
+    </p>
+  </div>
 
 
-    <div>
-        <h2>CNPJ</h2>
-        <input id="nomask-cnpj" type="text" formControlName="cnpj" cnpj> Get working example http://www.geradorcnpj.com/
-        <span>
-            CNPJ: {{formData.cnpj}}
-        </span>
-        <p *ngIf="formDataValidate.cnpj">
-            Errors Found:
-            <span  id="nomask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
-                {{formDataValidate.cnpj[v]}}
-            </span>
-        </p>
-    </div>
+  <div>
+    <h2>CNPJ</h2>
+    <input id="nomask-cnpj" type="text" formControlName="cnpj" cnpj> Get working example http://www.geradorcnpj.com/
+    <span>
+      CNPJ: {{formData.cnpj}}
+    </span>
+    <p *ngIf="formDataValidate.cnpj">
+      Errors Found:
+      <span id="nomask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+        {{formDataValidate.cnpj[v]}}
+      </span>
+    </p>
+  </div>
 
 
-    <div>
-        <h2>RG</h2>
-        <input id="nomask-rg" type="text" formControlName="rg" rg> MG-10.111.222
-        <span>
-            RG: {{formData.rg}}
-        </span>
-        <p *ngIf="formDataValidate.rg">
-            Errors Found:
-            <span id="nomask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
-                {{formDataValidate.rg[v]}}
-            </span>
-        </p>
-    </div>
+  <div>
+    <h2>RG</h2>
+    <input id="nomask-rg" type="text" formControlName="rg" rg> MG-10.111.222
+    <span>
+      RG: {{formData.rg}}
+    </span>
+    <p *ngIf="formDataValidate.rg">
+      Errors Found:
+      <span id="nomask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
+        {{formDataValidate.rg[v]}}
+      </span>
+    </p>
+  </div>
 
-    <div>
-        <h2>Inscrição Estadual</h2>
-        <select formControlName="estado">
-            <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
-        </select>
+  <div>
+    <h2>Inscrição Estadual</h2>
+    <select formControlName="estado">
+      <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
+    </select>
 
-        <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-        <input id="nomask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg">
-        <span>
-            Inscrição Estadual: {{formData.inscricaoestadual}}
-        </span>
-        <p *ngIf="formDataValidate.inscricaoestadual">
-            Errors Found:
-            <span  id="nomask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
-                {{v}} {{formDataValidate.inscricaoestadual[v]}}
-            </span>
-        </p>
-    </div>
-
-
+    <span>Working example: {{data.inscricaoestadual[estado]}}</span>
+    <input id="nomask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg">
+    <span>
+      Inscrição Estadual: {{formData.inscricaoestadual}}
+    </span>
+    <p *ngIf="formDataValidate.inscricaoestadual">
+      Errors Found:
+      <span id="nomask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
+        {{v}} {{formDataValidate.inscricaoestadual[v]}}
+      </span>
+    </p>
+  </div>
 
 
-    <div>
-        <h2>Telefone</h2>
-        <span>Working example: {{data.telefone}}</span>
-        <input id="nomask-telefone" type="text" formControlName="telefone" telefone #telefone>
-        <span>
-            Telefone: {{formData.telefone}}
-        </span>
-        <p *ngIf="formDataValidate.telefone">
-            Errors Found:
-            <span  id="nomask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
-                {{v}} {{formDataValidate.telefone[v]}}
-            </span>
-        </p>
-    </div>
 
 
-    <div>
-        <h2>CEP</h2>
-        <span>Working example: {{data.cep}}</span>
-        <input id="nomask-cep" type="text" formControlName="cep" cep>
-        <span>
-            CEP: {{formData.cep}}
-        </span>
-        <p *ngIf="formDataValidate.cep">
-            Errors Found:
-            <span  id="nomask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
-                {{v}} {{formDataValidate.cep[v]}}
-            </span>
-        </p>
-    </div>
+  <div>
+    <h2>Telefone</h2>
+    <span>Working example: {{data.telefone}}</span>
+    <input id="nomask-telefone" type="text" formControlName="telefone" telefone #telefone>
+    <span>
+      Telefone: {{formData.telefone}}
+    </span>
+    <p *ngIf="formDataValidate.telefone">
+      Errors Found:
+      <span id="nomask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
+        {{v}} {{formDataValidate.telefone[v]}}
+      </span>
+    </p>
+  </div>
 
-    <h2>----</h2>
 
-    <button id="submit">Submit</button>
+  <div>
+    <h2>CEP</h2>
+    <span>Working example: {{data.cep}}</span>
+    <input id="nomask-cep" type="text" formControlName="cep" cep>
+    <span>
+      CEP: {{formData.cep}}
+    </span>
+    <p *ngIf="formDataValidate.cep">
+      Errors Found:
+      <span id="nomask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
+        {{v}} {{formDataValidate.cep[v]}}
+      </span>
+    </p>
+  </div>
+
+
+
+  <div>
+    <h2>CURRENCY</h2>
+    <span>Working example: {{data.currency}}</span>
+    <input id="nomask-currency" type="text" formControlName="currency" currency>
+    <span>
+      CURRENCY: {{formData.currency}}
+    </span>
+    <p *ngIf="formDataValidate.currency">
+      Errors Found:
+      <span id="nomask-currency-error" *ngFor="let v of objectKeys(formDataValidate.currency)">
+        {{v}} {{formDataValidate.currency[v]}}
+      </span>
+    </p>
+  </div>
+
+
+  <div>
+    <h2>TIME</h2>
+    <span>Working example: {{data.time}}</span>
+    <input id="nomask-time" type="text" formControlName="time" time>
+    <span>
+      TIME: {{formData.time}}
+    </span>
+    <p *ngIf="formDataValidate.time">
+      Errors Found:
+      <span id="nomask-time-error" *ngFor="let v of objectKeys(formDataValidate.time)">
+        {{v}} {{formDataValidate.time[v]}}
+      </span>
+    </p>
+  </div>
+
+  <h2>----</h2>
+
+  <button id="submit">Submit</button>
 </form>

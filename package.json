@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -27,11 +27,13 @@
     "angular2-text-mask": "^8.0.4",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
+    "text-mask-addons": "^3.7.2",
+    "webpack": "^3.11.0",
     "zone.js": "^0.8.19"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^0.4.0",
-    "@angular/cli": "~1.7.0",
+    "@angular/cli": "~1.7.2",
     "@angular/compiler-cli": "6.0.0-beta.5",
     "@angular/language-service": "6.0.0-beta.5",
     "@types/jasmine": "~2.8.0",

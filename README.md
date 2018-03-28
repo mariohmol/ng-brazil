@@ -18,6 +18,8 @@ Modules:
 * Inscrição Estadual
 * Telefone
 * CEP
+* Currency (Dinheiro)
+* Time (horas e minutos)
 
 See the demo working project:
 

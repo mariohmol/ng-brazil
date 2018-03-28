@@ -13,7 +13,9 @@ export const DATA = {
     'ce': '06.000001-5',
     'mg': '00181926300-48',
     'sp': '114.814.878.119'
-  }
+  },
+  currency: '1.000,10',
+  time: '06:33'
 }
 
 export const DATARAW = {
@@ -28,7 +30,9 @@ export const DATARAW = {
     'ce': '060000015',
     'mg': '0018192630048',
     'sp': '114814878119'
-  }
+  },
+  currency: '123321,22',
+  time: '0633'
 }
 
 
@@ -44,7 +48,9 @@ export const DATAERROR = {
     'ce': '06000001',
     'mg': '001819263004',
     'sp': '11481487811'
-  }
+  },
+  currency: 'R$1000.10',
+  time: '0633'
 }
 
 @Component({
@@ -54,6 +60,7 @@ export const DATAERROR = {
 })
 export class DemoComponent implements OnInit {
   public MASKS = MASKS;
+  public DATARAW = DATARAW;
   estado = 'mg';
   estados = ['mg', 'sp'];
   public formFields;
@@ -81,7 +88,9 @@ export class DemoComponent implements OnInit {
       rg: ['', [<any>Validators.required, <any>NgBrazilValidators.rg]],
       inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]],
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
-      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]]
+      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
+      currency: ['', [<any>Validators.required, <any>NgBrazilValidators.currency]],
+      time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]]
     };
     this.form = this.fb.group(this.formFields);
 
