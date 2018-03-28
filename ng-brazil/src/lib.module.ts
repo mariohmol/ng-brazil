@@ -30,6 +30,10 @@ import { currency } from './currency/validator';
 import { CURRENCYValidator } from './currency/directive';
 import { CURRENCYPipe } from './currency/pipe';
 
+import { percentage } from './percentage/validator';
+import { PERCENTAGEValidator } from './percentage/directive';
+import { PERCENTAGEPipe } from './percentage/pipe';
+
 import { time } from './time/validator';
 import { TIMEValidator } from './time/directive';
 import { TIMEPipe } from './time/pipe';
@@ -42,6 +46,7 @@ export const NgBrazilValidators: any = {
   inscricaoestadual,
   cep,
   currency,
+  percentage,
   time
 }
 
@@ -60,6 +65,8 @@ const CustomDirectives = [
   CEPPipe,
   CURRENCYValidator,
   CURRENCYPipe,
+  PERCENTAGEValidator,
+  PERCENTAGEPipe,
   TIMEValidator,
   TIMEPipe
 ];

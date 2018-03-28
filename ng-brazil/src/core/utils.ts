@@ -55,7 +55,19 @@ export const MASKS = {
       allowDecimal: true,
       integerLimit: 15,
       prefix: 'R$ ',
-      suffix: '' // This will put the dollar sign at the end, with a space.
+      suffix: ''
+    })
+  },
+  percentage: {
+    text: '00,00%',
+    textMask: createNumberMask({
+      decimalLimit: 2,
+      thousandsSeparatorSymbol: '.',
+      decimalSymbol: ',',
+      allowDecimal: true,
+      integerLimit: 15,
+      prefix: '',
+      suffix: '%'
     })
   }
 }
@@ -260,4 +272,9 @@ export function validate_time(time) {
 export function validate_currency(currency) {
   const regex = /^\d+(?:\.\d{0,2})$/;
   return regex.test(currency);
+}
+
+export function validate_percentage(percentage) {
+  const regex = /^\d+(?:\.\d{0,2})$/;
+  return regex.test(percentage);
 }
