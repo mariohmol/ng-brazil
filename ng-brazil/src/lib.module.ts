@@ -38,6 +38,10 @@ import { time } from './time/validator';
 import { TIMEValidator } from './time/directive';
 import { TIMEPipe } from './time/pipe';
 
+import { placa } from './placa/validator';
+import { PLACAValidator } from './placa/directive';
+import { PLACAPipe } from './placa/pipe';
+
 export const NgBrazilValidators: any = {
   cpf,
   cnpj,
@@ -47,7 +51,8 @@ export const NgBrazilValidators: any = {
   cep,
   currency,
   percentage,
-  time
+  time,
+  placa
 }
 
 const CustomDirectives = [
@@ -68,7 +73,9 @@ const CustomDirectives = [
   PERCENTAGEValidator,
   PERCENTAGEPipe,
   TIMEValidator,
-  TIMEPipe
+  TIMEPipe,
+  PLACAValidator,
+  PLACAPipe
 ];
 
 @NgModule({

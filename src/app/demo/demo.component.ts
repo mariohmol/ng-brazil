@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { NgBrazilValidators, MASKS } from 'ng-brazil';
+import { MASKS } from '../../../ng-brazil/src/public_api';
+import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
 
 export const DATA = {
   cpf: '156.631.881-50',
@@ -15,7 +16,8 @@ export const DATA = {
     'sp': '114.814.878.119'
   },
   currency: '1.000,10',
-  time: '06:33'
+  time: '06:33',
+  placa: 'ABC-1234'
 }
 
 export const DATARAW = {
@@ -32,7 +34,8 @@ export const DATARAW = {
     'sp': '114814878119'
   },
   currency: '123321,22',
-  time: '0633'
+  time: '0633',
+  placa: 'ADJ5468'
 }
 
 
@@ -50,7 +53,8 @@ export const DATAERROR = {
     'sp': '11481487811'
   },
   currency: 'R$1000.10',
-  time: '0633'
+  time: '0633',
+  placa: 'AEJ123'
 }
 
 @Component({
@@ -90,7 +94,8 @@ export class DemoComponent implements OnInit {
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
       cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
       currency: ['', [<any>Validators.required, <any>NgBrazilValidators.currency]],
-      time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]]
+      time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]],
+      placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]]
     };
     this.form = this.fb.group(this.formFields);
 
