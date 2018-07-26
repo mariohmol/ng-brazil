@@ -59,4 +59,4 @@ typings/
 
 dist/
 .ng_build/
-#/src/ng-brasil
+src/ng-brazil

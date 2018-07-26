@@ -17,13 +17,30 @@ import { TelefonePipe } from './telefone/pipe';
 import { inscricaoestadual } from './inscricaoestadual/validator';
 import { InscricaoEstadualValidator } from './inscricaoestadual/directive';
 import { InscricaoEstadualPipe } from './inscricaoestadual/pipe';
+
 import { CEPValidator } from './cep/directive';
 import { CEPPipe } from './cep/pipe';
 import { cep } from './cep/validator';
+
 import { rg } from './rg/validator';
 import { RGValidator } from './rg/directive';
 import { RGPipe } from './rg/pipe';
 
+import { currency } from './currency/validator';
+import { CURRENCYValidator } from './currency/directive';
+import { CURRENCYPipe } from './currency/pipe';
+
+import { percentage } from './percentage/validator';
+import { PERCENTAGEValidator } from './percentage/directive';
+import { PERCENTAGEPipe } from './percentage/pipe';
+
+import { time } from './time/validator';
+import { TIMEValidator } from './time/directive';
+import { TIMEPipe } from './time/pipe';
+
+import { placa } from './placa/validator';
+import { PLACAValidator } from './placa/directive';
+import { PLACAPipe } from './placa/pipe';
 
 export const NgBrazilValidators: any = {
   cpf,
@@ -31,7 +48,11 @@ export const NgBrazilValidators: any = {
   rg,
   telefone,
   inscricaoestadual,
-  cep
+  cep,
+  currency,
+  percentage,
+  time,
+  placa
 }
 
 const CustomDirectives = [
@@ -46,7 +67,15 @@ const CustomDirectives = [
   TelefoneValidator,
   TelefonePipe,
   CEPValidator,
-  CEPPipe
+  CEPPipe,
+  CURRENCYValidator,
+  CURRENCYPipe,
+  PERCENTAGEValidator,
+  PERCENTAGEPipe,
+  TIMEValidator,
+  TIMEPipe,
+  PLACAValidator,
+  PLACAPipe
 ];
 
 @NgModule({
