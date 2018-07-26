@@ -121,6 +121,20 @@ EXAMPLES WITH INPUTS WITH MASK
       </span>
     </p>
   </div>
+  <div>
+    <h2>PLACA</h2>
+    <span>Working example: {{data.placa}}</span>
+    <input id="mask-placa" type="text" formControlName="placa" placa [textMask]="{mask: MASKS.placa.textMask}">
+    <span>
+      PLACA: {{formData.placa}}
+    </span>
+    <p *ngIf="formDataValidate.placa">
+      Errors Found:
+      <span id="mask-placa-error" *ngFor="let v of objectKeys(formDataValidate.placa)">
+        {{v}} {{formDataValidate.placa[v]}}
+      </span>
+    </p>
+  </div>
   <h2>----</h2>
   <button>Submit</button>
 </form>
@@ -148,9 +162,11 @@ CPF: From {{DATARAW.cpf}} to
 <br/> CEP: From {{DATARAW.cep}} to
 <span id="pipe-cep">{{DATARAW.cep | cep}}</span>
 <br/> Currency (Dinheiro): From {{DATARAW.currency}} to
-<span id="pipe-cep">{{DATARAW.currency | currency}}</span>
+<span id="pipe-currency">{{DATARAW.currency | currency}}</span>
 <br/> Time: From {{DATARAW.time}} to
-<span id="pipe-cep">{{DATARAW.time | time}}</span>
+<span id="pipe-time">{{DATARAW.time | time}}</span>
+<br/> Placa: From {{DATARAW.placa}} to
+<span id="pipe-placa">{{DATARAW.placa | placa}}</span>
 
 
 <br/>
@@ -294,6 +310,21 @@ EXAMPLES WITH INPUTS WITHOU MASK
       Errors Found:
       <span id="nomask-time-error" *ngFor="let v of objectKeys(formDataValidate.time)">
         {{v}} {{formDataValidate.time[v]}}
+      </span>
+    </p>
+  </div>
+
+  <div>
+    <h2>PLACA</h2>
+    <span>Working example: {{data.placa}}</span>
+    <input id="nomask-placa" type="text" formControlName="placa" placa>
+    <span>
+      PLACA: {{formData.placa}}
+    </span>
+    <p *ngIf="formDataValidate.placa">
+      Errors Found:
+      <span id="nomask-placa-error" *ngFor="let v of objectKeys(formDataValidate.placa)">
+        {{v}} {{formDataValidate.placa[v]}}
       </span>
     </p>
   </div>

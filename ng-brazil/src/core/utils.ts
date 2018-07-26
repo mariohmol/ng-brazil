@@ -69,6 +69,10 @@ export const MASKS = {
       prefix: '',
       suffix: '%'
     })
+  },
+  placa: {
+    text: 'AAA-0000',
+    textMask: [/[A-Za-z]/, /[A-Za-z]/, /[A-Za-z]/, '-', /\d/, /\d/, /\d/, /\d/]
   }
 }
 
@@ -262,8 +266,6 @@ export function validate_rg(rg) {
   return true;
 }
 
-
-
 export function validate_time(time) {
   const expression = /^([0-1]?[0-9]|2[0-4]):([0-5][0-9])(:[0-5][0-9])?$/;
   return expression.test(time.value);
@@ -277,4 +279,16 @@ export function validate_currency(currency) {
 export function validate_percentage(percentage) {
   const regex = /^\d+(?:\.\d{0,2})$/;
   return regex.test(percentage);
+}
+
+export function validate_placa(placa) {
+  const placaClean = placa.replace(/-/g, '');
+  const exp = /[a-z]{3}\-\d{4}/;
+  const expClean = /[a-z]{3}\d{4}/;
+  const letters = placa.substr(0, 3).toUpperCase();
+
+  if (!exp.test(placa) && !expClean.test(placaClean)) {
+    return false;
+  }
+  return true;
 }
