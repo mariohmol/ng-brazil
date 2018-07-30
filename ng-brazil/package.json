@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.5.8",
+  "version": "0.6.1",
   "license": "MIT",
   "homepage": "https://github.com/mariohmol/ng-brazil",
   "repository": {
@@ -17,6 +17,7 @@
   "peerDependencies": {
     "@angular/core": ">=4.0.0 <7.0.0",
     "@angular/common": ">=4.0.0 <7.0.0",
+    "text-mask-addons": "^3.7.2",
     "angular2-text-mask": "^8.0.4"
   },
   "ngPackage": {
