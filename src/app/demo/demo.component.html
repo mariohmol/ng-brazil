@@ -135,6 +135,20 @@ EXAMPLES WITH INPUTS WITH MASK
       </span>
     </p>
   </div>
+  <div>
+    <h2>TITULO</h2>
+    <span>Working example: {{data.titulo}}</span>
+    <input id="mask-titulo" type="text" formControlName="titulo" titulo [textMask]="{mask: MASKS.titulo.textMask}">
+    <span>
+      TITULO: {{formData.titulo}}
+    </span>
+    <p *ngIf="formDataValidate.titulo">
+      Errors Found:
+      <span id="mask-titulo-error" *ngFor="let v of objectKeys(formDataValidate.titulo)">
+        {{v}} {{formDataValidate.titulo[v]}}
+      </span>
+    </p>
+  </div>
   <h2>----</h2>
   <button>Submit</button>
 </form>
@@ -167,6 +181,8 @@ CPF: From {{DATARAW.cpf}} to
 <span id="pipe-time">{{DATARAW.time | time}}</span>
 <br/> Placa: From {{DATARAW.placa}} to
 <span id="pipe-placa">{{DATARAW.placa | placa}}</span>
+<br/> Titulo: From {{DATARAW.titulo}} to
+<span id="pipe-titulo">{{DATARAW.titulo | titulo}}</span>
 
 
 <br/>
@@ -325,6 +341,21 @@ EXAMPLES WITH INPUTS WITHOU MASK
       Errors Found:
       <span id="nomask-placa-error" *ngFor="let v of objectKeys(formDataValidate.placa)">
         {{v}} {{formDataValidate.placa[v]}}
+      </span>
+    </p>
+  </div>
+
+  <div>
+    <h2>TITULO</h2>
+    <span>Working example: {{data.titulo}}</span>
+    <input id="nomask-titulo" type="text" formControlName="titulo" titulo>
+    <span>
+      TITULO: {{formData.titulo}}
+    </span>
+    <p *ngIf="formDataValidate.titulo">
+      Errors Found:
+      <span id="nomask-titulo-error" *ngFor="let v of objectKeys(formDataValidate.titulo)">
+        {{v}} {{formDataValidate.titulo[v]}}
       </span>
     </p>
   </div>

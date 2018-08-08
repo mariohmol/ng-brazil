@@ -17,7 +17,8 @@ export const DATA = {
   },
   currency: '1.000,10',
   time: '06:33',
-  placa: 'ABC-1234'
+  placa: 'ABC-1234',
+  titulo: '2053.9588.0384'
 }
 
 export const DATARAW = {
@@ -35,7 +36,8 @@ export const DATARAW = {
   },
   currency: '123321,22',
   time: '0633',
-  placa: 'ADJ5468'
+  placa: 'ADJ5468',
+  titulo: '205395880384'
 }
 
 
@@ -54,7 +56,8 @@ export const DATAERROR = {
   },
   currency: 'R$1000.10',
   time: '0633',
-  placa: 'AEJ123'
+  placa: 'AEJ123',
+  titulo: '205395880384'
 }
 
 @Component({
@@ -95,7 +98,8 @@ export class DemoComponent implements OnInit {
       cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
       currency: ['', [<any>Validators.required, <any>NgBrazilValidators.currency]],
       time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]],
-      placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]]
+      placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]],
+      titulo: ['', [<any>Validators.required, <any>NgBrazilValidators.titulo]]
     };
     this.form = this.fb.group(this.formFields);
 

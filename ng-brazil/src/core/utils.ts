@@ -73,6 +73,10 @@ export const MASKS = {
   placa: {
     text: 'AAA-0000',
     textMask: [/[A-Za-z]/, /[A-Za-z]/, /[A-Za-z]/, '-', /\d/, /\d/, /\d/, /\d/]
+  },
+  titulo: {
+    text: '0000.0000.0000',
+    textMask: [/\d/, /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]
   }
 }
 
@@ -291,4 +295,16 @@ export function validate_placa(placa) {
     return false;
   }
   return true;
+}
+
+export function validate_titulo(titulo) {
+  const tituloClean = titulo.replace(/./, '');
+  const exp = /\d{4}\.\d{4}\.\d{4}/;
+  const expClean = /\d{4}\d{4}\d{4}/;
+
+  if (!exp.test(titulo) && !expClean.test(titulo)) {
+    return false;
+  }
+  return true;
+
 }
