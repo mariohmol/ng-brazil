@@ -42,6 +42,10 @@ import { placa } from './placa/validator';
 import { PLACAValidator } from './placa/directive';
 import { PLACAPipe } from './placa/pipe';
 
+import { titulo } from './titulo/validator';
+import { TITULOValidator } from './titulo/directive';
+import { TITULOPipe } from './titulo/pipe';
+
 export const NgBrazilValidators: any = {
   cpf,
   cnpj,
@@ -52,7 +56,8 @@ export const NgBrazilValidators: any = {
   currency,
   percentage,
   time,
-  placa
+  placa,
+  titulo
 }
 
 const CustomDirectives = [
@@ -75,7 +80,9 @@ const CustomDirectives = [
   TIMEValidator,
   TIMEPipe,
   PLACAValidator,
-  PLACAPipe
+  PLACAPipe,
+  TITULOValidator,
+  TITULOPipe
 ];
 
 @NgModule({
