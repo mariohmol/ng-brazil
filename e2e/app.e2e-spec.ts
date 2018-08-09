@@ -10,9 +10,11 @@ describe('ng-packaged App', () => {
     page.sendKeys(key + 'mask-rg', data.rg);
     page.sendKeys(key + 'mask-telefone', data.telefone);
     page.sendKeys(key + 'mask-cep', data.cep);
-    page.sendKeys(key + 'mask-inscricaoestadual', data.inscricaoestadual);
+    page.sendKeys(key + 'mask-inscricaoestadual', data.inscricaoestadual.mg);
     page.sendKeys(key + 'mask-currency', data.currency);
     page.sendKeys(key + 'mask-time', data.time);
+    page.sendKeys(key + 'mask-placa', data.placa);
+    page.sendKeys(key + 'mask-titulo', data.titulo);
     page.submit();
   };
 
@@ -25,6 +27,8 @@ describe('ng-packaged App', () => {
     expect(page.getById('mask-cep-error')).not.toEqual('');
     expect(page.getById('mask-currency-error')).not.toEqual('');
     expect(page.getById('mask-time-error')).not.toEqual('');
+    expect(page.getById('mask-placa-error')).not.toEqual('');
+    expect(page.getById('mask-titulo-error')).not.toEqual('');
   };
 
   const checkNoErrors = function () {
@@ -36,6 +40,8 @@ describe('ng-packaged App', () => {
     expect(page.getById('mask-cep-error')).toEqual('');
     expect(page.getById('mask-currency-error')).toEqual('');
     expect(page.getById('mask-time-error')).toEqual('');
+    expect(page.getById('mask-placa-error')).toEqual('');
+    expect(page.getById('mask-titulo-error')).toEqual('');
   };
 
 
@@ -52,11 +58,13 @@ describe('ng-packaged App', () => {
     expect(page.getById('pipe-cpf')).toEqual(DATA.cpf);
     expect(page.getById('pipe-cnpj')).toEqual(DATA.cnpj);
     expect(page.getById('pipe-rg')).toEqual(DATA.rg);
-    expect(page.getById('pipe-inscricaoestadual')).toEqual(DATA.inscricaoestadual);
+    expect(page.getById('pipe-inscricaoestadual')).toEqual(DATA.inscricaoestadual.mg);
     expect(page.getById('pipe-telefone')).toEqual(DATA.telefone);
     expect(page.getById('pipe-cep')).toEqual(DATA.cep);
     expect(page.getById('pipe-currency')).toEqual(DATA.currency);
     expect(page.getById('pipe-time')).toEqual(DATA.time);
+    expect(page.getById('pipe-placa')).toEqual(DATA.placa);
+    expect(page.getById('pipe-titulo')).toEqual(DATA.titulo);
   });
 
 
@@ -65,16 +73,18 @@ describe('ng-packaged App', () => {
     checkErrors();
   });
 
-  it('should mask datatypes correctly', () => {
+  it('should MASK datatypes correctly', () => {
     makeForm('', DATARAW);
     expect(page.getValueById('mask-cpf')).toEqual(DATA.cpf);
     expect(page.getValueById('mask-cnpj')).toEqual(DATA.cnpj);
     expect(page.getValueById('mask-rg')).toEqual(DATA.rg);
-    expect(page.getValueById('mask-inscricaoestadual')).toEqual(DATA.inscricaoestadual);
+    expect(page.getValueById('mask-inscricaoestadual')).toEqual(DATA.inscricaoestadual.mg);
     expect(page.getValueById('mask-telefone')).toEqual(DATA.telefone);
     expect(page.getValueById('mask-cep')).toEqual(DATA.cep);
     expect(page.getValueById('mask-currency')).toEqual(DATA.currency);
     expect(page.getValueById('mask-time')).toEqual(DATA.time);
+    expect(page.getValueById('mask-placa')).toEqual(DATA.placa);
+    expect(page.getValueById('mask-titulo')).toEqual(DATA.titulo);
     checkNoErrors();
   });
 
@@ -84,11 +94,13 @@ describe('ng-packaged App', () => {
     expect(page.getValueById('nomask-cpf')).toEqual(DATARAW.cpf);
     expect(page.getValueById('nomask-cnpj')).toEqual(DATARAW.cnpj);
     expect(page.getValueById('nomask-rg')).toEqual(DATARAW.rg);
-    expect(page.getValueById('nomask-inscricaoestadual')).toEqual(DATARAW.inscricaoestadual);
+    expect(page.getValueById('nomask-inscricaoestadual')).toEqual(DATARAW.inscricaoestadual.mg);
     expect(page.getValueById('nomask-telefone')).toEqual(DATARAW.telefone);
     expect(page.getValueById('nomask-cep')).toEqual(DATARAW.cep);
     expect(page.getValueById('nomask-currency')).toEqual(DATARAW.currency);
     expect(page.getValueById('nomask-time')).toEqual(DATARAW.time);
+    expect(page.getValueById('nomask-placa')).toEqual(DATARAW.placa);
+    expect(page.getValueById('nomask-titulo')).toEqual(DATARAW.titulo);
     checkNoErrors();
   });
 
