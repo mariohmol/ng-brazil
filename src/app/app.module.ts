@@ -8,7 +8,7 @@ import { NgBrazil } from 'ng-brazil';
 import { DemoComponent } from './demo/demo.component';
 import { TextMaskModule } from 'angular2-text-mask';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', redirectTo: '/demo', pathMatch: 'full' },
   { path: 'demo', component: DemoComponent }
 ];

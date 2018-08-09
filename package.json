@@ -16,26 +16,26 @@
     "kill": "kill $(lsof -t -i:4200)"
   },
   "dependencies": {
-    "@angular/common": "6.0.0-beta.5",
-    "@angular/compiler": "6.0.0-beta.5",
-    "@angular/core": "6.0.0-beta.5",
-    "@angular/forms": "6.0.0-beta.5",
-    "@angular/http": "6.0.0-beta.5",
-    "@angular/platform-browser": "6.0.0-beta.5",
-    "@angular/platform-browser-dynamic": "6.0.0-beta.5",
-    "@angular/router": "6.0.0-beta.5",
+    "@angular/common": "^6.0.9",
+    "@angular/compiler": "^6.0.9",
+    "@angular/core": "^6.0.9",
+    "@angular/forms": "^6.0.9",
+    "@angular/http": "^6.0.9",
+    "@angular/platform-browser": "^6.0.9",
+    "@angular/platform-browser-dynamic": "^6.0.9",
+    "@angular/router": "^6.0.9",
     "angular2-text-mask": "^8.0.4",
     "core-js": "^2.4.1",
-    "rxjs": "^5.5.6",
+    "rxjs": "^6.2.2",
     "text-mask-addons": "^3.7.2",
     "webpack": "^3.11.0",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/schematics": "^0.4.0",
     "@angular/cli": "~1.7.2",
-    "@angular/compiler-cli": "6.0.0-beta.5",
-    "@angular/language-service": "6.0.0-beta.5",
+    "@angular/compiler-cli": "^6.0.9",
+    "@angular/language-service": "^6.0.9",
     "@types/jasmine": "~2.8.0",
     "@types/node": "~9.4.0",
     "codelyzer": "~4.2.0",
@@ -54,6 +54,6 @@
     "ts-node": "~5.0.0",
     "tslint": "~5.9.0",
     "tsickle": "^0.27.1",
-    "typescript": "2.5.3"
+    "typescript": "^2.7.2"
   }
 }

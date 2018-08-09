@@ -1,7 +1,6 @@
 import { NgPackagedPage } from './app.po';
 import { DATA, DATARAW, DATAERROR } from '../src/app/demo/demo.component';
 
-
 describe('ng-packaged App', () => {
   let page: NgPackagedPage;
 
