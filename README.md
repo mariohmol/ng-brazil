@@ -31,8 +31,7 @@ See the demo working project:
 
 To install this library with npm, run below command:
 
-$ npm install --save ng-brazil  angular2-text-mask 
-
+$ npm install --save ng-brazil angular2-text-mask text-mask-addons
 
  
 ## Usage
