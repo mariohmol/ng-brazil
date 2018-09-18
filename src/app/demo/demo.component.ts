@@ -11,6 +11,7 @@ export const DATA = {
   telefone: '(31) 99999-9998',
   inscricaoestadual: {
     'ma': '12.104.376-2',
+    'am': '12.104.376-2',
     'pi': '19.301.656-7',
     'ce': '06.000001-5',
     'mg': '00181926300-48',
@@ -53,7 +54,8 @@ export const DATAERROR = {
     'pi': '19301656',
     'ce': '06000001',
     'mg': '001819263004',
-    'sp': '11481487811'
+    'sp': '11481487811',
+    'am': '041234320'
   },
   currency: 'R$1000.10',
   time: '0633',
@@ -70,7 +72,8 @@ export class DemoComponent implements OnInit {
   public MASKS = MASKS;
   public DATARAW = DATARAW;
   estado = 'mg';
-  estados = ['mg', 'sp'];
+  estados = ['ma', 'pi', 'ce', 'mg', 'sp', 'am'];
+
   public formFields;
   public formData: any = {};
   public formDataValidate: any = {};
@@ -118,5 +121,10 @@ export class DemoComponent implements OnInit {
       console.log(c, control.errors)
       this.formDataValidate[c] = control.errors;
     }
+  }
+
+  changeState(e) {
+    const val = e.target.value;
+    this.estado = val;
   }
 }

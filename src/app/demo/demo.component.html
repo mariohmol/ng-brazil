@@ -6,9 +6,9 @@
 EXAMPLES WITH INPUTS WITH MASK
 
 -->
-  <h1>Directives, Validations and Masks</h1>
+  <h2>Directives, Validations and Masks</h2>
   <div>
-    <h2>CPF</h2>
+    <h3>CPF</h3>
     <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
     <span>
       CPF: {{formData.cpf}}
@@ -22,7 +22,7 @@ EXAMPLES WITH INPUTS WITH MASK
   </div>
 
   <div>
-    <h2>CNPJ</h2>
+    <h3>CNPJ</h3>
     <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
     <span>
       CNPJ: {{formData.cnpj}}
@@ -35,7 +35,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>RG</h2>
+    <h3>RG</h3>
     <input id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
     <span>
       RG: {{formData.rg}}
@@ -48,8 +48,8 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>Inscrição Estadual</h2>
-    <select formControlName="estado">
+    <h3>Inscrição Estadual</h3>
+    <select formControlName="estado" (change)="changeState($event)">
       <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
     </select>
 
@@ -66,7 +66,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>Telefone</h2>
+    <h3>Telefone</h3>
     <span>Working example: {{data.telefone}}</span>
     <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
     <span>
@@ -80,7 +80,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>CEP</h2>
+    <h3>CEP</h3>
     <span>Working example: {{data.cep}}</span>
     <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
     <span>
@@ -94,7 +94,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>CURRENCY</h2>
+    <h3>CURRENCY</h3>
     <span>Working example: {{data.currency}}</span>
     <input id="mask-currency" type="text" formControlName="currency" currency [textMask]="{mask: MASKS.currency.textMask}">
     <span>
@@ -108,7 +108,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>TIME</h2>
+    <h3>TIME</h3>
     <span>Working example: {{data.time}}</span>
     <input id="mask-time" type="text" formControlName="time" time [textMask]="{mask: MASKS.time.textMask}">
     <span>
@@ -122,7 +122,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>PLACA</h2>
+    <h3>PLACA</h3>
     <span>Working example: {{data.placa}}</span>
     <input id="mask-placa" type="text" formControlName="placa" placa [textMask]="{mask: MASKS.placa.textMask}">
     <span>
@@ -136,7 +136,7 @@ EXAMPLES WITH INPUTS WITH MASK
     </p>
   </div>
   <div>
-    <h2>TITULO</h2>
+    <h3>TITULO</h3>
     <span>Working example: {{data.titulo}}</span>
     <input id="mask-titulo" type="text" formControlName="titulo" titulo [textMask]="{mask: MASKS.titulo.textMask}">
     <span>
@@ -149,19 +149,20 @@ EXAMPLES WITH INPUTS WITH MASK
       </span>
     </p>
   </div>
-  <h2>----</h2>
+  <h3>----</h3>
   <button>Submit</button>
 </form>
 
-
-
+<br/>
+<hr/>
+<br/>
 <!--
 
 
 EXAMPLES WITH PIPES IN VALUES FROM DATABASE
 
 -->
-<h2>Pipes</h2>
+<h3>Pipes</h3>
 
 CPF: From {{DATARAW.cpf}} to
 <span id="pipe-cpf">{{DATARAW.cpf | cpf}}</span>
@@ -188,20 +189,25 @@ CPF: From {{DATARAW.cpf}} to
 <br/>
 
 
+
+<br/>
+<hr/>
+<br/>
+
 <!--
 
 
 EXAMPLES WITH INPUTS WITHOU MASK
 
 -->
-<h2>Without Mask</h2>
+<h3>Without Mask</h3>
 
 
 <form [formGroup]="form" *ngIf="form" (submit)="submit()">
 
-  <h1>Directives, Validations and Masks</h1>
+  <h2>Directives, Validations and Masks</h2>
   <div>
-    <h2>CPF</h2>
+    <h3>CPF</h3>
     <input id="nomask-cpf" type="text" formControlName="cpf" cpf> Get working example http://geradorcpf.com/
     <span>
       CPF: {{formData.cpf}}
@@ -216,7 +222,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
 
   <div>
-    <h2>CNPJ</h2>
+    <h3>CNPJ</h3>
     <input id="nomask-cnpj" type="text" formControlName="cnpj" cnpj> Get working example http://www.geradorcnpj.com/
     <span>
       CNPJ: {{formData.cnpj}}
@@ -231,7 +237,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
 
   <div>
-    <h2>RG</h2>
+    <h3>RG</h3>
     <input id="nomask-rg" type="text" formControlName="rg" rg> MG-10.111.222
     <span>
       RG: {{formData.rg}}
@@ -245,8 +251,8 @@ EXAMPLES WITH INPUTS WITHOU MASK
   </div>
 
   <div>
-    <h2>Inscrição Estadual</h2>
-    <select formControlName="estado">
+    <h3>Inscrição Estadual</h3>
+    <select formControlName="estado"  (change)="changeState($event)">
       <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
     </select>
 
@@ -267,7 +273,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
 
   <div>
-    <h2>Telefone</h2>
+    <h3>Telefone</h3>
     <span>Working example: {{data.telefone}}</span>
     <input id="nomask-telefone" type="text" formControlName="telefone" telefone #telefone>
     <span>
@@ -283,7 +289,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
 
   <div>
-    <h2>CEP</h2>
+    <h3>CEP</h3>
     <span>Working example: {{data.cep}}</span>
     <input id="nomask-cep" type="text" formControlName="cep" cep>
     <span>
@@ -300,7 +306,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
 
   <div>
-    <h2>CURRENCY</h2>
+    <h3>CURRENCY</h3>
     <span>Working example: {{data.currency}}</span>
     <input id="nomask-currency" type="text" formControlName="currency" currency>
     <span>
@@ -316,7 +322,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
 
   <div>
-    <h2>TIME</h2>
+    <h3>TIME</h3>
     <span>Working example: {{data.time}}</span>
     <input id="nomask-time" type="text" formControlName="time" time>
     <span>
@@ -331,7 +337,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
   </div>
 
   <div>
-    <h2>PLACA</h2>
+    <h3>PLACA</h3>
     <span>Working example: {{data.placa}}</span>
     <input id="nomask-placa" type="text" formControlName="placa" placa>
     <span>
@@ -346,7 +352,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
   </div>
 
   <div>
-    <h2>TITULO</h2>
+    <h3>TITULO</h3>
     <span>Working example: {{data.titulo}}</span>
     <input id="nomask-titulo" type="text" formControlName="titulo" titulo>
     <span>
@@ -360,7 +366,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
     </p>
   </div>
 
-  <h2>----</h2>
+  <h3>----</h3>
 
   <button id="submit">Submit</button>
 </form>
