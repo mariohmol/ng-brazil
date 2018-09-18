@@ -9,8 +9,9 @@ EXAMPLES WITH INPUTS WITH MASK
   <h2>Directives, Validations and Masks</h2>
   <div>
     <h3>CPF</h3>
-    <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working example http://geradorcpf.com/
-    <span>
+    <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working
+    example http://geradorcpf.com/
+    <span *ngIf="formData.cpf">
       CPF: {{formData.cpf}}
     </span>
     <p *ngIf="formDataValidate.cpf">
@@ -23,8 +24,9 @@ EXAMPLES WITH INPUTS WITH MASK
 
   <div>
     <h3>CNPJ</h3>
-    <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working example http://www.geradorcnpj.com/
-    <span>
+    <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working
+    example http://www.geradorcnpj.com/
+    <span *ngIf="formData.cnpj">
       CNPJ: {{formData.cnpj}}
     </span>
     <p *ngIf="formDataValidate.cnpj">
@@ -37,7 +39,7 @@ EXAMPLES WITH INPUTS WITH MASK
   <div>
     <h3>RG</h3>
     <input id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
-    <span>
+    <span *ngIf="formData.rg">
       RG: {{formData.rg}}
     </span>
     <p *ngIf="formDataValidate.rg">
@@ -49,13 +51,14 @@ EXAMPLES WITH INPUTS WITH MASK
   </div>
   <div>
     <h3>Inscrição Estadual</h3>
-    <select formControlName="estado" (change)="changeState($event)">
+    <select formControlName="estado" placeholder="select a br state" (change)="changeState($event)">
       <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
     </select>
 
     <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-    <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
-    <span>
+    <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg"
+      [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
+    <span *ngIf="formData.inscricaoestadual">
       Inscrição Estadual: {{formData.inscricaoestadual}}
     </span>
     <p *ngIf="formDataValidate.inscricaoestadual">
@@ -69,7 +72,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <h3>Telefone</h3>
     <span>Working example: {{data.telefone}}</span>
     <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
-    <span>
+    <span *ngIf="formData.telefone">
       Telefone: {{formData.telefone}}
     </span>
     <p *ngIf="formDataValidate.telefone">
@@ -83,7 +86,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <h3>CEP</h3>
     <span>Working example: {{data.cep}}</span>
     <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
-    <span>
+    <span *ngIf="formData.cep">
       CEP: {{formData.cep}}
     </span>
     <p *ngIf="formDataValidate.cep">
@@ -97,7 +100,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <h3>CURRENCY</h3>
     <span>Working example: {{data.currency}}</span>
     <input id="mask-currency" type="text" formControlName="currency" currency [textMask]="{mask: MASKS.currency.textMask}">
-    <span>
+    <span *ngIf="formData.currency">
       CURRENCY: {{formData.currency}}
     </span>
     <p *ngIf="formDataValidate.currency">
@@ -111,7 +114,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <h3>TIME</h3>
     <span>Working example: {{data.time}}</span>
     <input id="mask-time" type="text" formControlName="time" time [textMask]="{mask: MASKS.time.textMask}">
-    <span>
+    <span *ngIf="formData.time">
       TIME: {{formData.time}}
     </span>
     <p *ngIf="formDataValidate.time">
@@ -125,7 +128,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <h3>PLACA</h3>
     <span>Working example: {{data.placa}}</span>
     <input id="mask-placa" type="text" formControlName="placa" placa [textMask]="{mask: MASKS.placa.textMask}">
-    <span>
+    <span *ngIf="formData.placa">
       PLACA: {{formData.placa}}
     </span>
     <p *ngIf="formDataValidate.placa">
@@ -139,7 +142,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <h3>TITULO</h3>
     <span>Working example: {{data.titulo}}</span>
     <input id="mask-titulo" type="text" formControlName="titulo" titulo [textMask]="{mask: MASKS.titulo.textMask}">
-    <span>
+    <span *ngIf="formData.titulo">
       TITULO: {{formData.titulo}}
     </span>
     <p *ngIf="formDataValidate.titulo">
@@ -149,13 +152,12 @@ EXAMPLES WITH INPUTS WITH MASK
       </span>
     </p>
   </div>
-  <h3>----</h3>
-  <button>Submit</button>
+  <button>Submit For to See Validations</button>
 </form>
 
-<br/>
-<hr/>
-<br/>
+<br />
+<hr />
+<br />
 <!--
 
 
@@ -166,33 +168,33 @@ EXAMPLES WITH PIPES IN VALUES FROM DATABASE
 
 CPF: From {{DATARAW.cpf}} to
 <span id="pipe-cpf">{{DATARAW.cpf | cpf}}</span>
-<br/> CNPJ: From {{DATARAW.cnpj}} to
+<br /> CNPJ: From {{DATARAW.cnpj}} to
 <span id="pipe-cnpj">{{DATARAW.cnpj | cnpj}}</span>
-<br/> RG: From {{DATARAW.rg}} to
+<br /> RG: From {{DATARAW.rg}} to
 <span id="pipe-rg">{{DATARAW.rg | rg}}</span>
-<br/> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
+<br /> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
 <span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
-<br/> Telefone: From {{DATARAW.telefone}} to
+<br /> Telefone: From {{DATARAW.telefone}} to
 <span id="pipe-telefone">{{DATARAW.telefone | telefone}}</span>
-<br/> CEP: From {{DATARAW.cep}} to
+<br /> CEP: From {{DATARAW.cep}} to
 <span id="pipe-cep">{{DATARAW.cep | cep}}</span>
-<br/> Currency (Dinheiro): From {{DATARAW.currency}} to
+<br /> Currency (Dinheiro): From {{DATARAW.currency}} to
 <span id="pipe-currency">{{DATARAW.currency | currency}}</span>
-<br/> Time: From {{DATARAW.time}} to
+<br /> Time: From {{DATARAW.time}} to
 <span id="pipe-time">{{DATARAW.time | time}}</span>
-<br/> Placa: From {{DATARAW.placa}} to
+<br /> Placa: From {{DATARAW.placa}} to
 <span id="pipe-placa">{{DATARAW.placa | placa}}</span>
-<br/> Titulo: From {{DATARAW.titulo}} to
+<br /> Titulo: From {{DATARAW.titulo}} to
 <span id="pipe-titulo">{{DATARAW.titulo | titulo}}</span>
 
 
-<br/>
+<br />
 
 
 
-<br/>
-<hr/>
-<br/>
+<br />
+<hr />
+<br />
 
 <!--
 
@@ -252,7 +254,7 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
   <div>
     <h3>Inscrição Estadual</h3>
-    <select formControlName="estado"  (change)="changeState($event)">
+    <select formControlName="estado" placeholder="select a br state" (change)="changeState($event)">
       <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
     </select>
 
