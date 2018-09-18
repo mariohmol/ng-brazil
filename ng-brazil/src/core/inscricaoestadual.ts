@@ -88,44 +88,24 @@ function entre(valor, limiteInferior, limiteSuperior) {
 }
 
 const funcoes = {
-  ba: function (valor) {
-    if (tamanhoNaoE(valor, 8) && tamanhoNaoE(valor)) {
+  ac: function (valor) {
+    if (tamanhoNaoE(valor, 13)) {
       return false;
     }
 
-    const base = primeiros(valor, valor.length - 2);
-    let primeiroDigito, segundoDigito;
-
-    const segundoMultiplicador = serie(2, 7);
-    const primeiroMultiplicador = serie(2, 8);
-
-    let primeiroResto, segundoResto;
-    let digitoComparacao = valor.substring(0, 1);
-
-    if (tamanhoE(valor, 9)) {
-      segundoMultiplicador.push(8);
-      primeiroMultiplicador.push(9);
-      digitoComparacao = valor.substring(1, 2);
+    if (naoComecaCom(valor, '01')) {
+      return false;
     }
 
-    if ('0123458'.split('').indexOf(digitoComparacao) !== -1) {
-      segundoResto = mod(base, segundoMultiplicador, 10);
-      segundoDigito = segundoResto === 0 ? 0 : 10 - segundoResto;
+    const base = primeiros(valor, 11);
 
-      primeiroResto = mod(base + segundoDigito, primeiroMultiplicador, 10);
-      primeiroDigito = primeiroResto === 0 ? 0 : 10 - primeiroResto;
-    } else {
-      segundoResto = mod(base, segundoMultiplicador);
-      segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(segundoResto);
-
-      primeiroResto = mod(base + segundoDigito, primeiroMultiplicador);
-      primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(primeiroResto);
-    }
+    const primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+    const segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiroDigito));
 
     return valor === base + primeiroDigito + segundoDigito;
   },
 
-  se: function (valor) {
+  am: function (valor) {
     if (tamanhoNaoE(valor)) {
       return false;
     }
@@ -159,36 +139,6 @@ const funcoes = {
 
     const resT = resto / 11
     resto = resto - (resT * 11);
-    const digito = resto === 10 ? 0 : resto;
-
-    return valor === base + digito;
-  },
-
-  pb: function (valor) {
-    if (tamanhoNaoE(valor)) {
-      return false;
-    }
-
-    return calculoTrivial(valor);
-  },
-
-  rn: function (valor) {
-    if (tamanhoNaoE(valor) && tamanhoNaoE(valor, 10)) {
-      return false;
-    }
-
-    if (naoComecaCom(valor, '20')) {
-      return false;
-    }
-
-    const base = valor.substring(0, valor.length - 1);
-
-    const multiplicadores = serie(2, 9);
-    if (tamanhoE(valor, 10)) {
-      multiplicadores.push(10);
-    }
-
-    const resto = (mod(base, multiplicadores) * 10) % 11;
     const digito = resto === 10 ? 0 : resto;
 
     return valor === base + digito;
@@ -232,22 +182,174 @@ const funcoes = {
     return valor === base + digito;
   },
 
-  rr: function (valor) {
+  ba: function (valor) {
+    if (tamanhoNaoE(valor, 8) && tamanhoNaoE(valor)) {
+      return false;
+    }
+
+    const base = primeiros(valor, valor.length - 2);
+    let primeiroDigito, segundoDigito;
+
+    const segundoMultiplicador = serie(2, 7);
+    const primeiroMultiplicador = serie(2, 8);
+
+    let primeiroResto, segundoResto;
+    let digitoComparacao = valor.substring(0, 1);
+
+    if (tamanhoE(valor, 9)) {
+      segundoMultiplicador.push(8);
+      primeiroMultiplicador.push(9);
+      digitoComparacao = valor.substring(1, 2);
+    }
+
+    if ('0123458'.split('').indexOf(digitoComparacao) !== -1) {
+      segundoResto = mod(base, segundoMultiplicador, 10);
+      segundoDigito = segundoResto === 0 ? 0 : 10 - segundoResto;
+
+      primeiroResto = mod(base + segundoDigito, primeiroMultiplicador, 10);
+      primeiroDigito = primeiroResto === 0 ? 0 : 10 - primeiroResto;
+    } else {
+      segundoResto = mod(base, segundoMultiplicador);
+      segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(segundoResto);
+
+      primeiroResto = mod(base + segundoDigito, primeiroMultiplicador);
+      primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(primeiroResto);
+    }
+
+    return valor === base + primeiroDigito + segundoDigito;
+  },
+
+  ce: function (valor) {
+    if (tamanhoNaoE(valor)) {
+      return false;
+    }
+    return calculoTrivial(valor);
+  },
+
+  df: function (valor) {
+    if (tamanhoNaoE(valor, 13)) {
+      return false;
+    }
+
+    if (naoComecaCom(valor, '07')) {
+      return false;
+    }
+
+    const base = primeiros(valor, 11);
+
+    const primeiro = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+    const segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro));
+
+    return valor === base + primeiro + segundo;
+  },
+
+  es: function (valor) {
+    return calculoTrivial(valor);
+  },
+  go: function (valor) {
     if (tamanhoNaoE(valor)) {
       return false;
     }
 
-    if (naoComecaCom(valor, '24')) {
+    if (['10', '11', '15'].indexOf(valor.substring(0, 2)) === -1) {
       return false;
     }
 
     const base = primeiros(valor);
-    const digito = mod(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
+
+    if (base === '11094402') {
+      return valor.substr(8) === '1' || valor.substr(8) === '0';
+    }
+
+    const resto = mod(base);
+    let digito;
+
+    if (resto === 0) {
+      digito = 0;
+    } else if (resto === 1) {
+      if (entre(base, 10103105, 10119997)) {
+        digito = 1;
+      } else {
+        digito = 0;
+      }
+    } else {
+      digito = 11 - resto;
+    }
 
     return valor === base + digito;
   },
+  ma: function (valor) {
+    if (tamanhoNaoE(valor)) {
+      return false;
+    }
 
-  am: function (valor) {
+    if (naoComecaCom(valor, '12')) {
+      return false;
+    }
+
+    return calculoTrivial(valor);
+  },
+
+  mg: function (valor) {
+    if (tamanhoNaoE(valor, 13)) {
+      return false;
+    }
+
+    const base = primeiros(valor, 11);
+
+    const baseComZero = valor.substring(0, 3) + '0' + valor.substring(3, 11);
+
+    let i = 0;
+    const produtorioLiteral = baseComZero.split('').reduceRight(function (anterior, atual) {
+      if (i > [2, 1].length - 1) {
+        i = 0;
+      }
+
+      return ([2, 1][i++] * parseInt(atual, 10)).toString() + anterior.toString();
+    }, '').split('').reduce(function (anterior, atual) {
+      return anterior + parseInt(atual, 10);
+    }, 0);
+
+    let primeiro = ((Math.floor(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
+    if (primeiro === 10) {
+      primeiro = 0;
+    }
+
+    const segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro, serie(2, 11)));
+
+    return valor === base + primeiro + segundo;
+  },
+
+
+
+  ms: function (valor) {
+    if (naoComecaCom(valor, '28')) {
+      return false;
+    }
+
+    return calculoTrivial(valor);
+  },
+  mt: function (valor) {
+    if (tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) {
+      return false;
+    }
+
+    const base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
+    return calculoTrivial(valor, base, true);
+  },
+  pa: function (valor) {
+    if (tamanhoNaoE(valor)) {
+      return false;
+    }
+
+    if (naoComecaCom(valor, '15')) {
+      return false;
+    }
+
+    return calculoTrivial(valor);
+  },
+
+  pb: function (valor) {
     if (tamanhoNaoE(valor)) {
       return false;
     }
@@ -255,45 +357,19 @@ const funcoes = {
     return calculoTrivial(valor);
   },
 
-  ro: function (valor) {
-    let base, digito, resultadoMod;
+  pe: function (valor) {
+    const base = valor.substring(0, valor.length - 2);
 
-    if (tamanhoE(valor, 9)) {
-      base = valor.substring(3, 8);
-      digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+    const restoPrimeiro = mod(base);
+    const primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
 
-      return valor === valor.substring(0, 3) + base + digito;
-    } else if (tamanhoE(valor, 14)) {
-      base = primeiros(valor, 13);
-      resultadoMod = mod(base);
-      digito = resultadoMod <= 1 ? 1 : 11 - resultadoMod;
+    const restoSegundo = mod(base + primeiro);
+    const segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
 
-      return valor === base + digito;
-    } else {
-      return false;
-    }
-  },
-
-  rj: function (valor) {
-    if (tamanhoNaoE(valor, 8)) {
-      return false;
-    }
-
-    const base = primeiros(valor, 7);
-    const digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base, serie(2, 7)));
-
-    return valor === base + digito;
-  },
-
-  sc: function (valor) {
-    return calculoTrivial(valor);
+    return valor === base + primeiro + segundo;
   },
 
   pi: function (valor) {
-    return calculoTrivial(valor);
-  },
-
-  es: function (valor) {
     return calculoTrivial(valor);
   },
 
@@ -312,65 +388,69 @@ const funcoes = {
 
     return valor === base + primeiro + segundo;
   },
+  rj: function (valor) {
+    if (tamanhoNaoE(valor, 8)) {
+      return false;
+    }
 
-  pa: function (valor) {
+    const base = primeiros(valor, 7);
+    const digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base, serie(2, 7)));
+
+    return valor === base + digito;
+  },
+
+  rn: function (valor) {
+    if (tamanhoNaoE(valor) && tamanhoNaoE(valor, 10)) {
+      return false;
+    }
+
+    if (naoComecaCom(valor, '20')) {
+      return false;
+    }
+
+    const base = valor.substring(0, valor.length - 1);
+
+    const multiplicadores = serie(2, 9);
+    if (tamanhoE(valor, 10)) {
+      multiplicadores.push(10);
+    }
+
+    const resto = (mod(base, multiplicadores) * 10) % 11;
+    const digito = resto === 10 ? 0 : resto;
+
+    return valor === base + digito;
+  },
+  ro: function (valor) {
+    let base, digito, resultadoMod;
+
+    if (tamanhoE(valor, 9)) {
+      base = valor.substring(3, 8);
+      digito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
+
+      return valor === valor.substring(0, 3) + base + digito;
+    } else if (tamanhoE(valor, 14)) {
+      base = primeiros(valor, 13);
+      resultadoMod = mod(base);
+      digito = resultadoMod <= 1 ? 1 : 11 - resultadoMod;
+
+      return valor === base + digito;
+    } else {
+      return false;
+    }
+  },
+  rr: function (valor) {
     if (tamanhoNaoE(valor)) {
       return false;
     }
 
-    if (naoComecaCom(valor, '15')) {
+    if (naoComecaCom(valor, '24')) {
       return false;
     }
 
-    return calculoTrivial(valor);
-  },
+    const base = primeiros(valor);
+    const digito = mod(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
 
-  ce: function (valor) {
-    if (tamanhoNaoE(valor)) {
-      return false;
-    }
-    return calculoTrivial(valor);
-  },
-
-  pe: function (valor) {
-    const base = valor.substring(0, valor.length - 2);
-
-    const restoPrimeiro = mod(base);
-    const primeiro = 11 - restoPrimeiro >= 10 ? 0 : 11 - restoPrimeiro;
-
-    const restoSegundo = mod(base + primeiro);
-    const segundo = 11 - restoSegundo >= 10 ? 0 : 11 - restoSegundo;
-
-    return valor === base + primeiro + segundo;
-  },
-
-  ma: function (valor) {
-    if (tamanhoNaoE(valor)) {
-      return false;
-    }
-
-    if (naoComecaCom(valor, '12')) {
-      return false;
-    }
-
-    return calculoTrivial(valor);
-  },
-
-  ac: function (valor) {
-    if (tamanhoNaoE(valor, 13)) {
-      return false;
-    }
-
-    if (naoComecaCom(valor, '01')) {
-      return false;
-    }
-
-    const base = primeiros(valor, 11);
-
-    const primeiroDigito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
-    const segundoDigito = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiroDigito));
-
-    return valor === base + primeiroDigito + segundoDigito;
+    return valor === base + digito;
   },
 
   rs: function (valor) {
@@ -382,13 +462,16 @@ const funcoes = {
     return calculoTrivial(valor, base, true);
   },
 
-  mt: function (valor) {
-    if (tamanhoNaoE(valor, 11) && tamanhoNaoE(valor)) {
+  sc: function (valor) {
+    return calculoTrivial(valor);
+  },
+
+  se: function (valor) {
+    if (tamanhoNaoE(valor)) {
       return false;
     }
 
-    const base = tamanhoE(valor, 11) ? valor.substring(0, 10) : primeiros(valor);
-    return calculoTrivial(valor, base, true);
+    return calculoTrivial(valor);
   },
 
   sp: function (valor) {
@@ -425,36 +508,6 @@ const funcoes = {
     }
   },
 
-  mg: function (valor) {
-    if (tamanhoNaoE(valor, 13)) {
-      return false;
-    }
-
-    const base = primeiros(valor, 11);
-
-    const baseComZero = valor.substring(0, 3) + '0' + valor.substring(3, 11);
-
-    let i = 0;
-    const produtorioLiteral = baseComZero.split('').reduceRight(function (anterior, atual) {
-      if (i > [2, 1].length - 1) {
-        i = 0;
-      }
-
-      return ([2, 1][i++] * parseInt(atual, 10)).toString() + anterior.toString();
-    }, '').split('').reduce(function (anterior, atual) {
-      return anterior + parseInt(atual, 10);
-    }, 0);
-
-    let primeiro = ((Math.floor(produtorioLiteral / 10) + 1) * 10) - produtorioLiteral;
-    if (primeiro === 10) {
-      primeiro = 0;
-    }
-
-    const segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro, serie(2, 11)));
-
-    return valor === base + primeiro + segundo;
-  },
-
   to: function (valor) {
     if (tamanhoNaoE(valor) && tamanhoNaoE(valor, 11)) {
       return false;
@@ -476,64 +529,6 @@ const funcoes = {
 
     return valor === valor.substring(0, valor.length - 1) + digito;
   },
-
-  go: function (valor) {
-    if (tamanhoNaoE(valor)) {
-      return false;
-    }
-
-    if (['10', '11', '15'].indexOf(valor.substring(0, 2)) === -1) {
-      return false;
-    }
-
-    const base = primeiros(valor);
-
-    if (base === '11094402') {
-      return valor.substr(8) === '1' || valor.substr(8) === '0';
-    }
-
-    const resto = mod(base);
-    let digito;
-
-    if (resto === 0) {
-      digito = 0;
-    } else if (resto === 1) {
-      if (entre(base, 10103105, 10119997)) {
-        digito = 1;
-      } else {
-        digito = 0;
-      }
-    } else {
-      digito = 11 - resto;
-    }
-
-    return valor === base + digito;
-  },
-
-  ms: function (valor) {
-    if (naoComecaCom(valor, '28')) {
-      return false;
-    }
-
-    return calculoTrivial(valor);
-  },
-
-  df: function (valor) {
-    if (tamanhoNaoE(valor, 13)) {
-      return false;
-    }
-
-    if (naoComecaCom(valor, '07')) {
-      return false;
-    }
-
-    const base = primeiros(valor, 11);
-
-    const primeiro = substracaoPor11SeMaiorQue2CasoContrario0(mod(base));
-    const segundo = substracaoPor11SeMaiorQue2CasoContrario0(mod(base + primeiro));
-
-    return valor === base + primeiro + segundo;
-  }
 };
 
 function lookup(ie) {
