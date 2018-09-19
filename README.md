@@ -38,7 +38,9 @@ See the demo working project:
 
 To install this library with npm, run below command:
 
-$ npm install --save ng-brazil angular2-text-mask text-mask-addons
+` npm install --save ng-brazil `
+
+
 
  
 ## Usage
@@ -64,7 +66,12 @@ import { NgBrazil } from 'ng-brazil'
 export class AppModule { }
 ```
 
-If you would like to use masks import module;
+
+#### Using Masks
+
+If you would like to use masks import module, install: 
+
+`npm i -S angular2-text-mask text-mask-addons`
 
 ```ts
 import { TextMaskModule } from 'angular2-text-mask';
@@ -128,6 +135,7 @@ Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
 ```
 
 # Demo
+
 Demo component files are included in Git Project.
 
 Demo Project:
@@ -135,6 +143,7 @@ Demo Project:
 
 Used as reference the pipes/validators from:
 
+* https://github.com/mariohmol/js-brasil
 * https://github.com/yuyang041060120/ng2-validation
 * https://github.com/text-mask/text-mask
 
@@ -144,4 +153,5 @@ Used as reference the pipes/validators from:
 There is some issues to work with, check it out
 
 # License
+
 MIT(./LICENSE)

@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { utils } from 'js-brasil';
+import { utilsBr } from 'js-brasil';
 import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
 
-const MASKS = utils.MASKS;
+const MASKS = utilsBr.MASKS;
 
 export const DATA = {
   cpf: '156.631.881-50',

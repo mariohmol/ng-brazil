@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NgBrazil } from 'ng-brazil';
@@ -22,7 +21,6 @@ export const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     TextMaskModule,
-    HttpModule,
     NgBrazil,
     RouterModule.forRoot(routes)
   ],
