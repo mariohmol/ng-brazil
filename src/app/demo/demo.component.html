@@ -73,7 +73,7 @@ EXAMPLES WITH INPUTS WITH MASK
   <div>
     <h3>Telefone</h3>
     <span>Working example: {{data.telefone}}</span>
-    <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
+    <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
     <span *ngIf="formData.telefone">
       Telefone: {{formData.telefone}}
     </span>

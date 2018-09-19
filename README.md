@@ -121,7 +121,7 @@ export class AppComponent {
 <input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
 <input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> 
 <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
-<input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction(telefone.value)}">
+<input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
 <input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
 ```
 ## Pipes
