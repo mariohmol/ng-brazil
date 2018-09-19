@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { MASKS } from '../../../ng-brazil/src/public_api';
+import { utils } from 'js-brasil';
 import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
+
+const MASKS = utils.MASKS;
 
 export const DATA = {
   cpf: '156.631.881-50',
@@ -157,6 +159,7 @@ export class DemoComponent implements OnInit {
   public form;
   public data = DATA;
   objectKeys = Object.keys;
+  generated = {};
 
   constructor(public fb: FormBuilder) {
     console.log(this.MASKS, MASKS)
@@ -185,6 +188,19 @@ export class DemoComponent implements OnInit {
     this.form = this.fb.group(this.formFields);
 
   }
+
+  // generate(key) {
+  //   if (fakerBr[key]) {
+  //     this.generated[key] = fakerBr[key]();
+  //   }
+  // }
+
+  // generateParam(key, param) {
+  //   if (fakerBr[key] && fakerBr[key][param]) {
+  //     this.generated[key] = fakerBr[key][param]();
+  //   }
+
+  // }
 
   submit() {
     this.formData = this.form.value;

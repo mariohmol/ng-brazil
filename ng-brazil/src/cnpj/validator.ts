@@ -1,12 +1,11 @@
 import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
-
-import { isPresent, validate_cnpj } from '../core/utils';
+import { utilsBr, validateBr } from 'js-brasil';
 
 export const cnpj: ValidatorFn = (control: AbstractControl): {[key: string]: boolean} => {
-  if (isPresent(Validators.required(control))) {
+  if (utilsBr.isPresent(Validators.required(control))) {
     return null;
   }
 
   const v: string = control.value;
-  return validate_cnpj(v) ? null : {cnpj: true};
+  return validateBr.cnpj(v) ? null : {cnpj: true};
 }

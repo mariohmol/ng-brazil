@@ -1,20 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { conformToMask } from 'angular2-text-mask';
-import { validate_cpf, MASKS } from '../core/utils';
+import { maskBr } from 'js-brasil';
 
 @Pipe({
     name: 'cep',
 })
 export class CEPPipe implements PipeTransform {
     transform(cepValue: any) {
-        if (!cepValue) {
-            return '';
-        }
-
-        return conformToMask(
-            cepValue,
-            MASKS.cep.textMask,
-            { guide: false }
-        ).conformedValue;
+        return maskBr.cep(cepValue);
     }
 }

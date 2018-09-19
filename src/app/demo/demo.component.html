@@ -20,6 +20,8 @@ EXAMPLES WITH INPUTS WITH MASK
         {{v}} {{formDataValidate.cpf[v]}}
       </span>
     </p>
+    <button (click)="generate('cpf')">Generate CPF</button>
+    <p *ngIf="generated.cpf">{{generated.cpf}}</p>
   </div>
 
   <div>

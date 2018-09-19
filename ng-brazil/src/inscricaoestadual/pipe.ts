@@ -1,20 +1,11 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { conformToMask } from 'angular2-text-mask';
-import { MASKS } from '../core/utils';
+import { maskBr } from 'js-brasil';
 
 @Pipe({
-    name: 'inscricaoestadual',
+  name: 'inscricaoestadual',
 })
 export class InscricaoEstadualPipe implements PipeTransform {
-    transform(inscricaoestadualValue: any, estado: any) {
-        if (!inscricaoestadualValue || !estado || !MASKS.inscricaoestadual[estado] || !MASKS.inscricaoestadual[estado].textMask) {
-            return '';
-        }
-
-        return conformToMask(
-            inscricaoestadualValue,
-            MASKS.inscricaoestadual[estado].textMask,
-            { guide: false }
-        ).conformedValue;
-    }
+  transform(inscricaoestadualValue: any, estado: any) {
+    return maskBr.inscricaoestadual(inscricaoestadualValue, estado);
+  }
 }

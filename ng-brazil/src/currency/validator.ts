@@ -1,12 +1,11 @@
 import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
-
-import { isPresent, validate_currency } from '../core/utils';
+import { utilsBr, validateBr } from 'js-brasil';
 
 export const currency: ValidatorFn = (control: AbstractControl): { [key: string]: boolean } => {
-  if (isPresent(Validators.required(control))) {
+  if (utilsBr.isPresent(Validators.required(control))) {
     return null;
   }
 
   const v: string = control.value;
-  return validate_currency(v) ? null : { currency: true };
+  return validateBr.currency(v) ? null : { currency: true };
 }

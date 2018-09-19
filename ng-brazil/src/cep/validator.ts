@@ -1,12 +1,11 @@
 import { AbstractControl, Validators, ValidatorFn } from '@angular/forms';
+import { utilsBr, validateBr } from 'js-brasil';
 
-import { isPresent, valida_cep } from '../core/utils';
-
-export const cep: ValidatorFn = (control: AbstractControl): {[key: string]: boolean} => {
-  if (isPresent(Validators.required(control))) {
+export const cep: ValidatorFn = (control: AbstractControl): { [key: string]: boolean } => {
+  if (utilsBr.isPresent(Validators.required(control))) {
     return null;
   }
 
   const v: string = control.value;
-  return valida_cep(v) ? null : {cep: true};
+  return validateBr.cep(v) ? null : { cep: true };
 }

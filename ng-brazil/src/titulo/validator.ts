@@ -1,12 +1,11 @@
 import { AbstractControl, Validators, ValidatorFn, RequiredValidator } from '@angular/forms';
-
-import { isPresent, validate_titulo } from '../core/utils';
+import { utilsBr, validateBr } from 'js-brasil';
 
 export const titulo: ValidatorFn = (control: AbstractControl): {[key: string]: boolean} => {
-    if (isPresent(Validators.required(control))) {
+    if (utilsBr.isPresent(Validators.required(control))) {
         return null;
     }
 
     const v: string = control.value;
-    return validate_titulo(v) ? null : {titulo: true};
+    return validateBr.titulo(v) ? null : {titulo: true};
 }

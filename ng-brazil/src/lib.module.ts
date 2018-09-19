@@ -97,10 +97,13 @@ const CustomDirectives = [
     CustomDirectives
   ]
 })
-export class NgBrazil {
+class NgBrazil {
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: NgBrazil
     };
   }
+}
+export {
+  NgBrazil
 }
