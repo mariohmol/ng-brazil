@@ -71,7 +71,7 @@ Then setup your component models as below :
 
 ```ts
 import { Component, ViewChild } from '@angular/core';
-import { MASKS } from 'ng-brazil';
+import { utilsBr } from 'js-brasil';
 
 @Component({
   selector: 'app-root',
@@ -79,7 +79,7 @@ import { MASKS } from 'ng-brazil';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public MASKS = MASKS;
+  public MASKS = utilsBr.MASKS;
   
   constructor() { 
     this.formFields = {
