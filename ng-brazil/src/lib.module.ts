@@ -13,6 +13,10 @@ import { telefone } from './telefone/validator';
 import { TelefoneValidator } from './telefone/directive';
 import { TelefonePipe } from './telefone/pipe';
 
+import { celular } from './celular/validator';
+import { CelularValidator } from './celular/directive';
+import { CelularPipe } from './celular/pipe';
+
 import { inscricaoestadual } from './inscricaoestadual/validator';
 import { InscricaoEstadualValidator } from './inscricaoestadual/directive';
 import { InscricaoEstadualPipe } from './inscricaoestadual/pipe';
@@ -50,6 +54,7 @@ export const NgBrazilValidators: any = {
   cnpj,
   rg,
   telefone,
+  celular,
   inscricaoestadual,
   cep,
   currency,
@@ -70,6 +75,8 @@ const CustomDirectives = [
   InscricaoEstadualPipe,
   TelefoneValidator,
   TelefonePipe,
+  CelularValidator,
+  CelularPipe,
   CEPValidator,
   CEPPipe,
   CURRENCYValidator,
