@@ -48,6 +48,7 @@ import { PLACAPipe } from './placa/pipe';
 import { titulo } from './titulo/validator';
 import { TITULOValidator } from './titulo/directive';
 import { TITULOPipe } from './titulo/pipe';
+import { utilsBr } from 'js-brasil';
 
 export const NgBrazilValidators: any = {
   cpf,
@@ -64,6 +65,7 @@ export const NgBrazilValidators: any = {
   titulo
 }
 
+export const MASKS = utilsBr.MASKS;
 const CustomDirectives = [
   CPFValidator,
   CPFPipe,
