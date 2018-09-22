@@ -51,7 +51,7 @@ describe('ng-packaged App', () => {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to Angular Brazil');
+    expect(page.getParagraphText()).toEqual('Welcome to Angular Brazil (ng-brazil)');
   });
 
   it('should pipe datatypes correctly', () => {
