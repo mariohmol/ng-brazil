@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -10,7 +10,7 @@
     "build:app": "mkdir src/ng-brazil && cpr dist/ng-brazil src/ng-brazil && ng build --app packages",
     "build:fullapp": "mkdir src/ng-brazil && cpr dist/ng-brazil src/ng-brazil && ng build --app packages && rimraf src/ng-brazil",
     "build:lib": "rimraf dist && ng-packagr -p ng-brazil/package.json",
-    "publish": "npm run build:lib && cd dist/ng-brazil && npm publish",
+    "publish-npm": "npm run build:lib && cd dist/ng-brazil && npm publish",
     "test": "npm run build:lib && npm run e2e",
     "testdemo": "ng test",
     "lint": "ng lint",
@@ -28,7 +28,7 @@
     "@angular/router": "^6.0.9",
     "angular2-text-mask": "^8.0.4",
     "core-js": "^2.4.1",
-    "js-brasil": "^1.0.8",
+    "js-brasil": "^1.1.0",
     "rxjs": "^6.2.2",
     "text-mask-addons": "^3.7.2",
     "webpack": "^3.11.0",
