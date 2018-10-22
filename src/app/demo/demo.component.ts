@@ -158,11 +158,17 @@ export class DemoComponent implements OnInit {
   public formDataValidate: any = {};
   public form;
   public data = DATA;
-  objectKeys = Object.keys;
   generated = {};
 
   constructor(public fb: FormBuilder) {
     console.log(this.MASKS, MASKS)
+  }
+
+  objectKeys(k) {
+    if (!k) {
+      return
+    }
+    return Object.keys(k);
   }
 
   ngOnInit() {

@@ -14,7 +14,7 @@ EXAMPLES WITH INPUTS WITH MASK
     <span *ngIf="formData.cpf">
       CPF: {{formData.cpf}}
     </span>
-    <p *ngIf="formDataValidate.cpf">
+    <p>
       Errors Found:
       <span id="mask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
         {{v}} {{formDataValidate.cpf[v]}}
@@ -31,10 +31,12 @@ EXAMPLES WITH INPUTS WITH MASK
     <span *ngIf="formData.cnpj">
       CNPJ: {{formData.cnpj}}
     </span>
-    <p *ngIf="formDataValidate.cnpj">
+    <p>
       Errors Found:
-      <span id="mask-cnpj-error" *ngFor="let v of objectKeys(formDataValidate.cnpj)">
-        {{formDataValidate.cnpj[v]}}
+      <span id="mask-cnpj-error">
+        <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+          {{formDataValidate.cnpj[v]}}
+        </span>
       </span>
     </p>
   </div>
@@ -46,8 +48,10 @@ EXAMPLES WITH INPUTS WITH MASK
     </span>
     <p *ngIf="formDataValidate.rg">
       Errors Found:
-      <span id="mask-rg-error" *ngFor="let v of objectKeys(formDataValidate.rg)">
-        {{formDataValidate.rg[v]}}
+      <span id="mask-rg-error">
+        <span *ngFor="let v of objectKeys(formDataValidate.rg)">
+          {{formDataValidate.rg[v]}}
+        </span>
       </span>
     </p>
   </div>
