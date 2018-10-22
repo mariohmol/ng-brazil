@@ -3,7 +3,7 @@
 
 Contains pipes / directives / validators / mask for brazillian like apps
 
-[![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil)
+<!-- [![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil) -->
 
 Supports: Angular2 , Angular4, Angular5, Angular6
 
