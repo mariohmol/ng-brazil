@@ -11,7 +11,7 @@
     "build:fullapp": "cpr dist/ng-brazil src/ng-brazil && ng build --app packages && rimraf src/ng-brazil",
     "build:lib": "rimraf dist && ng-packagr -p ng-brazil/package.json",
     "publish-npm": "npm run build:lib && cd dist/ng-brazil && npm publish",
-    "test": "npm run build && npm run build:fullapp && npm run e2e",
+    "test": "npm run build:lib && npm run build:fullapp && npm run e2e",
     "testdemo": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
