@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "baseUrl": "../node_modules",
+    "baseUrl": "src",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -22,5 +22,8 @@
   },
   "exclude": [
     ".ng_build"
+  ],
+  "files": [
+    "../src/app/app.module.ts"
   ]
 }
