@@ -22,8 +22,5 @@
   },
   "exclude": [
     ".ng_build"
-  ],
-  "files": [
-    "../src/app/app.module.ts"
-  ]
+  ] 
 }
