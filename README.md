@@ -5,7 +5,7 @@ Contains pipes / directives / validators / mask for brazillian like apps
 
 <!-- [![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil) -->
 
-Supports: Angular2 , Angular4, Angular5, Angular6
+Supports: Angular2 , Angular4, Angular5, Angular6, Angular7
 
 ## Live example:  
 
@@ -13,7 +13,7 @@ Supports: Angular2 , Angular4, Angular5, Angular6
 
 This project was tested integrated with the following techs:
 
-* angular6
+* angular7
 * angular-material
 * ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask works)
 
@@ -151,6 +151,14 @@ Used as reference the pipes/validators from:
 # TODO
 
 There is some issues to work with, check it out
+
+## Collaborate
+
+Fork this project and ...
+
+* npm i
+* npm run build:lib
+* npm run start
 
 # License
 

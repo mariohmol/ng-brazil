@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "importHelpers": true,
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
     "sourceMap": true,
@@ -17,10 +18,13 @@
       "dom"
     ],
     "paths": {
-      "ng-brazil": [ "dist/ng-brazil" ]
-    }
+      "ng-brazil": [
+        "dist/ng-brazil"
+      ]
+    },
+    "module": "es2015"
   },
   "exclude": [
     ".ng_build"
-  ] 
+  ]
 }

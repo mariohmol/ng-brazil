@@ -1,4 +1,4 @@
-<form [formGroup]="form" *ngIf="form" (submit)="submit()">
+<form [formGroup]="form" *ngIf="form" (submit)="submit(form)">
 
   <!--
 
@@ -10,7 +10,7 @@ EXAMPLES WITH INPUTS WITH MASK
   <div>
     <h3>CPF</h3>
     <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working
-    example http://geradorcpf.com/
+    example http://www.geradorbrasileiro.com/cpf.html
     <span *ngIf="formData.cpf">
       CPF: {{formData.cpf}}
     </span>
@@ -20,14 +20,14 @@ EXAMPLES WITH INPUTS WITH MASK
         {{v}} {{formDataValidate.cpf[v]}}
       </span>
     </p>
-    <button (click)="generate('cpf')">Generate CPF</button>
+    <button type="button" (click)="generate('cpf')">Generate CPF</button>
     <p *ngIf="generated.cpf">{{generated.cpf}}</p>
   </div>
 
   <div>
     <h3>CNPJ</h3>
     <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working
-    example http://www.geradorcnpj.com/
+    example http://www.geradorbrasileiro.com/cnpj.html
     <span *ngIf="formData.cnpj">
       CNPJ: {{formData.cnpj}}
     </span>
@@ -165,37 +165,35 @@ EXAMPLES WITH INPUTS WITH MASK
 <hr />
 <br />
 <!--
-
-
 EXAMPLES WITH PIPES IN VALUES FROM DATABASE
-
 -->
-<h3>Pipes</h3>
+<section>
+  <h3>Pipes</h3>
 
-CPF: From {{DATARAW.cpf}} to
-<span id="pipe-cpf">{{DATARAW.cpf | cpf}}</span>
-<br /> CNPJ: From {{DATARAW.cnpj}} to
-<span id="pipe-cnpj">{{DATARAW.cnpj | cnpj}}</span>
-<br /> RG: From {{DATARAW.rg}} to
-<span id="pipe-rg">{{DATARAW.rg | rg}}</span>
-<br /> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
-<span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
-<br /> Telefone: From {{DATARAW.telefone}} to
-<span id="pipe-telefone">{{DATARAW.telefone | telefone}}</span>
-<br /> CEP: From {{DATARAW.cep}} to
-<span id="pipe-cep">{{DATARAW.cep | cep}}</span>
-<br /> Currency (Dinheiro): From {{DATARAW.currency}} to
-<span id="pipe-currency">{{DATARAW.currency | currency}}</span>
-<br /> Time: From {{DATARAW.time}} to
-<span id="pipe-time">{{DATARAW.time | time}}</span>
-<br /> Placa: From {{DATARAW.placa}} to
-<span id="pipe-placa">{{DATARAW.placa | placa}}</span>
-<br /> Titulo: From {{DATARAW.titulo}} to
-<span id="pipe-titulo">{{DATARAW.titulo | titulo}}</span>
+  CPF: From {{DATARAW.cpf}} to
+  <span id="pipe-cpf">{{DATARAW.cpf | cpf}}</span>
+  <br /> CNPJ: From {{DATARAW.cnpj}} to
+  <span id="pipe-cnpj">{{DATARAW.cnpj | cnpj}}</span>
+  <br /> RG: From {{DATARAW.rg}} to
+  <span id="pipe-rg">{{DATARAW.rg | rg}}</span>
+  <br /> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
+  <span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
+  <br /> Telefone: From {{DATARAW.telefone}} to
+  <span id="pipe-telefone">{{DATARAW.telefone | telefone}}</span>
+  <br /> CEP: From {{DATARAW.cep}} to
+  <span id="pipe-cep">{{DATARAW.cep | cep}}</span>
+  <br /> Currency (Dinheiro): From {{DATARAW.currency}} to
+  <span id="pipe-currency">{{DATARAW.currency | currency}}</span>
+  <br /> Time: From {{DATARAW.time}} to
+  <span id="pipe-time">{{DATARAW.time | time}}</span>
+  <br /> Placa: From {{DATARAW.placa}} to
+  <span id="pipe-placa">{{DATARAW.placa | placa}}</span>
+  <br /> Titulo: From {{DATARAW.titulo}} to
+  <span id="pipe-titulo">{{DATARAW.titulo | titulo}}</span>
 
 
-<br />
-
+  <br />
+</section>
 
 
 <br />
@@ -203,20 +201,15 @@ CPF: From {{DATARAW.cpf}} to
 <br />
 
 <!--
-
-
 EXAMPLES WITH INPUTS WITHOU MASK
-
 -->
-<h3>Without Mask</h3>
-
-
-<form [formGroup]="form" *ngIf="form" (submit)="submit()">
-
+<form [formGroup]="formNoMask" *ngIf="formNoMask" (submit)="submit(formNoMask)">
+  <h3>Without Mask</h3>
   <h2>Directives, Validations and Masks</h2>
   <div>
     <h3>CPF</h3>
-    <input id="nomask-cpf" type="text" formControlName="cpf" cpf> Get working example http://geradorcpf.com/
+    <input id="nomask-cpf" type="text" formControlName="cpf" cpf> Get working example
+    http://www.geradorbrasileiro.com/cpf.html
     <span>
       CPF: {{formData.cpf}}
     </span>
@@ -231,7 +224,8 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
   <div>
     <h3>CNPJ</h3>
-    <input id="nomask-cnpj" type="text" formControlName="cnpj" cnpj> Get working example http://www.geradorcnpj.com/
+    <input id="nomask-cnpj" type="text" formControlName="cnpj" cnpj> Get working example
+    http://www.geradorbrasileiro.com/cnpj.html
     <span>
       CNPJ: {{formData.cnpj}}
     </span>

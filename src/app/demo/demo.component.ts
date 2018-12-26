@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { utilsBr } from 'js-brasil';
+import { utilsBr, fakerBr } from 'js-brasil';
 import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
 
 const MASKS = utilsBr.MASKS;
@@ -157,6 +157,7 @@ export class DemoComponent implements OnInit {
   public formData: any = {};
   public formDataValidate: any = {};
   public form;
+  public formNoMask;
   public data = DATA;
   generated = {};
 
@@ -192,14 +193,14 @@ export class DemoComponent implements OnInit {
       titulo: ['', [<any>Validators.required, <any>NgBrazilValidators.titulo]]
     };
     this.form = this.fb.group(this.formFields);
-
+    this.formNoMask = this.fb.group(this.formFields);
   }
 
-  // generate(key) {
-  //   if (fakerBr[key]) {
-  //     this.generated[key] = fakerBr[key]();
-  //   }
-  // }
+  generate(key) {
+    if (fakerBr[key]) {
+      this.generated[key] = fakerBr[key]();
+    }
+  }
 
   // generateParam(key, param) {
   //   if (fakerBr[key] && fakerBr[key][param]) {
@@ -208,15 +209,15 @@ export class DemoComponent implements OnInit {
 
   // }
 
-  submit() {
-    this.formData = this.form.value;
-    console.log(this.form.valid);
-    console.log(this.form.errors);
-    for (const c in this.form.controls) {
+  submit(form) {
+    this.formData = form.value;
+    console.log(form.valid);
+    console.log(form.errors);
+    for (const c in form.controls) {
       if (!c) {
         continue;
       }
-      const control = this.form.controls[c];
+      const control = form.controls[c];
       console.log(c, control.errors)
       this.formDataValidate[c] = control.errors;
     }

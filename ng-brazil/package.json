@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.7.8",
+  "version": "0.7.9",
   "license": "MIT",
   "homepage": "https://github.com/mariohmol/ng-brazil",
   "repository": {
@@ -15,8 +15,8 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/core": ">=4.0.0 <7.0.0",
-    "@angular/common": ">=4.0.0 <7.0.0",
+    "@angular/core": ">=4.0.0 <8.0.0",
+    "@angular/common": ">=4.0.0 <8.0.0",
     "js-brasil": ">=1.1.8"
   },
   "ngPackage": {
