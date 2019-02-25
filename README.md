@@ -38,7 +38,7 @@ See the demo working project:
 
 To install this library with npm, run below command:
 
-` npm install --save ng-brazil `
+` npm install --save ng-brazil js-brasil`
 
 
 
