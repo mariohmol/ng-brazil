@@ -41,6 +41,7 @@ export const DATA = {
     to: '11 81 4878119',
   },
   currency: 'R$ 1.234,56',
+  number: '1.234,56',
   time: '06:33',
   placa: 'ADJ-5468',
   titulo: '2053.9588.0384'
@@ -91,6 +92,7 @@ export const DATARAW = {
     to: '11814878119'
   },
   currency: '1234,56',
+  number: '1234,56',
   time: '0633',
   placa: 'ADJ5468',
   titulo: '205395880384'
@@ -133,6 +135,7 @@ export const DATAERROR = {
     to: '118148781196'
   },
   currency: 'R$1000.10',
+  number: '1000.10',
   time: '0633',
   placa: 'AEJ123',
   titulo: '205395880384'
@@ -188,6 +191,7 @@ export class DemoComponent implements OnInit {
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
       cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
       currency: ['', [<any>Validators.required, <any>NgBrazilValidators.currency]],
+      number: ['', [<any>Validators.required, <any>NgBrazilValidators.number]],
       time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]],
       placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]],
       titulo: ['', [<any>Validators.required, <any>NgBrazilValidators.titulo]]

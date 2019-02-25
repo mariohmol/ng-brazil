@@ -49,6 +49,9 @@ import { titulo } from './titulo/validator';
 import { TITULOValidator } from './titulo/directive';
 import { TITULOPipe } from './titulo/pipe';
 import { utilsBr } from 'js-brasil';
+import { number } from './number/validator';
+import { NUMBERValidator } from './number/directive';
+import { NUMBERPipe } from './number/pipe';
 
 export const NgBrazilValidators: any = {
   cpf,
@@ -59,6 +62,7 @@ export const NgBrazilValidators: any = {
   inscricaoestadual,
   cep,
   currency,
+  number,
   percentage,
   time,
   placa,
@@ -83,6 +87,8 @@ const CustomDirectives = [
   CEPPipe,
   CURRENCYValidator,
   CURRENCYPipe,
+  NUMBERValidator,
+  NUMBERPipe,
   PERCENTAGEValidator,
   PERCENTAGEPipe,
   TIMEValidator,

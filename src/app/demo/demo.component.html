@@ -158,6 +158,22 @@ EXAMPLES WITH INPUTS WITH MASK
       </span>
     </p>
   </div>
+
+
+  <div>
+    <h3>Número</h3>
+    <span>Working example: {{data.number}}</span>
+    <input id="mask-number" type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
+    <span *ngIf="formData.number">
+      Número: {{formData.number}}
+    </span>
+    <p *ngIf="formDataValidate.number">
+      Errors Found:
+      <span id="mask-number-error" *ngFor="let v of objectKeys(formDataValidate.number)">
+        {{v}} {{formDataValidate.number[v]}}
+      </span>
+    </p>
+  </div>
   <button>Submit For to See Validations</button>
 </form>
 

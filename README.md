@@ -23,10 +23,16 @@ Modules:
 * CNPJ
 * RG
 * Inscrição Estadual
-* Telefone
+* Telefone e Celular
 * CEP
 * Currency (Dinheiro)
 * Time (horas e minutos)
+* Number (numero e ponto decimal)
+* Placa de Carro
+* Renavam
+* Título de Eleitor
+* Proceso Jurídico
+
 
 See the demo working project:
 
@@ -123,6 +129,8 @@ export class AppComponent {
 <input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
 <input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
 <input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+
+<input type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
 ```
 ## Pipes
 
