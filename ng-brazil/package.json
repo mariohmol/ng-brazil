@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "0.7.9",
+  "version": "0.7.10",
   "license": "MIT",
   "homepage": "https://github.com/mariohmol/ng-brazil",
   "repository": {
@@ -16,16 +16,20 @@
   ],
   "peerDependencies": {
     "@angular/core": ">=4.0.0 <8.0.0",
-    "@angular/common": ">=4.0.0 <8.0.0",
+    "@angular/common": ">=4.0.0 <8.0.0"
+  },
+  "dependencies": {
     "js-brasil": ">=1.1.8"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-    "dest": "dist/ng-brazil",
     "workingDirectory": "../.ng_build",
     "lib": {
       "entryFile": "src/public_api.ts"
     },
-    "dest": "../dist/ng-brazil"
+    "dest": "../dist/ng-brazil",
+    "whitelistedNonPeerDependencies": [
+      "js-brasil"
+    ]
   }
 }
