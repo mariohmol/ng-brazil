@@ -33,6 +33,10 @@ import { currency } from './currency/validator';
 import { CURRENCYValidator } from './currency/directive';
 import { CURRENCYPipe } from './currency/pipe';
 
+import { number } from './number/validator';
+import { NUMBERValidator } from './number/directive';
+import { NUMBERPipe } from './number/pipe';
+
 import { percentage } from './percentage/validator';
 import { PERCENTAGEValidator } from './percentage/directive';
 import { PERCENTAGEPipe } from './percentage/pipe';
@@ -49,9 +53,7 @@ import { titulo } from './titulo/validator';
 import { TITULOValidator } from './titulo/directive';
 import { TITULOPipe } from './titulo/pipe';
 import { utilsBr } from 'js-brasil';
-import { number } from './number/validator';
-import { NUMBERValidator } from './number/directive';
-import { NUMBERPipe } from './number/pipe';
+
 
 export const NgBrazilValidators: any = {
   cpf,
