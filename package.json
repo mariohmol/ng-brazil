@@ -8,7 +8,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:app": "npm run copy && ng build packages",
-    "build:fullapp": "npm run copy && ng build packages && rimraf src/ng-brazil",
+    "build:fullapp": "npm run build:app && rimraf src/ng-brazil",
     "build:lib": "rimraf dist && ng-packagr -p ng-brazil/package.json",
     "publish-npm": "npm run build:lib && cd dist/ng-brazil && npm publish",
     "test": "npm run build:lib && npm run build:fullapp && npm run e2e",
