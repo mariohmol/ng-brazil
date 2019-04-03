@@ -15,7 +15,7 @@
     "copy": "mkdir -p src/ng-brazil/ && cp -R dist/ng-brazil/* src/ng-brazil",
     "testdemo": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e --port 0",
     "kill": "kill $(lsof -t -i:4200)"
   },
   "dependencies": {
