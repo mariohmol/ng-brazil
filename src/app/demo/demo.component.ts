@@ -92,6 +92,7 @@ export const DATARAW = {
     to: '11814878119'
   },
   currency: '1234,56',
+  currencyNumber: 1234.56,
   number: '1234,56',
   time: '0633',
   placa: 'ADJ5468',
@@ -154,7 +155,7 @@ export class DemoComponent implements OnInit {
     'mg', 'ms', 'mt', 'pa', 'pb', 'pe', 'pi', 'pr', 'rj', 'rn', 'ro', 'rr', 'rs',
     'sc', 'se', 'sp', 'to'
   ];
-
+  public currencyNumber = 1234.56;
 
   public formFields;
   public formData: any = {};
@@ -191,6 +192,7 @@ export class DemoComponent implements OnInit {
       telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
       cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
       currency: ['', [<any>Validators.required, <any>NgBrazilValidators.currency]],
+      currencyNumber: [0, [<any>Validators.required, <any>NgBrazilValidators.currency]],
       number: ['', [<any>Validators.required, <any>NgBrazilValidators.number]],
       time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]],
       placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]],
@@ -198,6 +200,16 @@ export class DemoComponent implements OnInit {
     };
     this.form = this.fb.group(this.formFields);
     this.formNoMask = this.fb.group(this.formFields);
+
+    const {
+      cpf, cnpj, cep, rg, telefone,
+      currency, currencyNumber, number, time, placa, titulo,
+    } = DATARAW;
+
+    this.form.patchValue({
+      cpf, cnpj, cep, rg, telefone,
+      currency, currencyNumber, number, time, placa, titulo,
+    })
   }
 
   generate(key) {
@@ -231,4 +243,5 @@ export class DemoComponent implements OnInit {
     const val = e.target.value;
     this.estado = val;
   }
+
 }

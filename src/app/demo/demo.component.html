@@ -77,7 +77,8 @@ EXAMPLES WITH INPUTS WITH MASK
   <div>
     <h3>Telefone</h3>
     <span>Working example: {{data.telefone}}</span>
-    <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
+    <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone
+      [textMask]="{mask: MASKS.telefone.textMaskFunction}">
     <span *ngIf="formData.telefone">
       Telefone: {{formData.telefone}}
     </span>
@@ -105,7 +106,12 @@ EXAMPLES WITH INPUTS WITH MASK
   <div>
     <h3>CURRENCY</h3>
     <span>Working example: {{data.currency}}</span>
-    <input id="mask-currency" type="text" formControlName="currency" currency [textMask]="{mask: MASKS.currency.textMask}">
+    <input id="mask-currency" type="text" formControlName="currency" currency
+      [textMask]="{mask: MASKS.currency.textMask}">
+
+
+
+    <br />
     <span *ngIf="formData.currency">
       CURRENCY: {{formData.currency}}
     </span>
@@ -388,3 +394,13 @@ EXAMPLES WITH INPUTS WITHOU MASK
 
   <button id="submit">Submit</button>
 </form>
+
+<div>
+  <h2>Without a FORM</h2>
+
+  <br />
+  With ngModel initial value:
+  <input id="mask-currencyNumber" type="text" currency [textMask]="{mask: MASKS.currency.textMask}"
+  (ngModelChange)="currencyNumber = $event" [ngModel]="MASKS.utils.numberToString(currencyNumber)">
+
+</div>
