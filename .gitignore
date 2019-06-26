@@ -60,3 +60,4 @@ typings/
 dist/
 .ng_build/
 src/ng-brazil
+package-lock.json
