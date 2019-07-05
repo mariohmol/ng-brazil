@@ -61,3 +61,4 @@ dist/
 .ng_build/
 src/ng-brazil
 package-lock.json
+yarn.lock
