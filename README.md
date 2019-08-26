@@ -142,6 +142,23 @@ Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadua
 Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
 ```
 
+```ts
+import { Component, ViewChild } from '@angular/core';
+import { NgBrDirectives } from 'ng-brazil';
+
+@Component({
+  selector: 'app-root',
+  template: '<input type="text" [cpf]>',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  inscricaoestadual() {
+    const {InscricaoEstadualPipe} = NgBrDirectives;
+    return new InscricaoEstadualPipe()
+      .transform('625085487072', 'sp');
+  }
+}
+```
 # Demo
 
 Demo component files are included in Git Project.

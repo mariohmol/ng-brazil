@@ -72,7 +72,7 @@ export const NgBrazilValidators: any = {
 }
 
 export const MASKS = utilsBr.MASKS;
-const CustomDirectives = [
+export const CustomDirectives = [
   CPFValidator,
   CPFPipe,
   CNPJValidator,
@@ -100,6 +100,35 @@ const CustomDirectives = [
   TITULOValidator,
   TITULOPipe
 ];
+
+export const NgBrDirectives = {
+  CPFValidator,
+  CPFPipe,
+  CNPJValidator,
+  CNPJPipe,
+  RGValidator,
+  RGPipe,
+  InscricaoEstadualValidator,
+  InscricaoEstadualPipe,
+  TelefoneValidator,
+  TelefonePipe,
+  CelularValidator,
+  CelularPipe,
+  CEPValidator,
+  CEPPipe,
+  CURRENCYValidator,
+  CURRENCYPipe,
+  NUMBERValidator,
+  NUMBERPipe,
+  PERCENTAGEValidator,
+  PERCENTAGEPipe,
+  TIMEValidator,
+  TIMEPipe,
+  PLACAValidator,
+  PLACAPipe,
+  TITULOValidator,
+  TITULOPipe
+};
 
 @NgModule({
   imports: [

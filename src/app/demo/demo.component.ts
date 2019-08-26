@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { utilsBr, fakerBr } from 'js-brasil';
-import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
+import { NgBrazilValidators, NgBrDirectives } from '../../../ng-brazil/src/lib.module';
 
 const MASKS = utilsBr.MASKS;
 
@@ -242,6 +242,10 @@ export class DemoComponent implements OnInit {
   changeState(e) {
     const val = e.target.value;
     this.estado = val;
+  }
+
+  inscricaoestadual() {
+    return new NgBrDirectives.InscricaoEstadualPipe().transform('625085487072', 'sp');
   }
 
 }
