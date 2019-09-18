@@ -42,7 +42,7 @@ See the demo working project:
 
 ## Installation
 
-To install this library with npm, run below command:
+To install this library with npm, run:
 
 ` npm install --save ng-brazil js-brasil`
 
@@ -75,9 +75,12 @@ export class AppModule { }
 
 #### Using Masks
 
-If you would like to use masks import module, install: 
+If you would like to use masks install the module: 
 
 `npm i -S angular2-text-mask text-mask-addons`
+
+
+And import to your main app:
 
 ```ts
 import { TextMaskModule } from 'angular2-text-mask';
@@ -90,7 +93,7 @@ imports: [
 ```
 
 
-Then setup your component models as below :
+Then setup your component:
 
 ```ts
 import { Component, ViewChild } from '@angular/core';
@@ -167,7 +170,7 @@ Demo component files are included in Git Project.
 Demo Project:
 [https://github.com/mariohmol/ng-brazil/tree/master/src/app/demo)
 
-Used as reference the pipes/validators from:
+Reference projects:
 
 * https://github.com/mariohmol/js-brasil
 * https://github.com/yuyang041060120/ng2-validation
