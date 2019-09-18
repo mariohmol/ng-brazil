@@ -143,7 +143,7 @@ CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}} <br/>
 RG: From MG10111222 to {{'MG10111222' | rg}} <br/>
 Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
 Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
-Telefone: From 123.23 to {{'123.23' | numberBrazil}} <br/>
+Number: From 123.23 to {{'123.23' | numberBrazil}} <br/>
 ```
 
 ```ts
