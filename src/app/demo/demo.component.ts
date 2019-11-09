@@ -9,8 +9,7 @@ export const DATA = {
   cpf: '156.631.881-50',
   cnpj: '40.841.253/0001-02',
   cep: '31.234-567',
-  rg: 'MG-10.123.456',
-  telefone: '(31) 99999-9998',
+  currency: 'R$ 1.234,56',
   inscricaoestadual: {
     ac: '01.004.823/001-12',
     al: '240000048',
@@ -40,10 +39,13 @@ export const DATA = {
     sp: '114.814.878.119',
     to: '11 81 4878119',
   },
-  currency: 'R$ 1.234,56',
   number: '1.234,56',
-  time: '06:33',
+  pispasep: '123.12345.12-1',
   placa: 'ADJ-5468',
+  renavam: '3769955358-9',
+  rg: 'MG-10.123.456',
+  telefone: '(31) 99999-9998',
+  time: '06:33',
   titulo: '2053.9588.0384'
 }
 
@@ -60,8 +62,9 @@ export const DATARAW = {
   cpf: '15663188150',
   cnpj: '40841253000102',
   cep: '31234567',
-  rg: 'MG10123456',
-  telefone: '3199999998',
+  currency: '1234,56',
+  currencyNumber: 1234.56,
+  number: '1234,56',
   inscricaoestadual: {
     ac: '0100482300112',
     al: '240000048',
@@ -91,11 +94,12 @@ export const DATARAW = {
     sp: '114814878119',
     to: '11814878119'
   },
-  currency: '1234,56',
-  currencyNumber: 1234.56,
-  number: '1234,56',
-  time: '0633',
+  pispasep: '12312345121',
   placa: 'ADJ5468',
+  renavam: '37699553589',
+  rg: 'MG10123456',
+  telefone: '3199999998',
+  time: '0633',
   titulo: '205395880384'
 }
 
@@ -104,8 +108,7 @@ export const DATAERROR = {
   cpf: '15663188151',
   cnpj: '40841253000101',
   cep: '3123456',
-  rg: 'MG1012345',
-  telefone: '319999999',
+  currency: 'R$1000.10',
   inscricaoestadual: {
     ac: '01004823001126',
     al: '2400000486',
@@ -135,10 +138,13 @@ export const DATAERROR = {
     sp: '1148148781196',
     to: '118148781196'
   },
-  currency: 'R$1000.10',
   number: '1000.10',
-  time: '0633',
+  pispasep: '12312345121',
   placa: 'AEJ123',
+  renavam: '37699553588',
+  rg: 'MG1012345',
+  telefone: '319999999',
+  time: '0633',
   titulo: '205395880384'
 }
 
@@ -195,7 +201,9 @@ export class DemoComponent implements OnInit {
       currencyNumber: [0, [<any>Validators.required, <any>NgBrazilValidators.currency]],
       number: ['', [<any>Validators.required, <any>NgBrazilValidators.number]],
       time: ['', [<any>Validators.required, <any>NgBrazilValidators.time]],
+      pispasep: ['', [<any>Validators.required, <any>NgBrazilValidators.pispasep]],
       placa: ['', [<any>Validators.required, <any>NgBrazilValidators.placa]],
+      renavam: ['', [<any>Validators.required, <any>NgBrazilValidators.renavam]],
       titulo: ['', [<any>Validators.required, <any>NgBrazilValidators.titulo]]
     };
     this.form = this.fb.group(this.formFields);

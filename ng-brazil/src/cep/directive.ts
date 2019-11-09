@@ -4,6 +4,7 @@ import { cep } from './validator';
 
 const CEP_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => CEPValidator),
   multi: true
 };

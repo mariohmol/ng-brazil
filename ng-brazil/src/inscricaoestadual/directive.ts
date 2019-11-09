@@ -5,6 +5,7 @@ import { inscricaoestadual } from './validator';
 
 const INSCRICAOESTADUAL_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => InscricaoEstadualValidator),
   multi: true
 };

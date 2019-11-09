@@ -4,6 +4,7 @@ import { telefone } from './validator';
 
 const TELEFONE_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => TelefoneValidator),
   multi: true
 };

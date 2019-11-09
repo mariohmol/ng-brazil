@@ -25,9 +25,6 @@ import { CEPValidator } from './cep/directive';
 import { CEPPipe } from './cep/pipe';
 import { cep } from './cep/validator';
 
-import { rg } from './rg/validator';
-import { RGValidator } from './rg/directive';
-import { RGPipe } from './rg/pipe';
 
 import { currency } from './currency/validator';
 import { CURRENCYValidator } from './currency/directive';
@@ -37,17 +34,31 @@ import { number } from './number/validator';
 import { NUMBERValidator } from './number/directive';
 import { NUMBERPipe } from './number/pipe';
 
-import { percentage } from './percentage/validator';
-import { PERCENTAGEValidator } from './percentage/directive';
-import { PERCENTAGEPipe } from './percentage/pipe';
 
-import { time } from './time/validator';
-import { TIMEValidator } from './time/directive';
-import { TIMEPipe } from './time/pipe';
 
 import { placa } from './placa/validator';
 import { PLACAValidator } from './placa/directive';
 import { PLACAPipe } from './placa/pipe';
+
+import { percentage } from './percentage/validator';
+import { PERCENTAGEValidator } from './percentage/directive';
+import { PERCENTAGEPipe } from './percentage/pipe';
+
+import { renavam } from './renavam/validator';
+import { RenavamValidator } from './renavam/directive';
+import { RenavamPipe } from './renavam/pipe';
+
+import { pispasep } from './pispasep/validator';
+import { PispasepValidator } from './pispasep/directive';
+import { PispasepPipe } from './pispasep/pipe';
+
+import { rg } from './rg/validator';
+import { RGValidator } from './rg/directive';
+import { RGPipe } from './rg/pipe';
+
+import { time } from './time/validator';
+import { TIMEValidator } from './time/directive';
+import { TIMEPipe } from './time/pipe';
 
 import { titulo } from './titulo/validator';
 import { TITULOValidator } from './titulo/directive';
@@ -55,77 +66,88 @@ import { TITULOPipe } from './titulo/pipe';
 import { utilsBr } from 'js-brasil';
 
 
+
 export const NgBrazilValidators: any = {
   cpf,
   cnpj,
-  rg,
-  telefone,
   celular,
-  inscricaoestadual,
   cep,
   currency,
+  inscricaoestadual,
   number,
-  percentage,
-  time,
+  pispasep,
   placa,
+  percentage,
+  renavam,
+  rg,
+  telefone,
+  time,
   titulo
 }
 
 export const MASKS = utilsBr.MASKS;
 export const CustomDirectives = [
-  CPFValidator,
-  CPFPipe,
-  CNPJValidator,
-  CNPJPipe,
-  RGValidator,
-  RGPipe,
-  InscricaoEstadualValidator,
-  InscricaoEstadualPipe,
-  TelefoneValidator,
-  TelefonePipe,
   CelularValidator,
   CelularPipe,
   CEPValidator,
   CEPPipe,
+  CPFValidator,
+  CPFPipe,
+  CNPJValidator,
+  CNPJPipe,
   CURRENCYValidator,
   CURRENCYPipe,
+  InscricaoEstadualValidator,
+  InscricaoEstadualPipe,
   NUMBERValidator,
   NUMBERPipe,
   PERCENTAGEValidator,
   PERCENTAGEPipe,
-  TIMEValidator,
-  TIMEPipe,
+  PispasepValidator,
+  PispasepPipe,
   PLACAValidator,
   PLACAPipe,
+  RenavamValidator,
+  RenavamPipe,
+  RGValidator,
+  RGPipe,
+  TelefoneValidator,
+  TelefonePipe,
+  TIMEValidator,
+  TIMEPipe,
   TITULOValidator,
   TITULOPipe
 ];
 
 export const NgBrDirectives = {
-  CPFValidator,
-  CPFPipe,
-  CNPJValidator,
-  CNPJPipe,
-  RGValidator,
-  RGPipe,
-  InscricaoEstadualValidator,
-  InscricaoEstadualPipe,
-  TelefoneValidator,
-  TelefonePipe,
   CelularValidator,
   CelularPipe,
   CEPValidator,
   CEPPipe,
+  CNPJValidator,
+  CNPJPipe,
+  CPFValidator,
+  CPFPipe,
   CURRENCYValidator,
   CURRENCYPipe,
+  InscricaoEstadualValidator,
+  InscricaoEstadualPipe,
   NUMBERValidator,
   NUMBERPipe,
   PERCENTAGEValidator,
   PERCENTAGEPipe,
-  TIMEValidator,
-  TIMEPipe,
+  PispasepValidator,
+  PispasepPipe,
   PLACAValidator,
   PLACAPipe,
+  RGValidator,
+  RGPipe,
+  RenavamValidator,
+  RenavamPipe,
+  TelefoneValidator,
+  TelefonePipe,
+  TIMEValidator,
+  TIMEPipe,
   TITULOValidator,
   TITULOPipe
 };

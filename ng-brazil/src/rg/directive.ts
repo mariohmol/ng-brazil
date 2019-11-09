@@ -5,6 +5,7 @@ import { rg } from './validator';
 
 const RG_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => RGValidator),
   multi: true
 };

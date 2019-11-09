@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "1.2.7",
+  "version": "1.4.0",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -30,7 +30,7 @@
     "@angular/router": "^7.1.4",
     "angular2-text-mask": "^8.0.4",
     "core-js": "^2.4.1",
-    "js-brasil": "^1.2.3",
+    "js-brasil": "^1.4.5",
     "rxjs": "^6.2.2",
     "text-mask-addons": "^3.7.2",
     "tslib": "^1.9.0",

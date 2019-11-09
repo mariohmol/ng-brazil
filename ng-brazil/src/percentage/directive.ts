@@ -4,6 +4,7 @@ import { percentage } from './validator';
 
 const PERCENTAGE_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => PERCENTAGEValidator),
   multi: true
 };

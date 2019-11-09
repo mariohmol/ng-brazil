@@ -1,187 +1,237 @@
-<form [formGroup]="form" *ngIf="form" (submit)="submit(form)">
-
-  <!--
+<!--
 
 
 EXAMPLES WITH INPUTS WITH MASK
 
 -->
-  <h2>Directives, Validations and Masks</h2>
-  <div>
-    <h3>CPF</h3>
-    <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working
-    example http://www.geradorbrasileiro.com/cpf.html
-    <span *ngIf="formData.cpf">
-      CPF: {{formData.cpf}}
-    </span>
-    <p>
-      Errors Found:
-      <span id="mask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
-        {{v}} {{formDataValidate.cpf[v]}}
+<section>
+  <form [formGroup]="form" *ngIf="form" (submit)="submit(form)">
+    <h2>Directives, Validations and Masks</h2>
+    <div>
+      <h3>CPF</h3>
+      <input id="mask-cpf" type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}"> Get working
+      example http://www.geradorbrasileiro.com/cpf.html
+      <span *ngIf="formData.cpf">
+        CPF: {{formData.cpf}}
       </span>
-    </p>
-    <button type="button" (click)="generate('cpf')">Generate CPF</button>
-    <p *ngIf="generated.cpf">{{generated.cpf}}</p>
-  </div>
-
-  <div>
-    <h3>CNPJ</h3>
-    <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get working
-    example http://www.geradorbrasileiro.com/cnpj.html
-    <span *ngIf="formData.cnpj">
-      CNPJ: {{formData.cnpj}}
-    </span>
-    <p>
-      Errors Found:
-      <span id="mask-cnpj-error">
-        <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
-          {{formDataValidate.cnpj[v]}}
+      <p>
+        Errors Found:
+        <span id="mask-cpf-error" *ngFor="let v of objectKeys(formDataValidate.cpf)">
+          {{v}} {{formDataValidate.cpf[v]}}
         </span>
+      </p>
+      <button type="button" (click)="generate('cpf')">Generate CPF</button>
+      <p *ngIf="generated.cpf">{{generated.cpf}}</p>
+    </div>
+
+    <div>
+      <h3>CNPJ</h3>
+      <input id="mask-cnpj" type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}"> Get
+      working
+      example http://www.geradorbrasileiro.com/cnpj.html
+      <span *ngIf="formData.cnpj">
+        CNPJ: {{formData.cnpj}}
       </span>
-    </p>
-  </div>
-  <div>
-    <h3>RG</h3>
-    <input id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
-    <span *ngIf="formData.rg">
-      RG: {{formData.rg}}
-    </span>
-    <p *ngIf="formDataValidate.rg">
-      Errors Found:
-      <span id="mask-rg-error">
-        <span *ngFor="let v of objectKeys(formDataValidate.rg)">
-          {{formDataValidate.rg[v]}}
+      <p>
+        Errors Found:
+        <span id="mask-cnpj-error">
+          <span *ngFor="let v of objectKeys(formDataValidate.cnpj)">
+            {{formDataValidate.cnpj[v]}}
+          </span>
         </span>
-      </span>
-    </p>
-  </div>
-  <div>
-    <h3>Inscrição Estadual</h3>
-    <select formControlName="estado" placeholder="select a br state" (change)="changeState($event)">
-      <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
-    </select>
+      </p>
+    </div>
 
-    <span>Working example: {{data.inscricaoestadual[estado]}}</span>
-    <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg"
-      [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
-    <span *ngIf="formData.inscricaoestadual">
-      Inscrição Estadual: {{formData.inscricaoestadual}}
-    </span>
-    <p *ngIf="formDataValidate.inscricaoestadual">
-      Errors Found:
-      <span id="mask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
-        {{v}} {{formDataValidate.inscricaoestadual[v]}}
+    <div>
+      <h3>CEP</h3>
+      <span>Working example: {{data.cep}}</span>
+      <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+      <span *ngIf="formData.cep">
+        CEP: {{formData.cep}}
       </span>
-    </p>
-  </div>
-  <div>
-    <h3>Telefone</h3>
-    <span>Working example: {{data.telefone}}</span>
-    <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone
-      [textMask]="{mask: MASKS.telefone.textMaskFunction}">
-    <span *ngIf="formData.telefone">
-      Telefone: {{formData.telefone}}
-    </span>
-    <p *ngIf="formDataValidate.telefone">
-      Errors Found:
-      <span id="mask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
-        {{v}} {{formDataValidate.telefone[v]}}
-      </span>
-    </p>
-  </div>
-  <div>
-    <h3>CEP</h3>
-    <span>Working example: {{data.cep}}</span>
-    <input id="mask-cep" type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
-    <span *ngIf="formData.cep">
-      CEP: {{formData.cep}}
-    </span>
-    <p *ngIf="formDataValidate.cep">
-      Errors Found:
-      <span id="mask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
-        {{v}} {{formDataValidate.cep[v]}}
-      </span>
-    </p>
-  </div>
-  <div>
-    <h3>CURRENCY</h3>
-    <span>Working example: {{data.currency}}</span>
-    <input id="mask-currency" type="text" formControlName="currency" currency
-      [textMask]="{mask: MASKS.currency.textMask}">
+      <p *ngIf="formDataValidate.cep">
+        Errors Found:
+        <span id="mask-cep-error" *ngFor="let v of objectKeys(formDataValidate.cep)">
+          {{v}} {{formDataValidate.cep[v]}}
+        </span>
+      </p>
+    </div>
+    <div>
+      <h3>CURRENCY</h3>
+      <span>Working example: {{data.currency}}</span>
+      <input id="mask-currency" type="text" formControlName="currency" currency
+        [textMask]="{mask: MASKS.currency.textMask}">
 
 
 
-    <br />
-    <span *ngIf="formData.currency">
-      CURRENCY: {{formData.currency}}
-    </span>
-    <p *ngIf="formDataValidate.currency">
-      Errors Found:
-      <span id="mask-currency-error" *ngFor="let v of objectKeys(formDataValidate.currency)">
-        {{v}} {{formDataValidate.cep[v]}}
+      <br />
+      <span *ngIf="formData.currency">
+        CURRENCY: {{formData.currency}}
       </span>
-    </p>
-  </div>
-  <div>
-    <h3>TIME</h3>
-    <span>Working example: {{data.time}}</span>
-    <input id="mask-time" type="text" formControlName="time" time [textMask]="{mask: MASKS.time.textMask}">
-    <span *ngIf="formData.time">
-      TIME: {{formData.time}}
-    </span>
-    <p *ngIf="formDataValidate.time">
-      Errors Found:
-      <span id="mask-time-error" *ngFor="let v of objectKeys(formDataValidate.time)">
-        {{v}} {{formDataValidate.time[v]}}
+      <p *ngIf="formDataValidate.currency">
+        Errors Found:
+        <span id="mask-currency-error" *ngFor="let v of objectKeys(formDataValidate.currency)">
+          {{v}} {{formDataValidate.cep[v]}}
+        </span>
+      </p>
+    </div>
+
+    <div>
+      <h3>RG</h3>
+      <input id="mask-rg" type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> MG-10.111.222
+      <span *ngIf="formData.rg">
+        RG: {{formData.rg}}
       </span>
-    </p>
-  </div>
-  <div>
-    <h3>PLACA</h3>
-    <span>Working example: {{data.placa}}</span>
-    <input id="mask-placa" type="text" formControlName="placa" placa [textMask]="{mask: MASKS.placa.textMask}">
-    <span *ngIf="formData.placa">
-      PLACA: {{formData.placa}}
-    </span>
-    <p *ngIf="formDataValidate.placa">
-      Errors Found:
-      <span id="mask-placa-error" *ngFor="let v of objectKeys(formDataValidate.placa)">
-        {{v}} {{formDataValidate.placa[v]}}
+      <p *ngIf="formDataValidate.rg">
+        Errors Found:
+        <span id="mask-rg-error">
+          <span *ngFor="let v of objectKeys(formDataValidate.rg)">
+            {{formDataValidate.rg[v]}}
+          </span>
+        </span>
+      </p>
+    </div>
+    <div>
+      <h3>Inscrição Estadual</h3>
+      <select formControlName="estado" placeholder="select a br state" (change)="changeState($event)">
+        <option *ngFor="let e of estados" value="{{e}}">{{e}}</option>
+      </select>
+
+      <span>Working example: {{data.inscricaoestadual[estado]}}</span>
+      <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg"
+        [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
+      <span *ngIf="formData.inscricaoestadual">
+        Inscrição Estadual: {{formData.inscricaoestadual}}
       </span>
-    </p>
-  </div>
-  <div>
-    <h3>TITULO</h3>
-    <span>Working example: {{data.titulo}}</span>
-    <input id="mask-titulo" type="text" formControlName="titulo" titulo [textMask]="{mask: MASKS.titulo.textMask}">
-    <span *ngIf="formData.titulo">
-      TITULO: {{formData.titulo}}
-    </span>
-    <p *ngIf="formDataValidate.titulo">
-      Errors Found:
-      <span id="mask-titulo-error" *ngFor="let v of objectKeys(formDataValidate.titulo)">
-        {{v}} {{formDataValidate.titulo[v]}}
-      </span>
-    </p>
-  </div>
+      <p *ngIf="formDataValidate.inscricaoestadual">
+        Errors Found:
+        <span id="mask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
+          {{v}} {{formDataValidate.inscricaoestadual[v]}}
+        </span>
+      </p>
+    </div>
 
 
-  <div>
-    <h3>Número</h3>
-    <span>Working example: {{data.number}}</span>
-    <input id="mask-number" type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
-    <span *ngIf="formData.number">
-      Número: {{formData.number}}
-    </span>
-    <p *ngIf="formDataValidate.number">
-      Errors Found:
-      <span id="mask-number-error" *ngFor="let v of objectKeys(formDataValidate.number)">
-        {{v}} {{formDataValidate.number[v]}}
+    <div>
+      <h3>Número</h3>
+      <span>Working example: {{data.number}}</span>
+      <input id="mask-number" type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
+      <span *ngIf="formData.number">
+        Número: {{formData.number}}
       </span>
-    </p>
-  </div>
-  <button>Submit For to See Validations</button>
-</form>
+      <p *ngIf="formDataValidate.number">
+        Errors Found:
+        <span id="mask-number-error" *ngFor="let v of objectKeys(formDataValidate.number)">
+          {{v}} {{formDataValidate.number[v]}}
+        </span>
+      </p>
+    </div>
+
+
+
+    <div>
+      <h3>PIS/PASEP</h3>
+      <span>Working example: {{data.pispasep}}</span>
+      <input id="mask-pispasep" type="text" formControlName="pispasep" pispasep
+        [textMask]="{mask: MASKS.pispasep.textMask}">
+      <span *ngIf="formData.pispasep">
+        PIS/PASEP: {{formData.pispasep}}
+      </span>
+      <p *ngIf="formDataValidate && formDataValidate.pispasep">
+        Errors Found:
+        <span id="mask-pispasep-error" *ngFor="let v of objectKeys(formDataValidate.pispasep)">
+          {{v}} {{formDataValidate.pispasep[v]}}
+        </span>
+      </p>
+    </div>
+
+
+
+    <div>
+      <h3>PLACA</h3>
+      <span>Working example: {{data.placa}}</span>
+      <input id="mask-placa" type="text" formControlName="placa" placa [textMask]="{mask: MASKS.placa.textMask}">
+      <span *ngIf="formData.placa">
+        PLACA: {{formData.placa}}
+      </span>
+      <p *ngIf="formDataValidate.placa">
+        Errors Found:
+        <span id="mask-placa-error" *ngFor="let v of objectKeys(formDataValidate.placa)">
+          {{v}} {{formDataValidate.placa[v]}}
+        </span>
+      </p>
+    </div>
+
+
+
+
+    <div>
+      <h3>Renavam</h3>
+      <span>Working example: {{data.renavam}}</span>
+      <input id="mask-renavam" type="text" formControlName="renavam" renavam
+        [textMask]="{mask: MASKS.renavam.textMask}">
+      <span *ngIf="formData.renavam">
+        Renavam: {{formData.renavam}}
+      </span>
+      <p *ngIf="formDataValidate.renavam">
+        Errors Found:
+        <span id="mask-renavam-error" *ngFor="let v of objectKeys(formDataValidate.renavam)">
+          {{v}} {{formDataValidate.renavam[v]}}
+        </span>
+      </p>
+    </div>
+    <div>
+      <h3>Telefone</h3>
+      <span>Working example: {{data.telefone}}</span>
+      <input id="mask-telefone" type="text" formControlName="telefone" telefone #telefone
+        [textMask]="{mask: MASKS.telefone.textMaskFunction}">
+      <span *ngIf="formData.telefone">
+        Telefone: {{formData.telefone}}
+      </span>
+      <p *ngIf="formDataValidate.telefone">
+        Errors Found:
+        <span id="mask-telefone-error" *ngFor="let v of objectKeys(formDataValidate.telefone)">
+          {{v}} {{formDataValidate.telefone[v]}}
+        </span>
+      </p>
+    </div>
+
+
+    <div>
+      <h3>TIME</h3>
+      <span>Working example: {{data.time}}</span>
+      <input id="mask-time" type="text" formControlName="time" time [textMask]="{mask: MASKS.time.textMask}">
+      <span *ngIf="formData.time">
+        TIME: {{formData.time}}
+      </span>
+      <p *ngIf="formDataValidate.time">
+        Errors Found:
+        <span id="mask-time-error" *ngFor="let v of objectKeys(formDataValidate.time)">
+          {{v}} {{formDataValidate.time[v]}}
+        </span>
+      </p>
+    </div>
+
+    <div>
+      <h3>TITULO</h3>
+      <span>Working example: {{data.titulo}}</span>
+      <input id="mask-titulo" type="text" formControlName="titulo" titulo [textMask]="{mask: MASKS.titulo.textMask}">
+      <span *ngIf="formData.titulo">
+        TITULO: {{formData.titulo}}
+      </span>
+      <p *ngIf="formDataValidate.titulo">
+        Errors Found:
+        <span id="mask-titulo-error" *ngFor="let v of objectKeys(formDataValidate.titulo)">
+          {{v}} {{formDataValidate.titulo[v]}}
+        </span>
+      </p>
+    </div>
+
+
+    <button>Submit For to See Validations</button>
+  </form>
+</section>
+
 
 <br />
 <hr />
@@ -196,20 +246,37 @@ EXAMPLES WITH PIPES IN VALUES FROM DATABASE
   <span id="pipe-cpf">{{DATARAW.cpf | cpf}}</span>
   <br /> CNPJ: From {{DATARAW.cnpj}} to
   <span id="pipe-cnpj">{{DATARAW.cnpj | cnpj}}</span>
-  <br /> RG: From {{DATARAW.rg}} to
-  <span id="pipe-rg">{{DATARAW.rg | rg}}</span>
-  <br /> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
-  <span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
-  <br /> Telefone: From {{DATARAW.telefone}} to
-  <span id="pipe-telefone">{{DATARAW.telefone | telefone}}</span>
+
   <br /> CEP: From {{DATARAW.cep}} to
   <span id="pipe-cep">{{DATARAW.cep | cep}}</span>
+
   <br /> Currency (Dinheiro): From {{DATARAW.currency}} to
   <span id="pipe-currency">{{DATARAW.currency | currencyBrazil}}</span>
-  <br /> Time: From {{DATARAW.time}} to
-  <span id="pipe-time">{{DATARAW.time | time}}</span>
+
+ 
+  <br /> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
+  <span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
+  
+  <br /> PIS/PASEP: From {{DATARAW.pispasep}} to
+  <span id="pipe-pispasep">{{DATARAW.pispasep | pispasep}}</span>
+
   <br /> Placa: From {{DATARAW.placa}} to
   <span id="pipe-placa">{{DATARAW.placa | placa}}</span>
+
+  <br /> Renavam: From {{DATARAW.renavam}} to
+  <span id="pipe-renavam">{{DATARAW.renavam | renavam}}</span>
+
+
+  <br /> RG: From {{DATARAW.rg}} to
+  <span id="pipe-rg">{{DATARAW.rg | rg}}</span>
+
+
+  <br /> Time: From {{DATARAW.time}} to
+  <span id="pipe-time">{{DATARAW.time | time}}</span>
+
+  <br /> Telefone: From {{DATARAW.telefone}} to
+  <span id="pipe-telefone">{{DATARAW.telefone | telefone}}</span>
+
   <br /> Titulo: From {{DATARAW.titulo}} to
   <span id="pipe-titulo">{{DATARAW.titulo | titulo}}</span>
 
@@ -401,6 +468,6 @@ EXAMPLES WITH INPUTS WITHOU MASK
   <br />
   With ngModel initial value:
   <input id="mask-currencyNumber" type="text" currency [textMask]="{mask: MASKS.currency.textMask}"
-  (ngModelChange)="currencyNumber = $event" [ngModel]="MASKS.utils.numberToString(currencyNumber)">
+    (ngModelChange)="currencyNumber = $event" [ngModel]="MASKS.utils.numberToString(currencyNumber)">
 
 </div>

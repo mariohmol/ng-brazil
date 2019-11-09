@@ -5,6 +5,7 @@ import { cnpj } from './validator';
 
 const CNPJ_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => CNPJValidator),
   multi: true
 };

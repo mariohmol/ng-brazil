@@ -4,6 +4,7 @@ import { currency } from './validator';
 
 const CURRENCY_VALIDATOR: any = {
   provide: NG_VALIDATORS,
+  // tslint:disable-next-line: no-use-before-declare
   useExisting: forwardRef(() => CURRENCYValidator),
   multi: true
 };

@@ -5,6 +5,7 @@ import { titulo } from './validator';
 
 const TITULO_VALIDATOR: any = {
     provide: NG_VALIDATORS,
+    // tslint:disable-next-line: no-use-before-declare
     useExisting: forwardRef(() => TITULOValidator),
     multi: true
 };
