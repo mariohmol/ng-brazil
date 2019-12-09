@@ -35,10 +35,10 @@
     "text-mask-addons": "^3.7.2",
     "tslib": "^1.9.0",
     "webpack": "~4.11.1",
-    "zone.js": "^0.8.26"
+    "zone.js": "^0.10.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.11.0",
+    "@angular-devkit/build-angular": "~0.900.0-next.18",
     "@angular-devkit/schematics": "^0.4.0",
     "@angular/cli": "~9.0.0-next.11",
     "@angular/compiler-cli": "~9.0.0-next.11",
