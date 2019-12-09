@@ -6,6 +6,6 @@ import { maskBr } from 'js-brasil';
 })
 export class PERCENTAGEPipe implements PipeTransform {
   transform(percentageValue: any) {
-    return maskBr.percentage(percentageValue);
+    return maskBr.porcentagem(percentageValue);
   }
 }

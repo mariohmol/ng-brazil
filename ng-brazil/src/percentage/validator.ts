@@ -7,5 +7,5 @@ export const percentage: ValidatorFn = (control: AbstractControl): { [key: strin
   }
 
   const v: string = control.value;
-  return validateBr.percentage(v) ? null : { percentage: true };
+  return validateBr.porcentagem(v) ? null : { percentage: true };
 }
