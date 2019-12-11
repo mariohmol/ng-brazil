@@ -192,6 +192,7 @@ Finally working in the project folder:
 
 * npm i
 * npm run build:lib
+* npm run dist
 * npm run start
 
 # License

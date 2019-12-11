@@ -1,6 +1,6 @@
 import {
   Directive, ElementRef, forwardRef, Input, Inject, NgModule,
-  OnChanges, Optional, Provider, Renderer2, SimpleChanges, Injectable, RendererFactory2
+  OnChanges, Optional, Provider, SimpleChanges, Injectable, RendererFactory2
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, COMPOSITION_BUFFER_MODE } from '@angular/forms'
 import { ɵgetDOM as getDOM, BrowserModule } from '@angular/platform-browser'
