@@ -1,10 +1,10 @@
 # Ng-Brazil
 
-Angular5 pipes / directives / validators / mask for brazillian like apps
+Angular pipes / directives / validators / mask for brazillian like apps. Working on latest Angular 9.
 
 This project was tested integrated with the following techs:
 
-* angular5
+* angular
 * angular-material
 * ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask)
 

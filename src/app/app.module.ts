@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,7 +18,6 @@ export const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     TextMask.TextMaskModule,
