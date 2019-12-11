@@ -65,7 +65,12 @@ import { TITULOValidator } from './titulo/directive';
 import { TITULOPipe } from './titulo/pipe';
 import { utilsBr } from 'js-brasil';
 
+import { TextMaskModule } from './angular2TextMask';
+import { BrowserModule } from '@angular/platform-browser';
 
+export const TextMask = {
+  TextMaskModule
+};
 
 export const NgBrazilValidators: any = {
   cpf,
@@ -154,7 +159,8 @@ export const NgBrDirectives = {
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    //BrowserModule
   ],
   declarations: [
     CustomDirectives

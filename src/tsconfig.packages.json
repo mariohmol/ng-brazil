@@ -1,6 +1,7 @@
 {
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
+    "enableIvy": false,
     "paths": {
       "ng-brazil": [ "../dist/ng-brazil" ]
     }

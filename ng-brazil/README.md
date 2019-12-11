@@ -57,11 +57,11 @@ export class AppModule { }
 If you would like to use masks import module;
 
 ```ts
-import { TextMaskModule } from 'angular2-text-mask';
+import { TextMask } from 'ng-brazil';
 
 imports: [
     ....,
-    TextMaskModule,
+    TextMask.TextMaskModule,
     NgBrazil
   ], 
 ```
@@ -70,7 +70,7 @@ imports: [
 Then setup your component models as below :
 
 ```ts
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { utilsBr } from 'js-brasil';
 
 @Component({

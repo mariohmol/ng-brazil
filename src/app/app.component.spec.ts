@@ -1,5 +1,5 @@
 import { TestBed, async } from '@angular/core/testing';
-import { NgBrazil } from 'ng-brazil';
+import { NgBrazil, TextMask } from 'ng-brazil';
 import { AppComponent } from './app.component';
 import {
   RouterTestingModule
@@ -7,7 +7,6 @@ import {
 import { routes } from './app.module';
 import { DemoComponent } from './demo/demo.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TextMaskModule } from 'angular2-text-mask';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +14,7 @@ describe('AppComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        TextMaskModule,
+        TextMask.TextMaskModule,
         NgBrazil.forRoot(),
         RouterTestingModule.withRoutes(routes)
       ],
