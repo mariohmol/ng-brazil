@@ -40,7 +40,7 @@ import { placa } from './placa/validator';
 import { PLACAValidator } from './placa/directive';
 import { PLACAPipe } from './placa/pipe';
 
-import { percentage } from './percentage/validator';
+import { porcentagem } from './percentage/validator';
 import { PERCENTAGEValidator } from './percentage/directive';
 import { PERCENTAGEPipe } from './percentage/pipe';
 
@@ -77,7 +77,7 @@ export const NgBrazilValidators: any = {
   number,
   pispasep,
   placa,
-  percentage,
+  porcentagem,
   renavam,
   rg,
   telefone,

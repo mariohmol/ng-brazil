@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>ng-brazil</title>
@@ -7,8 +8,39 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <style>
+    .parent {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+    }
+
+    .div1 {
+      grid-area: 1 / 1 / 2 / 6;
+      background-color: black;
+    }
+
+    .div2 {
+      grid-area: 2 / 1 / 5 / 2;
+      background-color: red;
+    }
+
+    .div3 {
+      grid-area: 2 / 2 / 4 / 5;
+      background-color: green;
+    }
+  </style>
 </head>
+
 <body>
-  <app-root>Loading...</app-root>
+
+  <main class="parent">
+    <section class="div1">HEADER </section>
+    <section class="div2">SIDE </section>
+    <section class="div3">MAIN </section>
+  </main>
 </body>
+
 </html>

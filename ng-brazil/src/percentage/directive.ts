@@ -1,6 +1,6 @@
 import { Directive, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, Validator, AbstractControl } from '@angular/forms';
-import { percentage } from './validator';
+import { porcentagem } from './validator';
 
 const PERCENTAGE_VALIDATOR: any = {
   provide: NG_VALIDATORS,
@@ -16,6 +16,6 @@ const PERCENTAGE_VALIDATOR: any = {
 })
 export class PERCENTAGEValidator implements Validator {
   validate(c: AbstractControl): { [key: string]: any } {
-    return percentage(c);
+    return porcentagem(c);
   }
 }
