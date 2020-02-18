@@ -4,7 +4,7 @@ There is some issues to work with, check it out
 
 Fork this project then install global libs:
 ```
-npm i -g rimraf ng-packagr @angular/compiler-cli @angular/compiler tslib ngc
+npm i -g rimraf ng-packagr @angular/cli@latest @angular/compiler-cli @angular/compiler tslib ngc
 ```
 
 Finally working in the project folder:
