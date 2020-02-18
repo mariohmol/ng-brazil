@@ -1,0 +1,42 @@
+{
+  "name": "ng-brazil",
+  "version": "2.0.9",
+  "license": "MIT",
+  "homepage": "https://github.com/mariohmol/ng-brazil",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mariohmol/ng-brazil.git"
+  },
+  "author": "Mario Mol <mariohmol@gmail.com>",
+  "keywords": [
+    "angular",
+    "ng-brazil",
+    "cpf cnpj dual telefone",
+    "utils"
+  ],
+  "peerDependencies": {
+    "@angular/core": ">=8.0.0 <10.0.0",
+    "@angular/common": ">=8.0.0 <10.0.0"
+  },
+  "dependencies": {
+    "@angular/common": "^9.0.0-rc.5",
+    "@angular/core": "^9.0.0-rc.5",
+    "@angular/forms": "^9.0.0-rc.5",
+    "js-brasil": ">=2.0.1",
+    "rxjs": "^6.5.3",
+    "text-mask-core": ">=5.1.2",
+    "tslib": "^1.10.0",
+    "typescript": "^3.6.4",
+    "zone.js": "^0.10.2"
+  },
+  "ngPackage": {
+    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+    "lib": {
+      "entryFile": "src/public_api.ts"
+    },
+    "dest": "../dist/ng-brazil",
+    "whitelistedNonPeerDependencies": [
+      "js-brasil"
+    ]
+  }
+}

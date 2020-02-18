@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { cpf } from './cpf/validator';
 import { CPFValidator } from './cpf/directive';
@@ -64,8 +63,11 @@ import { titulo } from './titulo/validator';
 import { TITULOValidator } from './titulo/directive';
 import { TITULOPipe } from './titulo/pipe';
 import { utilsBr } from 'js-brasil';
+import { TextMaskModule } from './angular2TextMask';
 
-
+export const TextMask = {
+  TextMaskModule
+};
 
 export const NgBrazilValidators: any = {
   cpf,
@@ -154,7 +156,6 @@ export const NgBrDirectives = {
 
 @NgModule({
   imports: [
-    CommonModule
   ],
   declarations: [
     CustomDirectives

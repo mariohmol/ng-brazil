@@ -5,7 +5,7 @@ Contains pipes / directives / validators / mask for brazillian like apps
 
 [![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil)
 
-Supports: Angular2 , Angular4, Angular5, Angular6, Angular7
+Supports: Angular2 to Angular9
 
 ## Live example:  
 
@@ -13,7 +13,7 @@ Supports: Angular2 , Angular4, Angular5, Angular6, Angular7
 
 This project was tested integrated with the following techs:
 
-* angular7
+* angular
 * angular-material
 * ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask works)
 
@@ -96,7 +96,7 @@ imports: [
 Then setup your component:
 
 ```ts
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
 
 @Component({
@@ -148,7 +148,7 @@ Currency: From 123.23 to {{'123.23' | currencyBrazil}} <br/>
 ```
 
 ```ts
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgBrDirectives } from 'ng-brazil';
 
 @Component({
@@ -184,10 +184,15 @@ There is some issues to work with, check it out
 
 ## Collaborate
 
-Fork this project and ...
+Fork this project then install global libs:
+
+*  npm i -g rimraf ng-packagr @angular/compiler-cli @angular/compiler tslib ngc
+
+Finally working in the project folder:
 
 * npm i
 * npm run build:lib
+* npm run dist
 * npm run start
 
 # License

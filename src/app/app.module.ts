@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NgBrazil } from 'ng-brazil';
+import { NgBrazil, TextMask } from 'ng-brazil';
 import { DemoComponent } from './demo/demo.component';
-import { TextMaskModule } from 'angular2-text-mask';
+import { CommonModule } from '@angular/common';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/demo', pathMatch: 'full' },
@@ -17,10 +17,10 @@ export const routes: Routes = [
     AppComponent, DemoComponent
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TextMaskModule,
+    TextMask.TextMaskModule,
     NgBrazil,
     RouterModule.forRoot(routes)
   ],

@@ -2,6 +2,7 @@
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "mainPath": "./main.ts",
+    "enableIvy": false,
     "paths": {
       "ng-brazil": [ "../ng-brazil/src/public_api.ts" ]
     }

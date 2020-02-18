@@ -2,11 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DemoComponent } from './demo.component';
 import { routes } from '../app.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TextMaskModule } from 'angular2-text-mask';
+
 import {
   RouterTestingModule
 } from '@angular/router/testing';
-import { NgBrazil } from 'ng-brazil';
+import { NgBrazil, TextMask } from 'ng-brazil';
 
 describe('DemoComponent', () => {
   let component: DemoComponent;
@@ -17,7 +17,7 @@ describe('DemoComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        TextMaskModule,
+        TextMask.TextMaskModule,
         NgBrazil.forRoot(),
         RouterTestingModule.withRoutes(routes)
       ],
