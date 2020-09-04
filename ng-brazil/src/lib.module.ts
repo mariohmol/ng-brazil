@@ -165,7 +165,7 @@ export const NgBrDirectives = {
   ]
 })
 class NgBrazil {
-  public static forRoot(): ModuleWithProviders {
+  public static forRoot(): ModuleWithProviders<NgBrazil> {
     return {
       ngModule: NgBrazil
     };

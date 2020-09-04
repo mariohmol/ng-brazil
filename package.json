@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.0.9",
+  "version": "2.2.0",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -20,28 +20,29 @@
     "kill": "kill $(lsof -t -i:4205)"
   },
   "dependencies": {
-    "@angular/common": "9.0.0-rc.3",
-    "@angular/compiler": "9.0.0-rc.3",
-    "@angular/core": "9.0.0-rc.3",
-    "@angular/forms": "9.0.0-rc.3",
+    "@angular/common": "~10.1.0-next.8",
+    "@angular/compiler": "~10.1.0-next.8",
+    "@angular/core": "~10.1.0-next.8",
+    "@angular/forms": "~10.1.0-next.8",
     "@angular/http": "^7.1.4",
-    "@angular/platform-browser": "9.0.0-rc.3",
-    "@angular/platform-browser-dynamic": "9.0.0-rc.3",
-    "@angular/router": "9.0.0-rc.3",
+    "@angular/platform-browser": "~10.1.0-next.8",
+    "@angular/platform-browser-dynamic": "~10.1.0-next.8",
+    "@angular/router": "~10.1.0-next.8",
     "core-js": "^2.4.1",
-    "js-brasil": "^2.0.1",
-    "rxjs": "^6.5.0",
+    "js-brasil": "^2.2.0",
     "text-mask-core": "^5.1.2",
-    "tslib": "^1.9.0",
     "webpack": "~4.11.1",
+    "rxjs-compat": "^6.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "~4.0.2",
     "zone.js": "^0.10.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.0-next.18",
     "@angular-devkit/schematics": "^0.4.0",
-    "@angular/cli": "9.0.0-rc.3",
-    "@angular/compiler-cli": "9.0.0-rc.3",
-    "@angular/language-service": "9.0.0-rc.3",
+    "@angular/cli": "^10.0.0",
+    "@angular/compiler-cli": "^10.0.0",
+    "@angular/language-service": "^10.0.0",
     "@types/jasmine": "~2.8.0",
     "@types/node": "~9.4.0",
     "cpr": "^3.0.0",
@@ -53,13 +54,13 @@
     "karma-coverage-istanbul-reporter": "^1.3.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ng-packagr": "9.0.0-rc.3",
+    "ng-packagr": "10.1.0",
     "node-sass": "^4.12.0",
     "protractor": "^5.4.2",
     "rimraf": "^2.6.1",
     "ts-node": "~5.0.0",
     "tsickle": "^0.36.0",
     "tslint": "~5.9.0",
-    "typescript": "~3.6.4"
+    "typescript": "~4.0.2"
   }
 }
