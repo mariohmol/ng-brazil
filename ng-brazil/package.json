@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "license": "MIT",
   "homepage": "https://github.com/mariohmol/ng-brazil",
   "repository": {
@@ -15,12 +15,12 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/core": ">=8.0.0 <10.0.0",
-    "@angular/common": ">=8.0.0 <10.0.0",
-    "@angular/platform-browser": ">=8.0.0 <10.0.0"
+    "@angular/core": ">=8.0.0 <11.0.0",
+    "@angular/common": ">=8.0.0 <11.0.0",
+    "@angular/platform-browser": ">=8.0.0 <11.0.0"
   },
   "dependencies": {
-    "js-brasil": ">=2.0.1"
+    "js-brasil": ">=2.2.3"
   },
   "ngPackage": {
     "$schema": "./node_modules/ng-packagr/ng-package.schema.json",

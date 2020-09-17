@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -29,7 +29,7 @@
     "@angular/platform-browser-dynamic": "~10.1.0-next.8",
     "@angular/router": "~10.1.0-next.8",
     "core-js": "^2.4.1",
-    "js-brasil": "^2.2.0",
+    "js-brasil": "^2.2.3",
     "text-mask-core": "^5.1.2",
     "webpack": "~4.11.1",
     "rxjs-compat": "^6.0.0",
