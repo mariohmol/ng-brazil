@@ -5,7 +5,7 @@ import { maskBr } from 'js-brasil';
   name: 'numberBrazil',
 })
 export class NUMBERPipe implements PipeTransform {
-  transform(numberValue: any) {
-    return maskBr.number(numberValue);
+  transform(numberValue: any, decimalValue: any) {
+    return maskBr.number(numberValue, decimalValue);
   }
 }

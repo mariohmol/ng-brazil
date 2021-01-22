@@ -253,7 +253,13 @@ EXAMPLES WITH PIPES IN VALUES FROM DATABASE
   <br /> Currency (Dinheiro): From {{DATARAW.currency}} to
   <span id="pipe-currency">{{DATARAW.currency | currencyBrazil}}</span>
 
- 
+  <br /> Número: From {{DATARAW.number}} to
+  <span id="pipe-number">{{DATARAW.number | numberBrazil: 2}}</span>
+  <br /> Número sem decimal: From {{DATARAW.number}} to
+  <span id="pipe-number">{{DATARAW.number | numberBrazil: 0}}</span>
+  <br /> Número com 4 decimais: From {{DATARAW.number}} to
+  <span id="pipe-number">{{DATARAW.number | numberBrazil: 4}}</span>
+
   <br /> Inscrição Estadual: From {{DATARAW.inscricaoestadual.mg}} to
   <span id="pipe-inscricaoestadual">{{DATARAW.inscricaoestadual.mg | inscricaoestadual: 'mg'}}</span>
   

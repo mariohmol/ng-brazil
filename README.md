@@ -144,6 +144,7 @@ RG: From MG10111222 to {{'MG10111222' | rg}} <br/>
 Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
 Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
 Number: From 123.23 to {{'123.23' | numberBrazil}} <br/>
+Number sem decimais: From 123.23 to {{'123.23' | numberBrazil: 0}} <br/>
 Currency: From 123.23 to {{'123.23' | currencyBrazil}} <br/>
 ```
 

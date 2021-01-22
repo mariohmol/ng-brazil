@@ -64,7 +64,7 @@ export const DATARAW = {
   cep: '31234567',
   currency: '1234,56',
   currencyNumber: 1234.56,
-  number: '1234,56',
+  number: '1234,5656',
   inscricaoestadual: {
     ac: '0100482300112',
     al: '240000048',
