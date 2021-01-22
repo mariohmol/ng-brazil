@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -29,7 +29,7 @@
     "@angular/platform-browser-dynamic": "~10.1.0-next.8",
     "@angular/router": "~10.1.0-next.8",
     "core-js": "^2.4.1",
-    "js-brasil": "*",
+    "js-brasil": ">=2.3.12",
     "text-mask-core": "^5.1.2",
     "webpack": "~4.11.1",
     "rxjs-compat": "^6.0.0",
@@ -38,7 +38,7 @@
     "zone.js": "^0.10.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.900.0-next.18",
+    "@angular-devkit/build-angular": "^0.1101.0",
     "@angular-devkit/schematics": "^0.4.0",
     "@angular/cli": "^10.0.0",
     "@angular/compiler-cli": "^10.0.0",

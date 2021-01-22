@@ -5,7 +5,7 @@ import { maskBr } from 'js-brasil';
   name: 'percentage',
 })
 export class PERCENTAGEPipe implements PipeTransform {
-  transform(percentageValue: any) {
-    return maskBr.porcentagem(percentageValue);
+  transform(percentageValue: any, decimalValue: any) {
+    return maskBr.porcentagem(percentageValue, decimalValue);
   }
 }

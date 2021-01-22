@@ -196,6 +196,9 @@ Finally working in the project folder:
 * npm run dist
 * npm run start
 
+To publish a new release, update the version in [package.json](./package.json) and [src/package.json](./src/package.json),
+then run `npm run publish-npm`.
+
 # License
 
 MIT(./LICENSE)

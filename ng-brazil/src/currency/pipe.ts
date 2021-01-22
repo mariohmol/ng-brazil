@@ -5,7 +5,7 @@ import { maskBr } from 'js-brasil';
   name: 'currencyBrazil',
 })
 export class CURRENCYPipe implements PipeTransform {
-  transform(currencyValue: any) {
-    return maskBr.currency(currencyValue);
+  transform(currencyValue: any, decimalValue: any) {
+    return maskBr.currency(currencyValue, decimalValue);
   }
 }

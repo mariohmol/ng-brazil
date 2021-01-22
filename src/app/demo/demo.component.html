@@ -252,6 +252,10 @@ EXAMPLES WITH PIPES IN VALUES FROM DATABASE
 
   <br /> Currency (Dinheiro): From {{DATARAW.currency}} to
   <span id="pipe-currency">{{DATARAW.currency | currencyBrazil}}</span>
+  <br /> Currency (Dinheiro) sem decimal: From {{DATARAW.currency}} to
+  <span id="pipe-currency">{{DATARAW.currency | currencyBrazil: 0}}</span>
+  <br /> Currency (Dinheiro) com 4 decimais: From {{DATARAW.currency}} to
+  <span id="pipe-currency">{{DATARAW.currency | currencyBrazil: 4}}</span>
 
   <br /> Número: From {{DATARAW.number}} to
   <span id="pipe-number">{{DATARAW.number | numberBrazil: 2}}</span>
@@ -265,6 +269,13 @@ EXAMPLES WITH PIPES IN VALUES FROM DATABASE
   
   <br /> PIS/PASEP: From {{DATARAW.pispasep}} to
   <span id="pipe-pispasep">{{DATARAW.pispasep | pispasep}}</span>
+
+  <!-- <br /> Porcentagem: From {{DATARAW.number}} to
+  <span id="pipe-number">{{DATARAW.number | porcentage: 2}}</span>
+  <br /> Porcentagem sem decimal: From {{DATARAW.number}} to
+  <span id="pipe-number">{{DATARAW.number | porcentage: 0}}</span>
+  <br /> Porcentagem com 4 decimais: From {{DATARAW.number}} to
+  <span id="pipe-number">{{DATARAW.number | porcentage: 4}}</span> -->
 
   <br /> Placa: From {{DATARAW.placa}} to
   <span id="pipe-placa">{{DATARAW.placa | placa}}</span>
