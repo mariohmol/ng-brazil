@@ -101,10 +101,10 @@ EXAMPLES WITH INPUTS WITH MASK
       <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg"
         [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
       <span *ngIf="formData.inscricaoestadual">
-        Inscrição Estadual: {{formData.inscricaoestadual}}
+        Inscrição Estadual {{estado}}: {{formData.inscricaoestadual}}
       </span>
       <p *ngIf="formDataValidate.inscricaoestadual">
-        Errors Found:
+        Errors Found for {{estado}}:
         <span id="mask-inscricaoestadual-error" *ngFor="let v of objectKeys(formDataValidate.inscricaoestadual)">
           {{v}} {{formDataValidate.inscricaoestadual[v]}}
         </span>

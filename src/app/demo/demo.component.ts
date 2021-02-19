@@ -177,7 +177,7 @@ export class DemoComponent implements OnInit {
 
   objectKeys(k) {
     if (!k) {
-      return
+      return []
     }
     return Object.keys(k);
   }

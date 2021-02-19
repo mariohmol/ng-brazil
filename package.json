@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.2.5",
+  "version": "2.4.0",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -11,7 +11,7 @@
     "dist": "npm run build:app && rimraf src/ng-brazil",
     "build:lib": "rimraf dist && ng-packagr -p ng-brazil/package.json",
     "build:sass": "npm rebuild sass",
-    "publish-npm": "npm run build:lib && cd dist/ng-brazil && npm publish",
+    "publishnpm": "npm run build:lib && cd dist/ng-brazil && npm publish",
     "test": "npm run build:lib && npm run dist && npm run e2e",
     "copy": "mkdir -p src/ng-brazil/ && cp -R dist/ng-brazil/* src/ng-brazil",
     "testdemo": "ng test",
@@ -30,7 +30,7 @@
     "@angular/router": "~10.1.0-next.8",
     "autoprefixer": "^10.2.3",
     "core-js": "^2.4.1",
-    "js-brasil": ">=2.3.12",
+    "js-brasil": ">=2.4.0",
     "postcss": "^8.2.4",
     "rxjs-compat": "^6.0.0",
     "sass": "^1.32.5",
