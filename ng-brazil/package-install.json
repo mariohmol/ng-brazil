@@ -35,7 +35,7 @@
       "entryFile": "src/public_api.ts"
     },
     "dest": "../dist/ng-brazil",
-    "whitelistedNonPeerDependencies": [
+    "allowedNonPeerDependencies": [
       "js-brasil"
     ]
   }
