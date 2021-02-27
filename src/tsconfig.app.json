@@ -2,9 +2,12 @@
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "mainPath": "./main.ts",
+    "strictTemplates": true,
     "enableIvy": false,
     "paths": {
-      "ng-brazil": [ "../ng-brazil/src/public_api.ts" ]
+      "ng-brazil": [
+        "../ng-brazil/src/public_api.ts"
+      ]
     }
   },
   "compilerOptions": {
@@ -14,7 +17,9 @@
     "noImplicitReturns": true,
     "types": [],
     "paths": {
-      "ng-brazil": [ "../ng-brazil/src/public_api.ts" ]
+      "ng-brazil": [
+        "../ng-brazil/src/public_api.ts"
+      ]
     }
   },
   "exclude": [
