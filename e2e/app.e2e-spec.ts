@@ -2,6 +2,20 @@ import { NgPackagedPage } from './app.po';
 import { DATA, DATARAW, DATAERROR } from '../src/app/demo/demo.component';
 
 
+const makeForm = function (page, key, data) {
+  page.sendKeys(key + 'mask-cpf', data.cpf);
+  page.sendKeys(key + 'mask-cnpj', data.cnpj);
+  page.sendKeys(key + 'mask-rg', data.rg);
+  page.sendKeys(key + 'mask-telefone', data.telefone);
+  page.sendKeys(key + 'mask-cep', data.cep);
+  page.sendKeys(key + 'mask-inscricaoestadual', data.inscricaoestadual.mg);
+  page.sendKeys(key + 'mask-currency', data.currency);
+  page.sendKeys(key + 'mask-time', data.time);
+  page.sendKeys(key + 'mask-placa', data.placa);
+  page.sendKeys(key + 'mask-titulo', data.titulo);
+  page.submit();
+};
+
 
 
 describe('ng-packaged App', () => {
@@ -94,18 +108,4 @@ const checkNoErrors = function (page) {
   expect(page.getById('mask-time-error')).toEqual('');
   expect(page.getById('mask-placa-error')).toEqual('');
   expect(page.getById('mask-titulo-error')).toEqual('');
-};
-
-const makeForm = function (page, key, data) {
-  page.sendKeys(key + 'mask-cpf', data.cpf);
-  page.sendKeys(key + 'mask-cnpj', data.cnpj);
-  page.sendKeys(key + 'mask-rg', data.rg);
-  page.sendKeys(key + 'mask-telefone', data.telefone);
-  page.sendKeys(key + 'mask-cep', data.cep);
-  page.sendKeys(key + 'mask-inscricaoestadual', data.inscricaoestadual.mg);
-  page.sendKeys(key + 'mask-currency', data.currency);
-  page.sendKeys(key + 'mask-time', data.time);
-  page.sendKeys(key + 'mask-placa', data.placa);
-  page.sendKeys(key + 'mask-titulo', data.titulo);
-  page.submit();
 };

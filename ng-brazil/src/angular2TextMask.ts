@@ -17,6 +17,7 @@ export class TextMaskConfig {
 
 export const MASKEDINPUT_VALUE_ACCESSOR: Provider = {
   provide: NG_VALUE_ACCESSOR,
+  /* tslint:disable: no-use-before-declare */
   useExisting: forwardRef(() => MaskedInputDirective),
   multi: true
 }
@@ -38,6 +39,7 @@ function _isAndroid(): boolean {
     '(compositionstart)': '_compositionStart()',
     '(compositionend)': '_compositionEnd($event.target.value)'
   },
+  /* tslint:disable: directive-selector */
   selector: '[textMask]',
   exportAs: 'textMask',
   providers: [MASKEDINPUT_VALUE_ACCESSOR]
@@ -50,9 +52,6 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
     pipe: undefined,
     keepCharPositions: false,
   }
-
-  onChange = (_: any) => { }
-  onTouched = () => { }
 
   private textMaskInputElement: any
   private inputElement: HTMLInputElement
@@ -70,6 +69,9 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
       this._compositionMode = !_isAndroid()
     }
   }
+
+  onChange = (_: any) => { }
+  onTouched = () => { }
 
   ngOnChanges(changes: SimpleChanges) {
     this._setupMask(true)
@@ -135,7 +137,9 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
 
   _compositionEnd(value: any): void {
     this._composing = false
-    this._compositionMode && this._handleInput(value)
+    if (this._compositionMode) {
+      this._handleInput(value)
+    }
   }
 }
 

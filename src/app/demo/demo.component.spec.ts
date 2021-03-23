@@ -9,8 +9,6 @@ import {
 import { NgBrazil, TextMask } from 'ng-brazil';
 
 describe('DemoComponent', () => {
-  let component: DemoComponent;
-  let fixture: ComponentFixture<DemoComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -28,11 +26,7 @@ describe('DemoComponent', () => {
   }));
 
   it('should be created', () => {
-    fixture = TestBed.createComponent(DemoComponent);
+    const fixture: ComponentFixture<DemoComponent> = TestBed.createComponent(DemoComponent);
     const app = fixture.debugElement.componentInstance;
-    // expect(app).toBeTruthy();
-    // component = fixture.componentInstance;
-    // fixture.detectChanges();
-    // expect(component).toBeTruthy();
   });
 });

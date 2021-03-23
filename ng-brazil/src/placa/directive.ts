@@ -5,6 +5,7 @@ import { placa } from './validator';
 
 const PLACA_VALIDATOR: any = {
     provide: NG_VALIDATORS,
+    /* tslint:disable: no-use-before-declare */
     useExisting: forwardRef(() => PLACAValidator),
     multi: true
 };
