@@ -3,7 +3,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { utilsBr, fakerBr } from 'js-brasil';
 import { NgBrazilValidators, NgBrDirectives } from '../../../ng-brazil/src/lib.module';
 
-const MASKS = utilsBr.MASKS;
+const {MASKS, MASKSIE } = utilsBr;
 
 export const DATA = {
   cpf: '156.631.881-50',
@@ -155,6 +155,7 @@ export const DATAERROR = {
 })
 export class DemoComponent implements OnInit {
   public MASKS = MASKS;
+  public MASKSIE = MASKSIE;
   public DATARAW = DATARAW;
   estado = 'mg';
   estados = ['ac', 'al', 'am', 'ap', 'ba', 'ce', 'df', 'es', 'go', 'ma',

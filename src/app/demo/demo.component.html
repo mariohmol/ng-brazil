@@ -99,7 +99,7 @@ EXAMPLES WITH INPUTS WITH MASK
 
       <span>Working example: {{data.inscricaoestadual[estado]}}</span>
       <input id="mask-inscricaoestadual" type="text" formControlName="inscricaoestadual" inscricaoestadual="mg"
-        [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
+        [textMask]="{mask: MASKSIE[estado].textMask}">
       <span *ngIf="formData.inscricaoestadual">
         Inscrição Estadual {{estado}}: {{formData.inscricaoestadual}}
       </span>

@@ -7,8 +7,7 @@ import { DemoComponent } from './demo/demo.component';
 import { CommonModule } from '@angular/common';
 
 export const routes: Routes = [
-  { path: '', redirectTo: '/demo', pathMatch: 'full' },
-  { path: 'demo', component: DemoComponent }
+  { path: '', component: DemoComponent }
 ];
 
 @NgModule({
