@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -29,7 +29,7 @@
     "@angular/router": "~11.2.3",
     "autoprefixer": "^10.2.3",
     "core-js": "^2.4.1",
-    "js-brasil": ">=2.4.0",
+    "js-brasil": ">=2.4.2",
     "postcss": "^8.2.4",
     "rxjs-compat": "^6.0.0",
     "sass": "^1.32.5",
@@ -38,7 +38,7 @@
     "tslib": "^2.0.0",
     "typescript": "~4.0.2",
     "webpack": "~4.46.0",
-    "zone.js": "^0.10.0"
+    "zone.js": "^0.11.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1102.2",
@@ -48,6 +48,7 @@
     "@angular/language-service": "^11.2.3",
     "@types/jasmine": "~3.6.0",
     "@types/node": "~9.4.0",
+    "codelyzer": "^6.0.1",
     "cpr": "^3.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
