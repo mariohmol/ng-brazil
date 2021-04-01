@@ -36,8 +36,8 @@
     "tailwindcss": "^2.0.3",
     "text-mask-core": "^5.1.2",
     "tslib": "^2.0.0",
+    "webpack": "~4.46.0",
     "typescript": "~4.1.5",
-    "webpack": "~4.11.1",
     "zone.js": "^0.11.3"
   },
   "devDependencies": {
