@@ -173,7 +173,7 @@ export class DemoComponent implements OnInit {
   generated = {};
 
   constructor(public fb: FormBuilder) {
-    console.log(this.MASKS, MASKS)
+
   }
 
   objectKeys(k) {
@@ -236,14 +236,14 @@ export class DemoComponent implements OnInit {
 
   submit(form) {
     this.formData = form.value;
-    console.log(form.valid);
-    console.log(form.errors);
+    console.info(form.valid);
+    console.info(form.errors);
     for (const c in form.controls) {
       if (!c) {
         continue;
       }
       const control = form.controls[c];
-      console.log(c, control.errors)
+      console.info(c, control.errors)
       this.formDataValidate[c] = control.errors;
     }
   }
