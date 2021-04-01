@@ -2,6 +2,8 @@
   "extends": "../tsconfig.json",
   "angularCompilerOptions": {
     "enableIvy": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "paths": {
       "ng-brazil": [ "../dist/ng-brazil" ]

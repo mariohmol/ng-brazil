@@ -4,8 +4,10 @@ import {
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, COMPOSITION_BUFFER_MODE } from '@angular/forms'
 import { ɵgetDOM as getDOM, BrowserModule } from '@angular/platform-browser'
-import { createTextMaskInputElement } from 'text-mask-core/dist/textMaskCore'
 
+import * as textMask from 'text-mask-core'
+export const conformToMask=textMask.conformToMask;
+const { createTextMaskInputElement } = textMask;
 export class TextMaskConfig {
   mask: Array<string | RegExp> | ((raw: string) => Array<string | RegExp>) | false
   guide?: boolean
@@ -151,5 +153,3 @@ export class MaskedInputDirective implements ControlValueAccessor, OnChanges {
   exports: [MaskedInputDirective]
 })
 export class TextMaskModule { }
-
-export { conformToMask } from 'text-mask-core/dist/textMaskCore'
