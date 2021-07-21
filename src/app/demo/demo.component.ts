@@ -3,7 +3,26 @@ import { Validators, FormBuilder } from '@angular/forms';
 import { utilsBr, fakerBr } from 'js-brasil';
 import { NgBrazilValidators, NgBrDirectives } from '../../../ng-brazil/src/lib.module';
 
-const {MASKS, MASKSIE } = utilsBr;
+const {MASKS, MASKSIE,
+  isPresent,
+  isArray,
+  isString,
+  isNumber,
+  isNil,
+  processCaretTraps,
+  allNumbersAreSame,
+  getAllDigits,
+  getAllWords,
+  currencyToNumber,
+  numberToCurrency,
+  slugify,
+  fillString,
+  randArray,
+  rand,
+  randomNumber,
+  randomLetter,
+  randomLetterOrNumber,
+  getSpecialProperty } = utilsBr;
 
 export const DATA = {
   cpf: '156.631.881-50',
@@ -185,6 +204,8 @@ export class DemoComponent implements OnInit {
 
   ngOnInit() {
     this.init();
+
+    console.log(currencyToNumber('R$ 100000'))
   }
 
   init() {
