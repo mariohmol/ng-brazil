@@ -1,6 +1,6 @@
 {
   "name": "ng-brazil",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "private": true,
   "license": "MIT",
   "scripts": {
@@ -30,7 +30,7 @@
     "@angular/router": "~11.2.3",
     "autoprefixer": "^10.2.3",
     "core-js": "^2.4.1",
-    "js-brasil": ">=2.4.5",
+    "js-brasil": ">=2.4.7",
     "postcss": "^8.2.4",
     "rxjs-compat": "^6.0.0",
     "sass": "^1.32.5",
