@@ -169,7 +169,7 @@ export class AppComponent {
 Demo component files are included in Git Project.
 
 Demo Project:
-[https://github.com/mariohmol/ng-brazil/tree/master/src/app/demo)
+[https://github.com/ronelio/ng-brazil/tree/master/src/app/demo)
 
 Reference projects:
 

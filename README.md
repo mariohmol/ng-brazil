@@ -5,7 +5,7 @@ Contains pipes / directives / validators / mask for brazillian like apps
 
 [![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil)
 
-Supports: Angular2 to Angular11
+Supports: Angular 13
 
 ## Live example:  
 
@@ -170,10 +170,10 @@ export class AppComponent {
 Demo component files are included in Git Project.
 
 Demo Project:
-[https://github.com/mariohmol/ng-brazil/tree/master/src/app/demo)
+[https://github.com/ronelio/ng-brazil/tree/master/src/app/demo)
 
 Reference projects:
-
+* https://github.com/mariohmol/ng-brazil
 * https://github.com/mariohmol/js-brasil
 * https://github.com/yuyang041060120/ng2-validation
 * https://github.com/text-mask/text-mask

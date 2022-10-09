@@ -1,6 +1,6 @@
 {
-  "name": "ng-brazil",
-  "version": "2.4.5",
+  "name": "@ronelio/ng-brazil",
+  "version": "1.0.0",
   "private": true,
   "license": "MIT",
   "scripts": {
