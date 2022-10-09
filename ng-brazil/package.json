@@ -1,6 +1,6 @@
 {
   "name": "@ronelio/ng-brazil",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "license": "MIT",
   "homepage": "https://github.com/ronelio/ng-brazil",
   "repository": {
@@ -15,9 +15,9 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/core": ">=8.0.0 <13.0.0",
-    "@angular/common": ">=8.0.0 <13.0.0",
-    "@angular/platform-browser": ">=8.0.0 <13.0.0"
+    "@angular/core": ">=13.0.0 <14.0.0",
+    "@angular/common": ">=13.0.0 <14.0.0",
+    "@angular/platform-browser": ">=13.0.0 <14.0.0"
   },
   "dependencies": {
     "js-brasil": "*"
