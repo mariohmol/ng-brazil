@@ -1,13 +1,13 @@
 {
-  "name": "@ronelio/ng-brazil",
-  "version": "2.4.6",
+  "name": "ng-brazil",
+  "version": "2.4.5",
   "license": "MIT",
-  "homepage": "https://github.com/ronelio/ng-brazil",
+  "homepage": "https://github.com/mariohmol/ng-brazil",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ronelio/ng-brazil.git"
+    "url": "https://github.com/mariohmol/ng-brazil.git"
   },
-  "author": "Ronélio Oliveira <ronelio.oliveira@gmail.com>",
+  "author": "Mario Mol <mariohmol@gmail.com>",
   "keywords": [
     "angular",
     "ng-brazil",
