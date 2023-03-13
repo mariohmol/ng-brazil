@@ -38,7 +38,7 @@
     "text-mask-core": "^5.1.2",
     "tslib": "^2.0.0",
     "typescript": "4.6.4",
-    "webpack": "~5.25.0",
+    "webpack": "~5.76.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
