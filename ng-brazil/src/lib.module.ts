@@ -124,7 +124,6 @@ export * from './titulo/pipe';
 
 import { utilsBr } from 'js-brasil';
 import { TextMaskModule } from './angular2TextMask';
-import { REFERENCE_PREFIX } from '@angular/compiler/src/render3/view/util';
 
 export const TextMask = {
   TextMaskModule

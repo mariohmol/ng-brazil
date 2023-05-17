@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NgBrazil, TextMask } from 'ng-brazil';
+import { NgBrazil, TextMask } from '../../ng-brazil/src/public_api';
 import { DemoComponent } from './demo/demo.component';
 import { CommonModule } from '@angular/common';
 

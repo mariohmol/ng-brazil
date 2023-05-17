@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
-import { utilsBr, fakerBr } from 'js-brasil';
+import { utilsBr } from 'js-brasil';
 import { NgBrazilValidators, NgBrDirectives } from '../../../ng-brazil/src/lib.module';
 
 const {MASKS, MASKSIE,
@@ -242,11 +242,11 @@ export class DemoComponent implements OnInit {
     })
   }
 
-  generate(key) {
-    if (fakerBr[key]) {
-      this.generated[key] = fakerBr[key]();
-    }
-  }
+  // generate(key) {
+  //   if (fakerBr[key]) {
+  //     this.generated[key] = fakerBr[key]();
+  //   }
+  // }
 
   // generateParam(key, param) {
   //   if (fakerBr[key] && fakerBr[key][param]) {
