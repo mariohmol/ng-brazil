@@ -30,7 +30,7 @@
     "@angular/router": "14.3.0",
     "core-js": "^3.6.4",
     "rxjs": "*",
-    "webpack": "^4.46.0",
+    "webpack": "^5.0.0",
     "zone.js": "~0.11.4",
     "autoprefixer": "^10.2.3",
     "js-brasil": "2.5.3",
