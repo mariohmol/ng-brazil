@@ -21,7 +21,7 @@
     "kill": "kill $(lsof -t -i:4205)"
   },
   "dependencies": {
-    "@angular/common": "14.3.0",
+    "@angular/common": "19.2.16",
     "@angular/compiler": "14.3.0",
     "@angular/core": "14.3.0",
     "@angular/forms": "14.3.0",
