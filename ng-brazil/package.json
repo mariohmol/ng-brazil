@@ -15,9 +15,9 @@
     "utils"
   ],
   "peerDependencies": {
-    "@angular/core": ">=19.0.0 <20.0.0",
-    "@angular/common": ">=19.0.0 <20.0.0",
-    "@angular/platform-browser": ">=19.0.0 <20.0.0",
+    "@angular/core": ">=15.0.0",
+    "@angular/common": ">=15.0.0",
+    "@angular/platform-browser": ">=15.0.0",
     "js-brasil": "*"
   },
   "ngPackage": {
