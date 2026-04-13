@@ -2,7 +2,7 @@
 
 Contains pipes / directives / validators / masks for Brazilian Angular apps.
 
-[![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil)
+[![CI](https://github.com/mariohmol/ng-brazil/actions/workflows/ci.yml/badge.svg)](https://github.com/mariohmol/ng-brazil/actions/workflows/ci.yml)
 
 ## Angular compatibility
 
