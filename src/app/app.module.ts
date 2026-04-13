@@ -20,7 +20,7 @@ export const routes: Routes = [
     ReactiveFormsModule,
     TextMask.TextMaskModule,
     NgBrazil,
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,6 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
-    "enableIvy": false,
     "paths": {
       "ng-brazil": [
         "../ng-brazil/src/public_api.ts"
