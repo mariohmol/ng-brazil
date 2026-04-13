@@ -34,7 +34,7 @@ function _isAndroid(): boolean {
 }
 
 @Injectable()
-@Directive({
+@Directive({ standalone: false,
   host: {
     '(input)': '_handleInput($event.target.value)',
     '(blur)': 'onTouched()',

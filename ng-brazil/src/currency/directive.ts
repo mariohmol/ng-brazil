@@ -9,7 +9,7 @@ const CURRENCY_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[currency][formControlName],[currency][formControl],[currency][ngModel]',
   providers: [CURRENCY_VALIDATOR]

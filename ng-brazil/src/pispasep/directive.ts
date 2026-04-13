@@ -9,7 +9,7 @@ const PISPASE_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[pispasep][formControlName],[pispasep][formControl],[pispasep][ngModel]',
   providers: [PISPASE_VALIDATOR]

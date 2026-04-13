@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { NgBrazil, TextMask } from '../../ng-brazil/src/public_api';
+import { NgBrazil } from '../../ng-brazil/src/public_api';
+import { TextMaskModule } from '../../ng-brazil/src/angular2TextMask';
 import { DemoComponent } from './demo/demo.component';
 import { CommonModule } from '@angular/common';
 
@@ -18,7 +19,7 @@ export const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    TextMask.TextMaskModule,
+    TextMaskModule,
     NgBrazil,
     RouterModule.forRoot(routes)
   ],

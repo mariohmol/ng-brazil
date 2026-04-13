@@ -9,7 +9,7 @@ const NUMBER_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[number][formControlName],[number][formControl],[number][ngModel]',
   providers: [NUMBER_VALIDATOR]

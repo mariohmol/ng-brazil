@@ -9,7 +9,7 @@ const TELEFONE_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[telefone][formControlName],[telefone][formControl],[telefone][ngModel]',
   providers: [TELEFONE_VALIDATOR]

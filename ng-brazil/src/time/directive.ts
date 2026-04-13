@@ -9,7 +9,7 @@ const TIME_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[time][formControlName],[time][formControl],[time][ngModel]',
   providers: [TIME_VALIDATOR]

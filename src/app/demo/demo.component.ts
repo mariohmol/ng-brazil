@@ -167,7 +167,7 @@ export const DATAERROR = {
   titulo: '205395880384'
 }
 
-@Component({
+@Component({ standalone: false,
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
