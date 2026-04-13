@@ -9,7 +9,7 @@ const RENAVAM_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[renavam][formControlName],[renavam][formControl],[renavam][ngModel]',
   providers: [RENAVAM_VALIDATOR]

@@ -9,7 +9,7 @@ const PERCENTAGE_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[percentage][formControlName],[percentage][formControl],[percentage][ngModel]',
   providers: [PERCENTAGE_VALIDATOR]

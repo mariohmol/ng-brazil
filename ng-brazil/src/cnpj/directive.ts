@@ -10,7 +10,7 @@ const CNPJ_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[cnpj][formControlName],[cnpj][formControl],[cnpj][ngModel]',
   providers: [CNPJ_VALIDATOR]

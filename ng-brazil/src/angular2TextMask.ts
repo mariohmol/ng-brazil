@@ -3,7 +3,7 @@ import {
   OnChanges, Optional, Provider, SimpleChanges, Injectable, RendererFactory2
 } from '@angular/core'
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, COMPOSITION_BUFFER_MODE } from '@angular/forms'
-import { ɵgetDOM as getDOM, BrowserModule } from '@angular/platform-browser'
+import { BrowserModule } from '@angular/platform-browser'
 
 import * as textMask from 'text-mask-core'
 export const conformToMask=textMask.conformToMask;
@@ -29,12 +29,12 @@ export const MASKEDINPUT_VALUE_ACCESSOR: Provider = {
  * behave differently between iOS and Android.
  */
 function _isAndroid(): boolean {
-  const userAgent = getDOM() ? getDOM().getUserAgent() : ''
+  const userAgent = (typeof navigator !== 'undefined') ? navigator.userAgent : ''
   return /android (\d+)/.test(userAgent.toLowerCase())
 }
 
 @Injectable()
-@Directive({
+@Directive({ standalone: false,
   host: {
     '(input)': '_handleInput($event.target.value)',
     '(blur)': 'onTouched()',

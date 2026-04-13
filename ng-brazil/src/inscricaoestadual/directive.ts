@@ -10,7 +10,7 @@ const INSCRICAOESTADUAL_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[inscricaoestadual][formControlName],[inscricaoestadual][formControl],[inscricaoestadual][ngModel]',
   providers: [INSCRICAOESTADUAL_VALIDATOR]

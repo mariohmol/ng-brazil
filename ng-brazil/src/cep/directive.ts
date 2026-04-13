@@ -9,7 +9,7 @@ const CEP_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[cep][formControlName],[cep][formControl],[cep][ngModel]',
   providers: [CEP_VALIDATOR]

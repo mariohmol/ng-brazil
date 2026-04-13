@@ -10,7 +10,7 @@ const TITULO_VALIDATOR: any = {
     multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
     // tslint:disable-next-line:directive-selector
     selector: '[titulo][formControlName],[titulo][formControl],[titulo][ngModel]',
     providers: [TITULO_VALIDATOR]

@@ -10,7 +10,7 @@ const CPF_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[cpf][formControlName],[cpf][formControl],[cpf][ngModel]',
   providers: [CPF_VALIDATOR]

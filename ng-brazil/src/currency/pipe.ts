@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { maskBr } from 'js-brasil';
 
-@Pipe({
+@Pipe({ standalone: false,
   name: 'currencyBrazil',
 })
 export class CURRENCYPipe implements PipeTransform {

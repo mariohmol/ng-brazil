@@ -10,7 +10,7 @@ const PLACA_VALIDATOR: any = {
     multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
     // tslint:disable-next-line:directive-selector
     selector: '[placa][formControlName],[placa][formControl],[placa][ngModel]',
     providers: [PLACA_VALIDATOR]

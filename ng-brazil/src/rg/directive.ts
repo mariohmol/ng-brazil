@@ -10,7 +10,7 @@ const RG_VALIDATOR: any = {
   multi: true
 };
 
-@Directive({
+@Directive({ standalone: false,
   // tslint:disable-next-line:directive-selector
   selector: '[rg][formControlName],[rg][formControl],[rg][ngModel]',
   providers: [RG_VALIDATOR]
