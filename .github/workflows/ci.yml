@@ -32,6 +32,6 @@ jobs:
         run: npm run copy
 
       - name: Build demo app
-        run: ng build dev --configuration production --base-href /ng-brazil/
+        run: npx ng build dev --configuration production --base-href /ng-brazil/
         env:
           CI: true
