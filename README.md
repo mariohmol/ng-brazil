@@ -1,25 +1,23 @@
 # Ng-Brazil
 
-
-Contains pipes / directives / validators / mask for brazillian like apps
+Contains pipes / directives / validators / masks for Brazilian Angular apps.
 
 [![Build Status](https://travis-ci.org/mariohmol/ng-brazil.svg?branch=master)](https://travis-ci.org/mariohmol/ng-brazil)
 
-Supports: Angular 19+
+## Angular compatibility
 
-## Live example:  
+| ng-brazil | Angular |
+|-----------|---------|
+| 4.x       | 15 – 19 |
+| 3.x       | 13 – 14 |
 
-* https://stackblitz.com/edit/ng-brazil
+## Live demo
 
-This project was tested integrated with the following techs:
+* https://test.counbo.com/ng-brazil/
 
-* angular
-* angular-material
-* ionic3 (masks is not fully working, that is an issue for that, but pipes/directives/validators/mask works)
+## Modules
 
-Modules:
-
-* CPF 
+* CPF
 * CNPJ
 * RG
 * Inscrição Estadual
@@ -27,178 +25,133 @@ Modules:
 * CEP
 * Currency (Dinheiro)
 * Time (horas e minutos)
-* Number (numero e ponto decimal)
+* Number (número e ponto decimal)
 * Placa de Carro
 * Renavam
 * Título de Eleitor
-* Proceso Jurídico
-
-
-See the demo working project:
-
-
-![Demo Image](/src/assets/print.png)
+* PIS/PASEP
+* Processo Jurídico
 
 
 ## Installation
 
-To install this library with npm, run:
+```bash
+npm install --save ng-brazil js-brasil
+```
 
-` npm install --save ng-brazil js-brasil`
-
-
-
- 
 ## Usage
 
-### Configuration
-
-Import module in root
+### Import the module
 
 ```ts
-import { NgBrazil } from 'ng-brazil' 
+import { NgBrazil } from 'ng-brazil';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
-    ....,
-    NgBrazil
+    NgBrazil,          // includes TextMaskModule — no separate install needed
+    ReactiveFormsModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 ```
 
+> **Note:** `TextMaskModule` is bundled inside `ng-brazil`. You no longer need to install `angular2-text-mask` separately.
 
-#### Using Masks
-
-If you would like to use masks install the module: 
-
-`npm i -S angular2-text-mask text-mask-addons`
-
-
-And import to your main app:
+### Validators (Reactive Forms)
 
 ```ts
-import { TextMaskModule } from 'angular2-text-mask';
-
-imports: [
-    ....,
-    TextMaskModule,
-    NgBrazil
-  ], 
-```
-
-
-Then setup your component:
-
-```ts
-import { Component } from '@angular/core';
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
+import { Validators, FormBuilder } from '@angular/forms';
 
-@Component({
-  selector: 'app-root',
-  template: '<input type="text" [cpf]>',
-  styleUrls: ['./app.component.css']
-})
+@Component({ ... })
 export class AppComponent {
   public MASKS = MASKS;
-  
-  constructor() { 
-    this.formFields = {
-      estado: [''],
-      cpf: ['', [<any>Validators.required, <any>NgBrazilValidators.cpf]],
-      cnpj: ['', [<any>Validators.required, <any>NgBrazilValidators.cnpj]],
-      rg: ['', [<any>Validators.required, <any>NgBrazilValidators.rg]],
-      cep: ['', [<any>Validators.required, <any>NgBrazilValidators.cep]],
-      telefone: ['', [<any>Validators.required, <any>NgBrazilValidators.telefone]],
-      inscricaoestadual: ['', [<any>Validators.required, <any>NgBrazilValidators.inscricaoestadual(this.estado)]]
-    };
-    this.form = this.fb.group(this.formFields);
-  }
 
+  form = this.fb.group({
+    cpf:             ['', [Validators.required, NgBrazilValidators.cpf]],
+    cnpj:            ['', [Validators.required, NgBrazilValidators.cnpj]],
+    rg:              ['', [Validators.required, NgBrazilValidators.rg]],
+    cep:             ['', [Validators.required, NgBrazilValidators.cep]],
+    telefone:        ['', [Validators.required, NgBrazilValidators.telefone]],
+    placa:           ['', [Validators.required, NgBrazilValidators.placa]],
+    renavam:         ['', [Validators.required, NgBrazilValidators.renavam]],
+    pispasep:        ['', [Validators.required, NgBrazilValidators.pispasep]],
+    titulo:          ['', [Validators.required, NgBrazilValidators.titulo]],
+    time:            ['', [Validators.required, NgBrazilValidators.time]],
+    currency:        ['', [Validators.required, NgBrazilValidators.currency]],
+    inscricaoestadual: ['', [Validators.required, NgBrazilValidators.inscricaoestadual('mg')]],
+  });
+
+  constructor(private fb: FormBuilder) {}
 }
 ```
 
-## Forms and Mask
+### Masked inputs (template)
 
 ```html
-<input type="text" formControlName="cnpj" cnpj [textMask]="{mask: MASKS.cnpj.textMask}">
-<input type="text" formControlName="cpf" cpf [textMask]="{mask: MASKS.cpf.textMask}">
-<input type="text" formControlName="rg" rg [textMask]="{mask: MASKS.rg.textMask}"> 
-<input type="text" formControlName="inscricaoestadual" inscricaoestadual="mg" [textMask]="{mask: MASKS.inscricaoestadual[estado].textMask}">
-<input type="text" formControlName="telefone" telefone #telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
-<input type="text" formControlName="cep" cep [textMask]="{mask: MASKS.cep.textMask}">
+<input type="text" formControlName="cpf"      cpf      [textMask]="{mask: MASKS.cpf.textMask}">
+<input type="text" formControlName="cnpj"     cnpj     [textMask]="{mask: MASKS.cnpj.textMask}">
+<input type="text" formControlName="rg"       rg       [textMask]="{mask: MASKS.rg.textMask}">
+<input type="text" formControlName="cep"      cep      [textMask]="{mask: MASKS.cep.textMask}">
+<input type="text" formControlName="telefone" telefone [textMask]="{mask: MASKS.telefone.textMaskFunction}">
+<input type="text" formControlName="placa"    placa    [textMask]="{mask: MASKS.placa.textMask}">
+<input type="text" formControlName="renavam"  renavam  [textMask]="{mask: MASKS.renavam.textMask}">
+<input type="text" formControlName="pispasep" pispasep [textMask]="{mask: MASKS.pispasep.textMask}">
+<input type="text" formControlName="titulo"   titulo   [textMask]="{mask: MASKS.titulo.textMask}">
+<input type="text" formControlName="time"     time     [textMask]="{mask: MASKS.time.textMask}">
+<input type="text" formControlName="currency" currency [textMask]="{mask: MASKS.currency.textMask}">
+<input type="text" formControlName="number"   number   [textMask]="{mask: MASKS.number.textMask}">
 
-<input type="text" formControlName="number" number [textMask]="{mask: MASKS.number.textMask}">
+<!-- Inscrição Estadual — pass the selected state -->
+<input type="text" formControlName="inscricaoestadual"
+       inscricaoestadual="mg"
+       [textMask]="{mask: MASKS.inscricaoestadual['mg'].textMask}">
 ```
-## Pipes
+
+### Pipes
 
 ```html
-CPF: From 12345678910 to {{'12345678910' | cpf}} <br/>
-CNPJ: From 40841253000102 to {{'40841253000102' | cnpj}} <br/>
-RG: From MG10111222 to {{'MG10111222' | rg}} <br/>
-Inscrição Estadual: From 0018192630048 to {{'0018192630048' | inscricaoestadual: 'mg'}} <br/>
-Telefone: From 3199998888 to {{'3199998888' | telefone}} <br/>
-Number: From 123.23 to {{'123.23' | numberBrazil}} <br/>
-Number sem decimais: From 123.23 to {{'123.23' | numberBrazil: 0}} <br/>
-Currency: From 123.23 to {{'123.23' | currencyBrazil}} <br/>
+{{ '15663188150'    | cpf }}               <!-- 156.631.881-50 -->
+{{ '40841253000102' | cnpj }}              <!-- 40.841.253/0001-02 -->
+{{ 'MG10123456'     | rg }}               <!-- MG-10.123.456 -->
+{{ '31234567'       | cep }}               <!-- 31.234-567 -->
+{{ '3199999998'     | telefone }}          <!-- (31) 9999-9998 -->
+{{ 'ADJ5468'        | placa }}             <!-- ADJ-5468 -->
+{{ '37699553589'    | renavam }}           <!-- 3769955358-9 -->
+{{ '12312345120'    | pispasep }}          <!-- 123.12345.12-0 -->
+{{ '0018192630048'  | inscricaoestadual: 'mg' }}
+{{ '1234,56'        | currencyBrazil }}    <!-- R$ 1.234,56 -->
+{{ '1234,56'        | numberBrazil: 2 }}   <!-- 1.234,56 -->
+{{ '0633'           | time }}              <!-- 06:33 -->
 ```
+
+### Using pipes in TypeScript
 
 ```ts
-import { Component } from '@angular/core';
 import { NgBrDirectives } from 'ng-brazil';
 
-@Component({
-  selector: 'app-root',
-  template: '<input type="text" [cpf]>',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  inscricaoestadual() {
-    const {InscricaoEstadualPipe} = NgBrDirectives;
-    return new InscricaoEstadualPipe()
-      .transform('625085487072', 'sp');
-  }
-}
+const formatted = new NgBrDirectives.InscricaoEstadualPipe()
+  .transform('625085487072', 'sp');
 ```
-# Demo
-
-Demo component files are included in Git Project.
-
-Demo Project:
-[https://github.com/mariohmol/ng-brazil/tree/master/src/app/demo)
-
-Reference projects:
-
-* https://github.com/mariohmol/js-brasil
-* https://github.com/yuyang041060120/ng2-validation
-* https://github.com/text-mask/text-mask
-
-
-# TODO
-
-There is some issues to work with, check it out
 
 ## Collaborate
 
-Fork this project then install global libs:
+```bash
+npm install
+npm run build:lib   # build the library
+npm run build:demo  # build the demo app
+npm run start       # serve the demo locally
+```
 
-*  npm i -g rimraf ng-packagr @angular/compiler-cli @angular/compiler tslib ngc
+To publish a new release, update the version in `package.json` and `ng-brazil/package.json`, then run `npm run publishnpm`.
 
-Finally working in the project folder:
+## References
 
-* npm i
-* npm run build:lib
-* npm run dist
-* npm run start
+* https://github.com/mariohmol/js-brasil
+* https://github.com/text-mask/text-mask
 
-To publish a new release, update the version in [package.json](./package.json) and [src/package.json](./src/package.json),
-then run `npm run publish-npm`.
+## License
 
-# License
-
-MIT(./LICENSE)
+MIT
