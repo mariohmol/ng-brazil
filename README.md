@@ -136,6 +136,41 @@ const formatted = new NgBrDirectives.InscricaoEstadualPipe()
   .transform('625085487072', 'sp');
 ```
 
+## Troubleshooting
+
+### `js-brasil` fails to compile / CommonJS warning in Angular 11+
+
+Angular 11 introduced stricter handling of CommonJS dependencies. Because `js-brasil` ships
+a CommonJS build, Angular may print a warning or fail with an error like:
+
+```
+WARNING in js-brasil (and its dependencies) should be converted to ES modules.
+CommonJS or AMD dependencies can cause optimization bailouts.
+```
+
+**Fix:** add `js-brasil` to `allowedCommonJsDependencies` in your project's `angular.json`:
+
+```json
+{
+  "projects": {
+    "<your-app>": {
+      "architect": {
+        "build": {
+          "options": {
+            "allowedCommonJsDependencies": ["js-brasil"]
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+See the [Angular CommonJS dependencies guide](https://angular.io/guide/build#configuring-commonjs-dependencies)
+for more details.
+
+---
+
 ## Collaborate
 
 ```bash
