@@ -32,7 +32,7 @@
     "@angular/router": "^19.2.0",
     "autoprefixer": "^10.2.3",
     "core-js": "^3.6.4",
-    "js-brasil": "2.5.3",
+    "js-brasil": "2.7.1",
     "postcss": "^8.2.4",
     "rxjs": "^7.8.0",
     "rxjs-compat": "^6.0.0",
