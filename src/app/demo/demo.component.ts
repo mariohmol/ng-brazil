@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl } from '@angular/forms';
-import { utilsBr, fakerBr } from 'js-brasil';
+import { utilsBr } from 'js-brasil';
 import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
 
 const { MASKS, MASKSIE } = utilsBr;
@@ -110,19 +110,18 @@ export class DemoComponent implements OnInit {
   }
 
   generate() {
-    const pisp = fakerBr.pispasep() as any;
     this.form.patchValue({
-      cpf:      fakerBr.cpf(),
-      cnpj:     fakerBr.cnpj(),
-      cep:      fakerBr.cep(),
-      rg:       fakerBr.rg(),
-      telefone: fakerBr.telefone(),
-      placa:    fakerBr.placa(),
-      renavam:  fakerBr.renavam(),
-      pispasep: Array.isArray(pisp) ? pisp.join('') : pisp,
-      titulo:   fakerBr.titulo(),
-      time:     fakerBr.time(),
-      currency: fakerBr.currency().replace(/\u00a0/g, ' '),
+      cpf:      DATA.cpf,
+      cnpj:     DATA.cnpj,
+      cep:      DATA.cep,
+      rg:       DATA.rg,
+      telefone: DATA.telefone,
+      placa:    DATA.placa,
+      renavam:  DATA.renavam,
+      pispasep: DATA.pispasep,
+      titulo:   DATA.titulo,
+      time:     DATA.time,
+      currency: DATA.currency,
     });
   }
 
