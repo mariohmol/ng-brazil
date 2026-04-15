@@ -1,9 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormControl } from '@angular/forms';
-import { utilsBr, fakerBr } from 'js-brasil';
+import { utilsBr } from 'js-brasil';
+import { fakerBr } from 'js-brasil/faker';
 import { NgBrazilValidators } from '../../../ng-brazil/src/lib.module';
 
 const { MASKS, MASKSIE } = utilsBr;
+
+function genRawValues() {
+  const states = ['ac','al','ap','am','ba','ce','df','es','go','ma','mt','ms',
+                  'mg','pa','pb','pr','pe','pi','rj','rn','rs','ro','rr','sc','sp','se','to'];
+  const rgState = states[Math.floor(Math.random() * states.length)];
+
+  const h = String(Math.floor(Math.random() * 24)).padStart(2, '0');
+  const m = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+
+  const intPart = (Math.floor(Math.random() * 9999) + 1)
+    .toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const decPart = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+
+  return {
+    cpf:      fakerBr.cpf(),
+    cnpj:     fakerBr.cnpj(),
+    cep:      fakerBr.cep(),
+    rg:       rgState + fakerBr.rg().slice(0, 8),
+    telefone: fakerBr.celular(),
+    placa:    fakerBr.placa(),
+    renavam:  fakerBr.renavam(),
+    pispasep: fakerBr.pis(),
+    titulo:   fakerBr.titulo(),
+    time:     `${h}:${m}`,
+    currency: `${intPart},${decPart}`,
+  };
+}
+
+// ── Static seed data ─────────────────────────────────────────────────────────
 
 // Formatted (masked) example values
 const DATA: any = {
@@ -110,20 +140,7 @@ export class DemoComponent implements OnInit {
   }
 
   generate() {
-    const pisp = fakerBr.pispasep() as any;
-    this.form.patchValue({
-      cpf:      fakerBr.cpf(),
-      cnpj:     fakerBr.cnpj(),
-      cep:      fakerBr.cep(),
-      rg:       fakerBr.rg(),
-      telefone: fakerBr.telefone(),
-      placa:    fakerBr.placa(),
-      renavam:  fakerBr.renavam(),
-      pispasep: Array.isArray(pisp) ? pisp.join('') : pisp,
-      titulo:   fakerBr.titulo(),
-      time:     fakerBr.time(),
-      currency: fakerBr.currency().replace(/\u00a0/g, ' '),
-    });
+    this.form.patchValue(genRawValues());
   }
 
   badgeState(key: string): 'empty' | 'valid' | 'invalid' {
